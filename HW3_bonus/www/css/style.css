@@ -61,7 +61,7 @@ body {
   background-image: url(../img/country_bg.png);
   background-repeat: no-repeat;
 }
-.country:not(:nth-child(3n+3)) {
+.country:not(:nth-child(3n)) {
   margin-right: 5px;
 }
 .country img {
