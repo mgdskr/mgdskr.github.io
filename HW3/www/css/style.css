@@ -44,6 +44,8 @@ body {
 /*CONTAINER INNER*/
 /*MENU LEFT*/
 #container_inn {
+  height: auto;
+  overflow-y: hidden;
   width: auto;
   margin-top: 40px;
 }
@@ -90,7 +92,7 @@ body {
   border: 1px #c8c8c8 solid;
 }
 #description p{
-  padding: 40px 24px 50px 24px;
+  padding: 40px 24px 60px 24px;
   font-size: 13px;
   line-height: 22px;
   color: #2c2c2c;

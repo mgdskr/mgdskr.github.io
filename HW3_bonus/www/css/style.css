@@ -60,6 +60,8 @@ body {
   text-align: center;
   background-image: url(../img/country_bg.png);
   background-repeat: no-repeat;
+  color: #e6e6e6;
+  text-decoration: none;
 }
 .country:not(:nth-child(3n)) {
   margin-right: 5px;
