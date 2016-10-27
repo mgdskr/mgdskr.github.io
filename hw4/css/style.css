@@ -1,0 +1,11 @@
+body {
+  background-image: url('../img/background.png');
+  background-repeat: repeat-x;
+}
+.container {
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 5px 10px;
+}
