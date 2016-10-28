@@ -88,7 +88,8 @@ ul.countries li {
 
 
 /*MENU*/
-.menu {
+
+ul {
   z-index: 2;
 }
 
@@ -98,7 +99,7 @@ ul.menu {
     justify-content: space-around;
     background-color: #303030;
     border-bottom: 1px solid black;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 5px 5px;
 }
 
 ul.submenu {
