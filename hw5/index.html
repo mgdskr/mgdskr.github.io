@@ -13,28 +13,26 @@
 </head>
 
 <body>
-
-    <div class="page">
-
-        <div class="wrapper">
-            <ul class="nav-bar">
-                <li><a href="#">Meu YouBike</a></li>
-                <li><a href="#">Vender</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Ajuda</a></li>
-                <li class="nav-bar-ofertas"><a href="#"><span class="fa fa-flag fa-lg"></span>&nbsp;&nbsp;Minhas Ofertas</a></li>
-                <li class="nav-bar-login">Ola!
-                    <a href="#">Entrar</a> ou
-                    <a href="#">Cadastre-se</a>
-                </li>
-            </ul>
-            <div class="container">
-                <div class="reg-form">
-                    <div class="reg-form-title">
-                        Cadastre-se
-                    </div>
-                    <div class="reg-form-content">
+    <div class="container">
+        <ul class="nav-bar">
+            <li><a href="#">Meu YouBike</a></li>
+            <li><a href="#">Vender</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Ajuda</a></li>
+            <li class="nav-bar-ofertas"><a href="#"><span class="fa fa-flag fa-lg"></span>&nbsp;&nbsp;Minhas Ofertas</a></li>
+            <li class="nav-bar-login">Ola!
+                <a href="#">Entrar</a> ou
+                <a href="#">Cadastre-se</a>
+            </li>
+        </ul>
+        <div class="container-inner">
+            <div class="reg-form">
+                <div class="reg-form-title">
+                    Cadastre-se
+                </div>
+                <div class="reg-form-content">
+                    <div class="reg-form-content-container">
                         <div class="login-fb">
                             <span class="fa fa-facebook fa-lg"></span>
                             <a href="#">Log In <span>with</span> Facebook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-angle-right fa-lg"></span></a>
@@ -45,32 +43,31 @@
                             <div class="reg-form-liner"></div>
                         </div>
                         <form action="">
-                            <input type="text" name="" id="" class="input-form-control" placeholder="First Name">
-                            <input type="text" name="" id="" class="input-form-control" placeholder="Last Name">
-                            <input type="email" name="" id="" class="input-form-control" placeholder="Email Adress">
-                            <input type="password" name="" id="" class="input-form-control" placeholder="Choose Password">
-                            <input type="password" name="" id="" class="input-form-control" placeholder="Confirm Password">
+                            <input type="text" name="firstname" id="" class="input-form-control" placeholder="First Name" required>
+                            <input type="text" name="lastname" id="" class="input-form-control" placeholder="Last Name" required>
+                            <input type="email" name="email" id="" class="input-form-control" placeholder="Email Adress" required>
+                            <input type="password" name="password" id="" class="input-form-control" placeholder="Choose Password" required>
+                            <input type="password" name="password_confirm" id="" class="input-form-control" placeholder="Confirm Password" required>
                             <div class="reg-form-subscribe">
                                 <input type="checkbox" name="" id="subscribe">
                                 <label for="subscribe">Send me Youbike updates and tips</label>
                             </div>
                             <input type="submit" value="Create My Account">
                         </form>
-
-                        <div class="reg-form-tos">
-                            <p>By clicking the button above, you agree to the Terms of Service</p>
-                            <a href="">View our Privacy Policy</a>
-                        </div>
-
                     </div>
-
+                    <!-- end of inner container for elemetns of same width or more narrow-->
+                    <div class="reg-form-tos">
+                        <p>By clicking the button above, you agree to the Terms of Service</p>
+                        <a href="#">View our Privacy Policy</a>
+                    </div>
                 </div>
-
-
-
+                <!-- end fo reg form content -->
             </div>
+            <!--  end of ref form -->
         </div>
+        <!-- end of inner container - for aligning reg form-->
     </div>
+    <!-- end of container - navbar plus content-->
 
 
 
