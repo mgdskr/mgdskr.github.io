@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pit Mondrian</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <table>
+      <!-- invisible row for convenient column class assignment  -->
+        <tr class="row0" style="border:none;">
+            <td class="col1"></td>
+            <td class="col2"></td>
+            <td class="col3 border-right"></td>
+            <td class="col4 border-right"></td>
+            <td class="col5 border-right"></td>
+            <td class="col6"></td>
+        </tr>
+        <tr class="row1">
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td class="color-yellow" colspan="2"></td>
+        </tr>
+        <tr class="row2">
+            <td></td>
+            <td class="color-coral" colspan="3" rowspan="2"></td>
+            <td class="color-lightgreen" colspan="2"></td>
+        </tr>
+        <tr class="row3">
+            <td rowspan="2"></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr class="row4">
+            <td class="color-gray"></td>
+            <td class="color-gray"></td>
+            <td class="border-right"></td>
+            <td colspan="2"></td>
+        </tr>
+        <tr class="row5">
+            <td class="color-lightgreen" rowspan="3"></td>
+            <td class="border-bottom color-gray"></td>
+            <td class="border-right border-bottom color-gray"></td>
+            <td class="border-right border-bottom"></td>
+            <td class="border-bottom color-blue" colspan="2" rowspan="2"></td>
+        </tr>
+        <tr class="row6">
+            <td colspan="2" rowspan="2"></td>
+            <td class="border-bottom color-gray"></td>
+        </tr>
+        <tr class="row7">
+            <td colspan="3" class="border-none"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
