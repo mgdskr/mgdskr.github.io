@@ -24,22 +24,23 @@ hr {
 
 .image-gallery-wrapper {
     margin: auto;
-    width: 800px;
-    padding-bottom: 20px;    
-    /*display: flex;
+    max-width: 800px;
+    padding-bottom: 20px;
+    display: flex;
     flex-flow: row wrap;
-    justify-content: center;*/
+    justify-content: center;
     /*align-items: s;*/
 }
 
-.who-we-are-group {
+/*.who-we-are-group {
     width: 100%;
     padding-top: 20px;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-}
+}*/
 
 .who-we-are-image img {
     width: 200px;
@@ -49,7 +50,10 @@ hr {
 .who-we-are-info {
     padding: 20px;
     width: 225px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /*text-align: center;*/
 }
 
 .name {
@@ -68,14 +72,14 @@ hr {
 }
 
 .bio {
-    display: block;
+    display: none;
+    /*height: 165px;*/
     width: inherit;
     color: #565656;
     font-size: 13px;
     line-height: 15px;
     text-align: left;
     padding-top: 15px;
-    height: 165px;
     overflow: hidden;
 }
 
