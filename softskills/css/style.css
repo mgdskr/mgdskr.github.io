@@ -112,12 +112,11 @@ hr {
 
 
 /*.who-we-are-group {
-    width: 100%;
     padding-top: 20px;
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 }*/
 
@@ -132,6 +131,7 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    /*overflow: hidden;*/
     /*text-align: center;*/
 }
 
@@ -152,6 +152,9 @@ hr {
 
 .bio {
     display: none;
+    /*position: absolute;*/
+    /*background: white;*/
+    /*top: 300px;*/
     /*height: 165px;*/
     width: inherit;
     color: #565656;
