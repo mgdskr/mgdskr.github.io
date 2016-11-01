@@ -13,26 +13,19 @@ body {
     .team-code {
         font-size: 12px;
     }
-    .goals {
-        max-width: 200px;
-    }
+
 }
 
 @media screen and (min-width:319px) and (max-width:519px) {
     .team-code {
         font-size: 15px;
     }
-    .goals {
-        max-width: 319px;
-    }
+
 }
 
 @media screen and (min-width:520px) and (max-width:719px) {
     .team-code {
         font-size: 20px;
-    }
-    .goals {
-        max-width: 520px;
     }
 }
 
@@ -40,49 +33,60 @@ body {
     .team-code {
         font-size: 26px;
     }
-    .goals {
-        max-width: 720px;
-    }
+
 }
 
 @media screen and (min-width:920px) and (max-width:1039px) {
     .team-code {
         font-size: 28px;
     }
-    .goals {
-        max-width: 800px;
-    }
+
 }
 
 @media screen and (min-width:1040px) and (max-width:1167px) {
     .team-code {
         font-size: 32px;
     }
-    .goals {
-        max-width: 800px;
-    }
+
 }
 
 @media screen and (min-width:1168px) and (max-width:2040px) {
     .team-code {
         font-size: 36px;
-    }
-    .goals {
-        max-width: 800px;
-    }
-}
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
 
+    }
+
+}
+/*.goals {
+    display: flex;
+    justify-content: center;
+}*/
+
+.css {
+  float: left;
+  text-align: left;
+}
+.align-css-code::after {
+  content: '';
+  clear: both;
+}
 .align-css-code {
-    text-align: left;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.goals {
+/*.goals {
     margin: auto;
-}
+}*/
 
 h2 {
     font-size: 36px;
     color: #565656;
+    /*clear: both;*/
     /*padding-bottom: 20px;*/
 }
 
@@ -93,6 +97,7 @@ hr {
     border: none;
     margin-top: 40px;
     margin-bottom: 40px;
+    clear: both;
 }
 
 .image-gallery-wrapper {
