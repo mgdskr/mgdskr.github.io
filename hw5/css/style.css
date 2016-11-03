@@ -16,19 +16,27 @@ body {
     /*width: 100%;*/
     font-size: 14px;
     font-family: "Helvetica Neue", Tahoma, sans-serif;
-    background-image: url('../img/background-pattern.jpg');
-    background-repeat: repeat;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*background-image: url('../img/background-pattern.jpg');*/
+    /*background-repeat: repeat;*/
 }
 
-.container {
+
+/*.container {
     width: 1215px;
     margin: auto;
-}
+}*/
 
 
 /*NAVIGATION BAR*/
 
 .nav-bar {
+    /*height: 100%;*/
     height: 36px;
     display: flex;
     flex-direction: row;
@@ -37,6 +45,7 @@ body {
     padding-right: 20px;
     background-color: #085291;
     background-image: url('../img/nav-bar-bg.jpg');
+    background-size: cover;
     background-repeat: repeat-x;
 }
 
@@ -90,8 +99,10 @@ body {
 
 
 /*CONTAINER*/
-
+/*
 .container-inner {
+    position: absolute;
+    height: auto;
     height: 1028px;
     width: 1215px;
     margin: 0 auto;
@@ -101,8 +112,9 @@ body {
     align-items: center;
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
-}
+}*/
 
 
 /*REGISTRATION FORM*/
@@ -110,6 +122,10 @@ body {
 .reg-form {
     height: 615px;
     width: 560px;
+    margin: auto;
+    /*position: absolute;*/
+    /*margin-top: 50%;
+    transform: translateY(-50%);*/
 }
 
 .reg-form-title {
