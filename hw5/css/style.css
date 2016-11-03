@@ -19,6 +19,7 @@ body {
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     /*align-items: center;*/
@@ -47,6 +48,8 @@ body {
     background-image: url('../img/nav-bar-bg.jpg');
     background-size: cover;
     background-repeat: repeat-x;
+    white-space: nowrap;
+
 }
 
 .nav-bar li, .nav-bar li a {
@@ -72,8 +75,9 @@ body {
     background: none;
 }
 
-.nav-bar .nav-bar-login {
+.nav-bar li.nav-bar-login {
     color: #fefefe;
+    white-space: nowrap;
 }
 
 .nav-bar .nav-bar-login a {
