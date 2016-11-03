@@ -92,6 +92,7 @@ body {
     }
     .reg-form {
         width: 350px;
+        margin: auto;
     }
 }
 
