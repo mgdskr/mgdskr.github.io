@@ -38,7 +38,7 @@ body {
 
 .nav-bar {
     /*height: 100%;*/
-    height: 36px;
+    /*height: 36px;*/
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -46,19 +46,72 @@ body {
     padding-right: 20px;
     background-color: #085291;
     background-image: url('../img/nav-bar-bg.jpg');
-    background-size: cover;
+    /*background-size: cover;*/
     background-repeat: repeat-x;
     white-space: nowrap;
-
 }
 
-.nav-bar li, .nav-bar li a {
+.nav-bar i {
+    color: white;
+    /*display: none;*/
+}
+
+@media screen and (max-width: 919px) {
+    .nav-bar i {
+        padding-left: 20px;
+        line-height: 36px;
+        /*display: block;*/
+    }
+    .nav-bar i:hover {
+        cursor: pointer;
+    }
+    .nav-bar ul.nav-bar-collapsable li {
+      padding: 0px;
+    }
+    .nav-bar ul.nav-bar-collapsable li a {
+        display: block;
+        padding: 0 20px;
+        line-height: 36px;
+        /*padding: 10px 0px 10px 0px;*/
+    }
+    ul.nav-bar-collapsable {
+        display: none;
+        position: absolute;
+        top: 37px;
+        left: 10px;
+        background-image: url('../img/nav-bar-bg.jpg');
+        /*background-size: cover;*/
+        background-repeat: repeat;
+    }
+    ul.nav-bar li:hover>ul.nav-bar-collapsable {
+        display: block;
+        flex-direction: row;
+    }
+    .nav-bar {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width:920px) {
+    .nav-bar i {
+        /*color: white;*/
+        display: none;
+    }
+}
+
+.nav-bar-collapsable, .nav-bar-permanent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav-bar ul li, .nav-bar ul li a {
     padding: 10px 14px 10px 14px;
     text-decoration: none;
     color: #60b5ed;
 }
 
-.nav-bar li a:hover {
+.nav-bar ul li a:hover {
     color: #fefefe;
     background-color: #4eabda;
 }
@@ -103,6 +156,8 @@ body {
 
 
 /*CONTAINER*/
+
+
 /*
 .container-inner {
     position: absolute;

@@ -11,63 +11,74 @@
 
 <body>
     <!-- <div class="container"> -->
-        <ul class="nav-bar">
-            <li><a href="#">Meu YouBike</a></li>
-            <li><a href="#">Vender</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Ajuda</a></li>
-            <li class="nav-bar-ofertas"><a href="#"><span class="fa fa-flag fa-lg"></span>&nbsp;&nbsp;Minhas Ofertas</a></li>
-            <li class="nav-bar-login">Ola!
-                <a href="#">Entrar</a> ou
-                <a href="#">Cadastre-se</a>
-            </li>
-        </ul>
-        <!-- <div class="container-inner"> -->
-            <div class="reg-form">
-                <div class="reg-form-title">
-                    Cadastre-se
+    <ul class="nav-bar">
+
+        <li> <i class="fa fa-bars fa-lg"></i>
+
+            <ul class="nav-bar-collapsable">
+                <li><a href="#">Meu YouBike</a></li>
+                <li><a href="#">Vender</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul class="nav-bar-permanent">
+                <li class="nav-bar-ofertas"><a href="#"><span class="fa fa-flag fa-lg"></span>&nbsp;&nbsp;Minhas Ofertas</a></li>
+                <li class="nav-bar-login">Ola!
+                    <a href="#">Entrar</a> ou
+                    <a href="#">Cadastre-se</a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- <div class="container-inner"> -->
+    <div class="reg-form">
+        <div class="reg-form-title">
+            Cadastre-se
+        </div>
+        <div class="reg-form-content">
+            <div class="reg-form-content-container">
+                <div class="login-fb">
+                    <span class="fa fa-facebook fa-lg"></span>
+                    <a href="#">Log In <span>with</span> Facebook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-angle-right fa-lg"></span></a>
                 </div>
-                <div class="reg-form-content">
-                    <div class="reg-form-content-container">
-                        <div class="login-fb">
-                            <span class="fa fa-facebook fa-lg"></span>
-                            <a href="#">Log In <span>with</span> Facebook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-angle-right fa-lg"></span></a>
-                        </div>
-                        <div class="reg-form-divider">
-                            <div class="reg-form-liner"></div>
-                            OU
-                            <div class="reg-form-liner"></div>
-                        </div>
-                        <form action="index.html">
-                            <input type="text" name="firstname" class="input-form-control" placeholder="First Name" required>
-                            <input type="text" name="lastname" class="input-form-control" placeholder="Last Name" required>
-                            <input type="email" name="email" class="input-form-control" placeholder="Email Adress" required>
-                            <input type="password" name="password" class="input-form-control" placeholder="Choose Password" required>
-                            <input type="password" name="password_confirm" class="input-form-control" placeholder="Confirm Password" required>
-                            <div class="reg-form-subscribe">
-                                <input type="checkbox" id="subscribe">
-                                <label for="subscribe">Send me Youbike updates and tips</label>
-                            </div>
-                            <input type="submit" value="Create My Account">
-                        </form>
-                    </div>
-                    <!-- end of inner container for elemetns of same width or more narrow-->
-                    <div class="reg-form-tos">
-                        <p>By clicking the button above, you agree to the Terms of Service</p>
-                        <a href="#">View our Privacy Policy</a>
-                    </div>
+                <div class="reg-form-divider">
+                    <div class="reg-form-liner"></div>
+                    OU
+                    <div class="reg-form-liner"></div>
                 </div>
-                <!-- end fo reg form content -->
+                <form action="index.html">
+                    <input type="text" name="firstname" class="input-form-control" placeholder="First Name" required>
+                    <input type="text" name="lastname" class="input-form-control" placeholder="Last Name" required>
+                    <input type="email" name="email" class="input-form-control" placeholder="Email Adress" required>
+                    <input type="password" name="password" class="input-form-control" placeholder="Choose Password" required>
+                    <input type="password" name="password_confirm" class="input-form-control" placeholder="Confirm Password" required>
+                    <div class="reg-form-subscribe">
+                        <input type="checkbox" id="subscribe">
+                        <label for="subscribe">Send me Youbike updates and tips</label>
+                    </div>
+                    <input type="submit" value="Create My Account">
+                </form>
             </div>
-            <!--  end of ref form -->
-        <!-- </div> -->
-        <!-- end of inner container - for aligning reg form-->
+            <!-- end of inner container for elemetns of same width or more narrow-->
+            <div class="reg-form-tos">
+                <p>By clicking the button above, you agree to the Terms of Service</p>
+                <a href="#">View our Privacy Policy</a>
+            </div>
+        </div>
+        <!-- end fo reg form content -->
+    </div>
+    <!--  end of ref form -->
+    <!-- </div> -->
+    <!-- end of inner container - for aligning reg form-->
     <!-- </div> -->
     <!-- end of container - navbar plus content-->
 
 
-<script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+    <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 
 
 </body>
