@@ -84,6 +84,10 @@ body {
         width: 100%;
         /*margin: auto;*/
     }
+    .nav-bar a {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
 }
 
 @media screen and (min-width: 560px) {
