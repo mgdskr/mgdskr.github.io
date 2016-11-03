@@ -13,13 +13,13 @@
 }
 
 body {
-    /*width: 100%;*/
+    width: 100wh;
+    height: 100vh;
     font-size: 14px;
     font-family: "Helvetica Neue", Tahoma, sans-serif;
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     /*align-items: center;*/
@@ -53,14 +53,12 @@ body {
 
 .nav-bar i {
     color: white;
-    /*display: none;*/
 }
 
 @media screen and (max-width: 919px) {
     .nav-bar i {
         padding-left: 20px;
         line-height: 36px;
-        /*display: block;*/
     }
     .nav-bar i:hover {
         cursor: pointer;
@@ -72,7 +70,6 @@ body {
         display: block;
         padding: 0 20px;
         line-height: 36px;
-        /*padding: 10px 0px 10px 0px;*/
     }
     ul.nav-bar-collapsable {
         display: none;
@@ -80,7 +77,6 @@ body {
         top: 37px;
         left: 10px;
         background-image: url('../img/nav-bar-bg.jpg');
-        /*background-size: cover;*/
         background-repeat: repeat;
     }
     ul.nav-bar li:hover>ul.nav-bar-collapsable {
@@ -90,21 +86,29 @@ body {
     .nav-bar {
         justify-content: space-between;
     }
+}
+
+@media screen and (max-width: 559px) {
+    /*body {
+        width: 100wh;
+    }*/
     .reg-form {
-        width: 350px;
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .reg-form {
+        width: 560px;
         margin: auto;
     }
 }
 
 @media screen and (min-width:920px) {
     .nav-bar i {
-        /*color: white;*/
         display: none;
     }
-    .reg-form {
-        width: 560px;
-    }
-
 }
 
 .nav-bar-collapsable, .nav-bar-permanent {
