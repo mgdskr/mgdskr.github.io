@@ -46,6 +46,9 @@ body {
     color: white;
 }
 
+
+/*COLLAPSABLE MENU*/
+
 @media screen and (max-width: 919px) {
     .nav-bar i {
         padding-left: 20px;
@@ -82,11 +85,9 @@ body {
 @media screen and (max-width: 559px) {
     .reg-form {
         width: 100%;
-        /*margin: auto;*/
     }
-    .nav-bar a {
-      padding-left: 5px;
-      padding-right: 5px;
+    .navbar ul li {
+        padding-right: 0px;
     }
 }
 
@@ -104,11 +105,7 @@ body {
 }
 
 
-/*@media screen and (max-height: 651 px) {
-    body {
-      min-height: 651px;
-    }
-}*/
+/*MENU GENERAL SETTINGS*/
 
 .nav-bar-collapsable, .nav-bar-permanent {
     display: flex;
@@ -164,9 +161,6 @@ body {
     border-right: 1px solid #4299d2;
     background-image: linear-gradient(to top, #2e7ac4, #65a8e4);
 }
-
-
-/*CONTAINER*/
 
 
 /*REGISTRATION FORM*/
