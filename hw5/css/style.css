@@ -13,14 +13,14 @@
 }
 
 body {
-    width: 100vw;
+    /*width: 100vw;
     min-width: 320px;
     height: 100vh;
-    min-height: 651px;
+    min-height: 651px;*/
+    min-height: 100vh;
     font-size: 14px;
     font-family: "Helvetica Neue", Tahoma, sans-serif;
-    background-image: url('../img/background.jpg');
-    background-repeat: no-repeat;
+    background: url('../img/background.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
