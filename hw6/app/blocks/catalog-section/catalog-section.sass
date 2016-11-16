@@ -1,0 +1,68 @@
+.catalog-section
+    display: flex
+    flex-direction: column
+
+
+    &__title
+        // margin-top: 13px
+        line-height: 22px
+        border-radius: 12px
+        // border-radius: 15px 13px 13px 15px
+        padding-top: 4px
+        width: 149px
+        // letter-spacing: -0.015em
+        font-size: 14px
+
+    &__link
+        display: flex
+        color: #465961
+        font-family: "Lucida Sans Unicode"
+        font-size: 12.73px
+        line-height: 25.46px
+        letter-spacing: -0.001em;
+
+
+    &__link_bulleted::before
+        content: ''
+        display: block
+        background: url('../img/bullet.png') center center no-repeat
+        width: 8px
+        height: 7px
+        margin-top: 8px
+        margin-right: 3px
+
+    &__item
+        display: flex
+        flex-direction: row
+        align-items: center
+        color: #465961
+        font-family: "Lucida Sans Unicode"
+        font-size: 12.73px
+        line-height: 25.46px
+
+
+
+    &__item:hover > .catalog-section__link
+        color: #0c3256
+        font-family: Arial
+        font-size: 14px
+        font-weight: 700
+        font-style: italic
+        text-decoration: underline
+
+    &__item:hover > .catalog-section__link_bulleted::before
+        content: ''
+        display: block
+        background: url('../img/bullet-dark.png') center center no-repeat
+        width: 8px
+        height: 8px
+
+    &__item:hover .icon_bullet
+        background: url('../img/bullet-dark.png')
+        width: 8px
+        height: 8px
+
+    &__list
+        width: 200px
+        padding-left: 36px
+        padding-top: 1px

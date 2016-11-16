@@ -14,13 +14,13 @@
 
 body {
     /*width: 100vw;
-    min-width: 320px;
-    height: 100vh;
+    min-width: 320px;*/
+    /*height: 100vh;
     min-height: 651px;*/
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     font-size: 14px;
     font-family: "Helvetica Neue", Tahoma, sans-serif;
-    background: url('../img/background.jpg') no-repeat center center fixed;
+    background: url('../img/background.jpg') no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

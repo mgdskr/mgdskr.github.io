@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zazor.com.ua</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body class="page">
+
+    <div class="wrapper page__wrapper">
+        <header class="head-line">
+            <div class="contacts head-line__contacts container">
+                <i class="icon icon_phone mt1 ml7"></i>
+                <p class="ml3">(044)123<span class="prt-1">-</span>45<span class="prt-1">-</span>67 (044)567<span class="prt-1">-</span>89<span class="prt-1">-</span>10</p>
+            </div>
+            <div class="login-form head-line__login-form">
+                <i class="icon icon_auth ml7"></i>
+                <form action="#">
+                    <input type="text" name="login" class="login-form__login" placeholder="логин" required>
+                    <input type="password" name="password" class="login-form__password" placeholder="пароль" required>
+                    <input type="submit" value="вход" class="login-form__submit">
+                </form>
+                <span class="login-form__divider">|</span>
+                <a href="#" class="login-form__registration">регистрация</a>
+                <a href="#" class="login-form__forgot-pwd">забыли пароль?</a>
+            </div>
+            <div class="icons-group">
+                <a href="#" class="icons-group__home"></a>
+                <a href="#" class="icons-group__site-map"></a>
+                <a href="#" class="icons-group__message"></a>
+            </div>
+        </header>
+        <img class="banner" src="img/slider.jpg" alt="Интернет-магазин шин и дисков">
+        <nav class="nav-bar">
+            <ul class="menu">
+                <li class="menu__item"><a class="menu__link" href="#">О компани&nbsp;&nbsp;</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Оплата&nbsp;</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Доcтавка&nbsp;</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Статьи</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+            </ul>
+            <div class="cart mt1">
+                <a href="#"><i class="icon icon_cart mr8 mt2"></i></a>
+                <span class="mr4">товаров:</span>
+                <span class="cart__text_color_blue">0</span>
+                <span class="cart__text_abs"> на сумму:</span>
+                <span class="cart__text_color_blue cart__text-summ_abs">0,00</span>
+                <span class="cart__text_color_blue cart__text-curr_abs">грн.</span>
+            </div>
+            <!-- enf of cart -->
+        </nav>
+
+
+        <img src="img/filters.png" alt="filters" class="mt7">
+
+
+        <div class="container">
+            <!-- left sidebar -->
+            <aside class="sidebar">
+                <h3 class="sidebar__title title title_box-shadow mt2">
+                  <i class="icon icon_catalog ml2 mr5"></i>Каталог продукции:</h3>
+                <section class="sidebar__catalog-section catalog-section">
+                    <h4 class="catalog-section__title title"><i class="icon icon_circle mt-3 ml5 mr3"></i>Шины</h4>
+                    <ul class="catalog-section__list">
+                        <li class="catalog-section__item"><a href="#" class="catalog-section__link catalog-section__link_bulleted">Наименование 1</a></li>
+                        <li class="catalog-section__item"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 2</a></li>
+                        <li class="catalog-section__item mt1"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 3</a></li>
+                        <li class="catalog-section__item mt1"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 4</a></li>
+                    </ul>
+                </section>
+
+                <section class="sidebar__catalog-section catalog-section mt-3">
+                    <h4 class="catalog-section__title title"><i class="icon icon_circle mt-3 ml4 mr4 mb2"></i><span class="mt-1">Диски</span></h4>
+                    <ul class="catalog-section__list">
+                        <li class="catalog-section__item mt-1"><a href="#" class="catalog-section__link catalog-section__link_bulleted">Наименование 1</a></li>
+                        <li class="catalog-section__item mt1"><a href="" class="catalog-section__link"><i class="icon icon_bullet mt7 mr3"></i>Наименование 2</a></li>
+                        <li class="catalog-section__item"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 3</a></li>
+                        <li class="catalog-section__item mt1"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 4</a></li>
+                    </ul>
+                </section>
+
+                <section class="sidebar__catalog-section catalog-section mt-3">
+                    <h4 class="catalog-section__title title"><i class="icon icon_circle mt-3 ml4 mr4"></i><span class="mt-1">Болты</span></h4>
+                    <ul class="catalog-section__list">
+                        <li class="catalog-section__item mt1"><a href="#" class="catalog-section__link catalog-section__link_bulleted">Наименование 1</a></li>
+                        <li class="catalog-section__item"><a href="" class="catalog-section__link catalog-section__link_bulleted">Наименование 2</a></li>
+                        <li class="catalog-section__item"><a href="" class="catalog-section__link catalog-section__link_bulleted mt1">Наименование 3</a></li>
+                        <li class="catalog-section__item"><a href="" class="catalog-section__link"><i class="icon icon_bullet mt9 mr3"></i>Наименование 4</a></li>
+                    </ul>
+                </section>
+            </aside>
+            <!-- end of left column -->
+
+
+            <main class="main">
+
+                <div class="product">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold">Goodyear</h4>
+                                <h5 class="product__name mt1 ml4">Ultra Grip Extreme</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper">
+                                <img class="product__image" src="/img/tire1.png" alt="Goodyear Ultra Grip Extreme">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price"><span class="product__price product__price_big ml8 mr6">90.00</span>грн.</div>
+
+                </div>
+                <!-- end of product -->
+                <div class="product">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold ml3">Nokian</h4>
+                                <h5 class="product__name ml4 mt1">Hakkapeliitta R</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper">
+                                <img class="product__image" src="/img/tire2.png" alt="Nokkian Hakkapeliita R">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price mt1"><span class="product__price product__price_big ml10 mr4">115.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+                <div class="product">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold ml4">Hankook</h4>
+                                <h5 class="product__name mt1">K 708 155/65 R14</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper">
+                                <img class="product__image" src="/img/tire3.png" alt="Hankook K 708 155/65 R14">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price"><span class="product__price product__price_big ml11 mr4">393.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+
+
+                <div class="product">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold mt-3">Goodyear</h4>
+                                <h5 class="product__name ml4 mt1">Ultra Grip Extreme</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper">
+                                <img class="product__image" src="/img/tire1.png" alt="Goodyear Ultra Grip Extreme">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price"><span class="product__price product__price_big ml10 mr2">90.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+                <div class="product">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold mt-4 ml2">Nokian</h4>
+                                <h5 class="product__name ml1 mt1">Hakkapeliitta R</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper ml-1">
+                                <img class="product__image" src="/img/tire2.png" alt="Nokkian Hakkapeliita R">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price mt1"><span class="product__price product__price_big ml10 mr4">115.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+
+                <div class="product mt1">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold mt-5 ml4">Hankook</h4>
+                                <h5 class="product__name mt1">K 708 155/65 R14</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper">
+                                <img class="product__image" src="/img/tire3.png" alt="Hankook K 708 155/65 R14">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price mt1"><span class="product__price product__price_big ml11 mr4">393.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+
+
+
+                <div class="product mt-5">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold mt-1 ml-2">Goodyear</h4>
+                                <h5 class="product__name mt1 ml2">Ultra Grip Extreme</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper mt1">
+                                <img class="product__image" src="/img/tire1.png" alt="Goodyear Ultra Grip Extreme">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price"><span class="product__price product__price_big ml10 mr2">90.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+                <div class="product mt-4">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold mt-1 ml3">Nokian</h4>
+                                <h5 class="product__name mt1 ml3">Hakkapeliitta R</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper mt-1">
+                                <img class="product__image" src="/img/tire2.png" alt="Nokkian Hakkapeliita R">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price mt1"><span class="product__price product__price_big ml10 mr4">115.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+                <div class="product mt-5">
+                    <a href="#" class="product__link">
+                        <figure>
+                            <figcaption>
+                                <h4 class="product__name product__name_bold ml3">Hankook</h4>
+                                <h5 class="product__name mt1 ml-1">K 708 155/65 R14</h5>
+                            </figcaption>
+                            <div class="product__image-wrapper mt-1">
+                                <img class="product__image" src="/img/tire3.png" alt="Hankook K 708 155/65 R14">
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="product__price mt1"><span class="product__price product__price_big ml10 mr4">393.00</span> грн.</div>
+
+                </div>
+                <!-- end of product -->
+
+
+
+
+
+            </main>
+            <!-- start of right column -->
+            <aside class="sidebar sidebar_padding-left">
+                <h3 class="sidebar__title title title_box-shadow title_big mt-1"><i class="icon icon_catalog ml3 mr7 mt1"></i>Бренды:</h3>
+                <form class="filter-by-brands ml15" action="index.html">
+                    <section class="sidebar__catalog-section catalog-section">
+                        <h4 class="catalog-section__title title title_narrow mt2"><i class="icon icon_circle mt-2 ml3 mr4"></i><span class="prt-1">Шины</span></h4>
+
+                        <ul class="mt3 ml4">
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_1-brand_1" id="">
+                                <label for="cat_1-brand_1">Бренд 1</label>
+                            </li>
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_1-brand_2" id="">
+                                <label for="cat_1-brand_2">Бренд 2</label>
+                            </li>
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_1-brand_3" id="">
+                                <label for="cat_1-brand_3">Бренд 3</label>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="sidebar__catalog-section catalog-section mt8 ml-1">
+                        <h4 class="catalog-section__title title title_narrow title_paddingtop3"><i class="icon icon_circle mt-2 ml2 mr5"></i>Диски</h4>
+
+                        <ul class="mt6 mb14 ml5">
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_2-brand_1" id="">
+                                <label for="cat_2-brand_1">Бренд 1</label>
+                            </li>
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_2-brand_2" id="">
+                                <label for="cat_2-brand_2">Бренд 2</label>
+                            </li>
+                            <li class="catalog-section__item">
+                                <input class="checkbox_blue" type="checkbox" name="cat_3-brand_3" id="">
+                                <label for="cat_3-brand_3">Бренд 3</label>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <input class="sidebar__btn btn_submit ml8" type="submit" value="Выбрать">
+                </form>
+
+            </aside>
+            <!-- end of right aside -->
+        </div>
+        <!-- end of inner container -->
+
+        <div class="manufacturers-logo">
+          <ul class="container">
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo1.png" alt="tire manufacturer 1"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo2.png" alt="tire manufacturer 2"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo3.png" alt="tire manufacturer 3"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo4.png" alt="tire manufacturer 4"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo5.png" alt="tire manufacturer 5"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo6.png" alt="tire manufacturer 6"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo7.png" alt="tire manufacturer 7"></a></li>
+            <li><a href="#" class="manufacturers-logo__link"><img src="img/brandlogo8.png" alt="tire manufacturer 8"></a></li>
+
+          </ul>
+
+            <!-- <img src="img/brandlogo.png" alt="tire manufacturers"> -->
+        </div>
+        <footer class="footer">
+            <nav>
+                <ul class="footer__menu menu ml7">
+                    <li class="menu__item_simple"><a class="menu__link_simple" href="#">О компании</a></li>
+                    <li class="menu__item_simple"><a class="menu__link_simple" href="#">Доставка</a></li>
+                    <li class="menu__item_simple ml2"><a class="menu__link_simple" href="#">Статьи</a></li>
+                    <li class="menu__item_simple ml5"><a class="menu__link_simple" href="#"> Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="footer__signature mt10">Создание сайта &copy; Global Vision</div>
+        </footer>
+    </div>
+    <!-- end of wrapper -->
+
+
+</body>
+
+</html>
