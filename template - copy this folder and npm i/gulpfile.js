@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     del = require('del'),
     streamWatch = require('gulp-watch'),
-    cssBeautify = require('gulp-cssbeautify');
+    cssBeautify = require('gulp-cssbeautify'),
+    htmlv = require('gulp-html-validator');
 
 
 // gulp.task('streamSass', function() {
@@ -25,6 +26,14 @@ var gulp = require('gulp'),
 //
 //     });
 // });
+
+gulp.task('valid', function () {
+  gulp.src('app/**/index.html')
+    .pipe(htmlv())
+    .pipe(gulp.dest('./out'));
+});
+
+
 
 gulp.task('sass', function() {
     gulp.src('app/blocks/**/*.sass')

@@ -1,14 +1,14 @@
 {
-  "name": "hw7",
-  "version": "1.0.0",
+  "name": "generator-bem",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "mgdskr",
+  "author": "Oleksandr Maksymenko",
   "license": "ISC",
-  "keywords": [],
-  "description": "",
+  "keywords": ["mgdskr"],
+  "description": "A small yeoman generator for generation a new BEM project",
   "devDependencies": {
     "browser-sync": "^2.17.5",
     "del": "^2.2.2",
@@ -20,7 +20,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglifyjs": "^0.6.2",
-    "gulp-watch": "^4.3.10"
+    "gulp-watch": "^4.3.10",
+    "yeoman-generator": "^0.21.2"
+
   },
   "dependencies": {
     "gulp-html-validator": "0.0.5"

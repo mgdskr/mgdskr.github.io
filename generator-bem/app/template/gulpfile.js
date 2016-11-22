@@ -8,17 +8,16 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     del = require('del'),
     streamWatch = require('gulp-watch'),
-    cssBeautify = require('gulp-cssbeautify'),
-    htmlv = require('gulp-html-validator');
+    cssBeautify = require('gulp-cssbeautify');
 
 
 // gulp.task('streamSass', function() {
-//     return streamWatch('app/blocks/**/*.sass', function() {
+//     return streamWatch('src/blocks/**/*.sass', function() {
 //
-//         gulp.src('app/blocks/**/*.sass')
+//         gulp.src('src/blocks/**/*.sass')
 //             .pipe(plugins.sass())
 //             .pipe(concat('main.css'))
-//             .pipe(gulp.dest('app/css'))
+//             .pipe(gulp.dest('src/css'))
 //             .pipe(browserSync.reload({
 //                 stream: true
 //             }));
@@ -27,20 +26,12 @@ var gulp = require('gulp'),
 //     });
 // });
 
-gulp.task('valid', function () {
-  gulp.src('app/**/index.html')
-    .pipe(htmlv())
-    .pipe(gulp.dest('./out'));
-});
-
-
-
 gulp.task('sass', function() {
-    gulp.src('app/blocks/**/*.sass')
+    gulp.src('src/blocks/**/*.sass')
         .pipe(plugins.sass())
         .pipe(concat('main.css'))
         .pipe(cssBeautify())
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('src/css'))
         .pipe(browserSync.reload({
             stream: true
         }));
@@ -48,10 +39,10 @@ gulp.task('sass', function() {
 
 //
 // function streamSass() {
-//     gulp.src('app/blocks/**/*.sass')
+//     gulp.src('src/blocks/**/*.sass')
 //         .pipe(plugins.sass())
 //         .pipe(concat('main.css'))
-//         .pipe(gulp.dest('app/css'))
+//         .pipe(gulp.dest('src/css'))
 //         .pipe(browserSync.reload({
 //             stream: true
 //         }));
@@ -75,29 +66,29 @@ gulp.task('sass', function() {
 //
 // gulp.task('scripts', function() {
 //     return gulp.src([
-//             'app/libs/jquery/dist/jquery.min.js',
-//             'app/libs/magnific-popup/dist/magnific-popup.min.js'
+//             'src/libs/jquery/dist/jquery.min.js',
+//             'src/libs/magnific-popup/dist/magnific-popup.min.js'
 //         ])
 //         .pipe(concat('libs.min.js'))
 //         .pipe(uglify())
-//         .pipe(gulp.dest('app/js'));
+//         .pipe(gulp.dest('src/js'));
 //
 // });
 //
 // gulp.task('css-libs', ['sass'], function() {
-//     return gulp.src('app/css/libs.css')
+//     return gulp.src('src/css/libs.css')
 //         .pipe(cssnano())
 //         .pipe(rename({
 //             suffix: '.min'
 //         }))
-//         .pipe(gulp.dest('app/css'));
+//         .pipe(gulp.dest('src/css'));
 //
 // });
 
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: 'app'
+            baseDir: 'src'
         },
         notify: false
     })
@@ -109,19 +100,19 @@ gulp.task('clean', function() {
 
 
 gulp.task('watch', ['sass', 'browser-sync'], function() {
-    gulp.watch('app/blocks/**/*.sass', {cwd: './'}, ['sass']);
-    gulp.watch('app/*.html', browserSync.reload);
+    gulp.watch('src/blocks/**/*.sass', {cwd: './'}, ['sass']);
+    gulp.watch('src/*.html', browserSync.reload);
     // works!
-    // streamWatch('app/blocks/**/*.sass')
+    // streamWatch('src/blocks/**/*.sass')
     //     .pipe(streamSass());
-    // streamWatch('app/blocks/**/*.sass', function() {
+    // streamWatch('src/blocks/**/*.sass', function() {
     //     gulp.start('sass');
     // });
 
 
 
     // .pipe(streamSass());
-    // gulp.watch('app/**/*.js', browserSync.reload);
+    // gulp.watch('src/**/*.js', browserSync.reload);
 });
 
 
@@ -131,21 +122,21 @@ gulp.task('watch', ['sass', 'browser-sync'], function() {
 //
 // gulp.task('build', ['clean', 'sass', 'scripts'], function() {
 //     var buildCss = gulp.src([
-//             'app/css/libs.css',
-//             'app/css/main.css'
+//             'src/css/libs.css',
+//             'src/css/main.css'
 //         ])
 //         .pipe(gulp.dest('dist/css'));
 //
 //
-//     var buildFonts = gulp.src('app/fonts/**/*')
+//     var buildFonts = gulp.src('src/fonts/**/*')
 //         .pipe(gulp.dest('dist/fonts'));
 //
 //
-//     var buildJs = gulp.src('app/js/**/*')
+//     var buildJs = gulp.src('src/js/**/*')
 //         .pipe(gulp.dest('dist/js'));
 //
 //
-//     var buildHtml = gulp.src('app/*.html')
+//     var buildHtml = gulp.src('src/*.html')
 //         .pipe(gulp.dest('dist'));
 //
 // });
