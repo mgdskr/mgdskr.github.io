@@ -11,61 +11,116 @@ var gulp = require('gulp'),
     cssBeautify = require('gulp-cssbeautify'),
     htmlv = require('gulp-html-validator'),
     rigger = require('gulp-rigger'),
-    uncss = require('gulp-uncss');
+    uncss = require('gulp-uncss'),
+    prettify = require('gulp-html-prettify'),
+    fs = require('fs');
 
 
 var path = {
-        dist: {
-            html: 'dist/',
-            js: 'dist/js/',
-            css: 'dist/css/',
-            img: 'dist/img/',
-            fonts: 'dist/fonts/'
-        },
-        app: {
-            html: 'app/html/index.html',
-            sass: ['app/blocks/_tools/*.sass', 'app/blocks/**/*.sass', '!app/blocks/main.sass'],
-            img: 'app/img/**/*.*',
-            fonts: 'app/fonts/**/*.*'
-        },
-        watch: {
-            html: 'app/**/*.html',
-            js: 'app/blocks/**/*.js',
-            style: 'app/blocks/**/*.sass',
-            img: 'app/img/**/*.*',
-            fonts: 'app/fonts/**/*.*'
-        },
-        clean: './dist'
-    };
+    dist: {
+        html: 'dist/',
+        js: 'dist/js/',
+        css: 'dist/css/',
+        img: 'dist/img/',
+        fonts: 'dist/fonts/'
+    },
+    app: {
+        html: 'app/html/index.html',
+        sass: ['app/blocks/_tools/*.sass', 'app/blocks/**/*.sass', '!app/blocks/main.sass'],
+        img: 'app/img/**/*.*',
+        fonts: 'app/fonts/**/*.*'
+    },
+    watch: {
+        html: 'app/**/*.html',
+        js: 'app/blocks/**/*.js',
+        style: 'app/blocks/**/*.sass',
+        img: 'app/img/**/*.*',
+        fonts: 'app/fonts/**/*.*'
+    },
+    clean: './dist'
+};
 
-gulp.task('rigger', function () {
-  gulp.src(path.app.html)
-  .pipe(rigger())
-  .pipe(gulp.dest('app/'))
-  .pipe(browserSync.reload({
-        stream: true
-    }));
+
+
+gulp.task('prettify', function() {
+    gulp.src(['app/html', '!app/html/index.html'])
+        .pipe(prettify({
+            indent_char: '  ',
+            indent_size: 1
+        }))
+        .pipe(gulp.dest('app/html'))
 });
 
-gulp.task('valid', function () {
-  gulp.src('app/index.html')
-    .pipe(htmlv())
-    .pipe(rename('validation.html'))
-    .pipe(gulp.dest('./'));
+
+
+
+
+
+gulp.task('rigger', function() {
+    gulp.src(path.app.html)
+        .pipe(rigger())
+        .pipe(prettify({
+            indent_char: '  ',
+            indent_size: 1
+        }))
+        .pipe(gulp.dest('app/'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
+gulp.task('valid', function() {
+    gulp.src('app/index.html')
+        .pipe(htmlv())
+        .pipe(rename('validation.html'))
+        .pipe(gulp.dest('./'));
 });
 
 
 
 gulp.task('sass-concat', function() {
-    gulp.src(['app/blocks/_tools/*.sass', 'app/blocks/**/*.sass'])
+    gulp.src(['app/blocks/_tools/*.sass', 'app/blocks/**/*.sass', '!app/blocks/main.sass'])
         .pipe(concat('main.sass'))
         .pipe(gulp.dest('app/blocks'));
 });
 
 
+//appending to file end }
+
+var addMedia = function(fileMedia, fileToWrite) {
+
+    if (fs.existsSync(fileMedia)) {
+        fs.readFile(fileMedia, (err, data) => {
+            fs.writeFile(fileToWrite, data);
+        });
+        fs.readFile("app/css/temp.css", (err, data) => {
+            if (err) throw err;
+            fs.appendFile(fileToWrite, data);
+            fs.appendFile(fileToWrite, "}/*end of media query*/");
+        });
+
+    } else {
+        fs.readFile("app/css/temp.css", (err, data) => {
+            fs.writeFile(fileToWrite, data);
+        });
+        // fs.renameSync("app/css/temp.css", fileToWrite);
+    }
+
+};
+
+gulp.task('media', function() {
+    addMedia("app/blocks/_media/media.css", "app/css/main.css");
+    browserSync.reload({
+        stream: true
+    });
+});
+
+
+
+
+
 
 gulp.task('sass', function() {
-    // gulp.src('app/blocks/**/*.sass')
     gulp.src(path.app.sass)
         .pipe(concat('main.sass'))
         .pipe(plugins.sass())
@@ -75,7 +130,8 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({
             stream: true
-        }));
+        }))
+        ;
 });
 
 
@@ -118,9 +174,14 @@ gulp.task('clean', function() {
 });
 
 
-gulp.task('watch', ['sass', 'rigger', 'browser-sync'], function() {
-    gulp.watch(path.app.sass, {cwd: './'}, ['sass']);
+gulp.task('watch', ['sass', 'media', 'rigger', 'browser-sync'], function() {
+    gulp.watch(path.app.sass, {
+        cwd: './'
+    }, ['sass']);
     gulp.watch('app/html/*.html', ['rigger']);
+    gulp.watch('app/blocks/_media/media.css', ['media']);
+    gulp.watch('app/css/temp.css', ['media']);
+
     // gulp.watch('dist/index.html', browserSync.reload);
     // works!
     // streamWatch('app/blocks/**/*.sass')
