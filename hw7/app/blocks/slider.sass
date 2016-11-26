@@ -1,0 +1,116 @@
+.slider
+    // width: 100%
+    display: flex
+    flex-grow: 1
+    flex-shrink: 0
+    flex-direction: column
+    align-items: center
+
+    &__substrate
+        width: 100%
+        display: flex
+        flex-grow: 1
+        flex-shrink: 0
+        // background-color: rgba(0, 0, 0, .2)
+        // height: 25rem
+
+    &__item
+        display: flex
+        flex-grow: 1
+        flex-shrink: 0
+        align-items: center
+        justify-content: space-between
+        // min-width: (320/16) + rem
+
+    &__arrow
+        width: (30/16) + rem
+        height: (42/16) + rem
+        cursor: pointer
+        background: url('../img/slider-sprite.png')
+
+        &_left
+            @include sprite-position($slider-arrow-left)
+
+        &_right
+            @include sprite-position($slider-arrow-right)
+
+    &__title
+        text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3)
+        color: #fefefe
+        font-family: $font-prime
+        font-size: 2.25rem
+        display: flex
+        flex-direction: column
+
+        &_accent
+            color: #edbfff
+            font-size: 1.125rem
+
+    &__controls
+        display: flex
+        justify-content: center
+        margin-top: 5rem
+
+    &__control
+        position: relative
+        z-index: 10
+        display: block
+        border-radius: 100%
+        width: 1rem
+        height: 1rem
+        background: rgba(0, 0, 0, 0.3)
+
+    // &_text
+    //     color: $color-prime
+    //     font-family: "Myriad Pro"
+    //     font-size: 1rem
+
+    &_feedback
+        margin-bottom: (50/16)+rem
+        padding-left: (20/16)+rem
+        padding-left: (24/16)+rem
+
+        .slider__item
+            box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
+            background-color: #fff
+            flex-direction: row
+            align-items: flex-start
+            padding: (27/16)+rem (40/16)+rem (33/16)+rem 0
+            // (38/16)+rem
+
+        .slider__title
+            text-shadow: 0.031rem 0.056rem 0 white
+            font-family: $font-prime
+            font-size: 1.5rem
+            line-height: 1
+            text-transform: uppercase
+            color: #454545
+
+            &_accent
+                color: #edbfff
+                margin-bottom: (13/16) + rem
+
+        .slider__text
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec
+            font-size: 1rem
+            line-height: 1.5
+            max-height: (157/16)+rem
+            overflow: hidden
+
+        .slider__controls
+            margin-top: (24 / 16)+rem
+
+        .slider__img
+            position: relative
+            background: url('../img/author.jpg') center center no-repeat
+            height: (50/16)+rem
+            width: (50/16)+rem
+            border-radius: 100%
+            flex-grow: 0
+            flex-shrink: 0
+            margin-right: (10/16)+rem
+            margin-left: (-25/16)+rem
+            // top: (51/16)+rem
+            // left: (-63/16)+rem

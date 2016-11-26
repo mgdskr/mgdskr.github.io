@@ -1,0 +1,36 @@
+@mixin border
+    border-left: .0625rem solid rgba(0, 0, 0, .2)
+    border-right: .0625rem solid rgba(0, 0, 0, .2)
+
+
+.wrapper
+    margin: auto
+    display: flex
+    // max-width: (960/16)+rem
+    justify-content: center
+    flex-grow: 1
+    box-sizing: border-box
+
+    &_320
+        max-width: (320/16)+rem
+        @include border
+
+    &_480
+        max-width: (480/16)+rem
+        @include border
+
+    &_768
+        max-width: (768/16)+rem
+        @include border
+
+    &_960
+        max-width: (960/16)+rem
+        @include border
+
+    &_col
+        flex-direction: column
+
+
+    &_articles
+        flex-direction: column
+        padding: (72/16)+rem (20/16)+rem (37/16)+rem  (33/16)+rem

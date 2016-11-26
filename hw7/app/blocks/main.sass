@@ -1,12 +1,138 @@
 
-$primary-color: #fff
-$primary-font: "League Gothic"
-@media screen and (max-width: 480px)
+//color schema
+$color-prime: #fff
+$color-sec: #c3e54b
+
+//typography
+$font-prime: "League Gothic", sans-serif
+$font-sec: "Open Sans Light"
+$font-sec_bold: "Open Sans Extrabold"
+
+$font-size: 1rem
+$line-height: 1
+
+.article
+    display: flex
+    flex-grow: 1
+    flex-shrink: 0
+    margin-bottom: (29/16)+rem
+    // flex-basis: 80%
+
+
+    &__icon
+        width: 2rem
+        height: 2rem
+        background-size: cover
+        flex: 0 0 2rem
+        margin-right: (25/16)+rem
+
+        &_wrench
+            background: url('../img/icon_wrench.png')
+
+        &_voice
+            background: url('../img/icon_voice.png')
+
+        &_music
+            background: url('../img/icon_music.png')
+
+
+    &__body
+        display: flex
+        flex-grow: 1
+        flex-direction: column
+
+    &__title
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-prime
+        font-size: 1.875rem
+        line-height: 0.8
+        text-transform: uppercase
+        margin-bottom: (12/16)+rem
+
+    &__text
+        display: block
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-sec
+        font-size: 1rem
+        font-weight: 300
+        line-height: 1.4
+        margin-right: (24/16)+rem
+        margin-bottom: (19/16)+rem
+        height: (65/16)+rem
+        overflow: hidden
+
+
+    &__more
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-prime
+        font-size: 1.125rem
+        line-height: 1.33
+        align-self: flex-end
+        text-decoration: none
+        text-transform: uppercase
+
+        &:hover
+            text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8)
 
 
 
-html
-    background: url('../img/Home_320.png') center top no-repeat
+
+    &_updates
+        height: 3.063rem
+        margin-bottom: 0
+
+        .article__body
+            padding: 0
+
+        .article__icon
+            width: 3.063rem
+            height: 3.063rem
+            border-radius: 100%
+            margin-right: (17/16)+rem
+
+        .article__title
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec_bold
+            font-size: 1rem
+            line-height: 1.5
+            margin-bottom: 0
+
+        .article__text
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec
+            font-size: 1rem
+            line-height: 1.5
+            margin-bottom: 0
+            margin-right: 0
+            height: auto
+
+
+@for $i from 1 through 6
+.brand-logos_#{$i}
+    background-position: (-(#{$i}-1)*274)px 0
+
+.brand-logos
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+
+    &__link
+        display: block
+        background-image: url('../img/logos.png')
+        background-repeat: no-repeat
+        height: (2*65/16)+rem
+        width:  (2*65/16)+rem
+        background-size: cover
+        margin: 0.75rem
+
+// html
+    // background: url('../img/Home_320.png') center top no-repeat
 
 @font-face
     font-family: 'Open Sans Light'
@@ -20,30 +146,261 @@ html
     font-family: 'League Gothic'
     src: url('../fonts/League Gothic.otf')
 
-
-// body
-    // background: url('../img/header.png') center top no-repeat
-    // height: 250px
-
-
+.page-wrapper
+    background: url('../img/header.jpg') center top no-repeat
+    background-size: cover
+    height: 869px
 
 
+.header
+    display: flex
+    flex-direction: column
+    padding-top: (70 / 16) + rem
+    min-height: (569 / 16) + rem
+    // padding-top: (70 / 16) + rem
+    // width: 100%
 
-// $primary-color: #fff
-// $primary-font: "League Gothic"
+    &__logo
+        text-align: center
 
-// @import '../tools/vars'
+    &__menu
+        margin: auto
+        position: relative
+        top: 1.3rem
+        z-index: 10
+        max-width: 15rem
+
+
+    &__slider
+        position: relative
+        top: -3.3rem
 
 .logo
-    // width: 120px;
-    // height: 36px;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3)
-    color: $primary-color
-    font-family: $primary-font
-    font-size: 48px
-    font-weight: 400
-    line-height: 34px
+    color: $color-prime
+    font-family: $font-prime
+    font-size: 3rem
+    text-transform: uppercase
 
-    &_blue
-        // width: 29px
+    &_accent
         color: #c3e54b
+        background: linear-gradient(to top, #322539, #745083)
+        -webkit-background-clip: text
+        color: transparent
+
+
+.menu
+    display: flex
+    flex-direction: column
+    align-items: center
+    min-width: 15.375rem
+    background-color: rgba(54, 41, 62, .9)
+    border: 0.063rem solid rgba(5, 17, 22, 0.9)
+    border-radius: 10px
+    box-shadow: 0 0.188rem 0.313rem rgba(0, 0, 0, 0.2)
+    visibility: hidden
+    overflow: hidden
+
+    &:hover
+        visibility: visible
+
+        .menu__link_initial
+            text-shadow: none
+            border: none
+
+            &:hover
+                background: rgba(0, 0, 0, .3)
+                text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6)
+                border-bottom: 0.125rem solid #edbfff
+                height: 2.4375rem
+                width: 100%
+
+    &__item
+        box-sizing: border-box
+        height: 2.4375rem
+        width: 100%
+        text-align: center
+        overflow: hidden
+
+    &__link
+        display: inline-block
+        width: 100%
+        color: $color-prime
+        font-family: $font-prime
+        font-size: 1.5rem
+        line-height: 1.625
+        text-transform: uppercase
+        text-decoration: none
+        box-sizing: border-box
+        height: 2.4375rem
+        width: 100%
+        border-top: 1px solid #52405a
+        border-bottom: 1px solid #37293f
+        text-align: center
+
+        &:hover
+            background: rgba(0, 0, 0, .3)
+            text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6)
+            border-bottom: 0.125rem solid #edbfff
+
+        &_initial
+            text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6)
+            visibility: visible
+            border: none
+            border-bottom: 0.125rem solid #edbfff
+            height: 2.4rem
+            width: 25%
+
+
+.slider
+    // width: 100%
+    display: flex
+    flex-grow: 1
+    flex-shrink: 0
+    flex-direction: column
+    align-items: center
+
+    &__substrate
+        width: 100%
+        display: flex
+        flex-grow: 1
+        flex-shrink: 0
+        // background-color: rgba(0, 0, 0, .2)
+        // height: 25rem
+
+    &__item
+        display: flex
+        flex-grow: 1
+        flex-shrink: 0
+        align-items: center
+        justify-content: space-between
+        // min-width: (320/16) + rem
+
+    &__arrow_left
+        background: url('../img/slider-arrow-left.png')
+        width: (30/16) + rem
+        height: (42/16) + rem
+
+    &__arrow_right
+        background: url('../img/slider-arrow-right.png')
+        width: (30/16) + rem
+        height: (42/16) + rem
+
+    &__title
+        text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3)
+        color: #fefefe
+        font-family: $font-prime
+        font-size: 2.25rem
+        display: flex
+        flex-direction: column
+
+        &_accent
+            color: #edbfff
+            font-size: 1.125rem
+
+    &__controls
+        display: flex
+        justify-content: center
+        margin-top: 5rem
+
+    &__control
+        position: relative
+        z-index: 10
+        display: block
+        border-radius: 100%
+        width: 1rem
+        height: 1rem
+        background: rgba(0, 0, 0, 0.3)
+
+    // &_text
+    //     color: $color-prime
+    //     font-family: "Myriad Pro"
+    //     font-size: 1rem
+
+    &_feedback
+        margin-bottom: (50/16)+rem
+
+        .slider__item
+            box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
+            background-color: #fff
+            flex-direction: column
+            align-items: flex-start
+            padding: (27/16)+rem (40/16)+rem (33/16)+rem (38/16)+rem
+        .slider__title
+            // Base text style
+            text-shadow: 0.031rem 0.056rem 0 white
+            font-family: $font-prime
+            font-size: 1.5rem
+            line-height: 1
+            text-transform: uppercase
+            color: #454545
+
+            &_accent
+                color: #edbfff
+                margin-bottom: (13/16) + rem
+
+
+        .slider__text
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec
+            font-size: 1rem
+            line-height: 1.5
+            max-height: (157/16)+rem
+            overflow: hidden
+
+        .slider__controls
+            margin-top: (24 / 16)+rem
+
+.substrate
+    display: flex
+    justify-content: center
+
+    &_main-content
+        background-color: #f9f9f9
+        padding: (70/16)+rem (20/16)+rem 0 (20/16)+rem
+
+    &_articles
+        background-image: linear-gradient(to top, #322539 0%, #745083 100%)
+        // flex-direction: column
+        flex-grow: 0
+        flex-shrink: 1
+
+.updates
+    display: flex
+    flex-direction: column
+    padding: 0 (20/16)+rem
+
+    &__title
+        text-shadow: 0.031rem 0.056rem 0 white
+        color: #454545
+        font-family: $font-prime
+        font-size: 1.875rem
+        line-height: 0.8
+        text-transform: uppercase
+        margin-bottom: (21/16)+rem
+
+
+    &__more
+        text-shadow: 0.031rem 0.056rem 0 white
+        color: #454545
+        font-family: $font-prime
+        font-size: 1.125rem
+        line-height: 1.33
+        text-transform: uppercase
+        align-self: flex-end
+
+.wrapper
+    margin: auto
+    display: flex
+    max-width: (960/16)+rem
+    justify-content: center
+    flex-grow: 1
+
+    &_col
+        flex-direction: column
+
+
+    &_articles
+        flex-direction: column
+        padding: (72/16)+rem (20/16)+rem (37/16)+rem  (33/16)+rem

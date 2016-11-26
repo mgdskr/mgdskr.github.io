@@ -1,0 +1,68 @@
+.brand-logos
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-around
+    flex-grow: 1
+    // padding: (70/16)+rem (20/16)+rem 0 (20/16)+rem
+    //
+    // padding-top: (52/16)+rem
+    // padding-bottom: (70/16)+rem
+
+    &__item
+        height: (158 /16)+rem
+        width:  (158/16)+rem
+        display: flex
+        justify-content: center
+        align-items: center
+        // box-sizing: border-box
+        // outline: 1px solid black
+
+    &__link
+        display: block
+        background-image: url('../img/brands-sprite.png')
+        background-repeat: no-repeat
+        // height: (1*65/16)+rem
+        // width:  (1*65/16)+rem
+        // margin: 0 1.45rem 2rem 1.45rem
+
+
+
+        &_1
+            @include sprite-position($logo-1)
+            @include sprite-height($logo-1)
+            @include sprite-width($logo-1)
+
+
+        &_2
+            @include sprite-position($logo-2)
+            @include sprite-height($logo-2)
+            @include sprite-width($logo-2)
+
+        &_3
+            @include sprite-position($logo-3)
+            @include sprite-height($logo-3)
+            @include sprite-width($logo-3)
+
+        &_4
+            @include sprite-position($logo-4)
+            @include sprite-height($logo-4)
+            @include sprite-width($logo-4)
+
+        &_5
+            @include sprite-position($logo-5)
+            @include sprite-height($logo-5)
+            @include sprite-width($logo-5)
+
+        &_6
+            @include sprite-position($logo-6)
+            @include sprite-height($logo-6)
+            @include sprite-width($logo-6)
+
+
+
+
+
+// @for $i from 0 through 5
+//     .brand-logos__link_#{$i+1}
+//         background-position: #{-$i*274}px 0

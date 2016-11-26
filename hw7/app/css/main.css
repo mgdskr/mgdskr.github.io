@@ -1,162 +1,306 @@
-html {
-    background: url("../img/Home_320.png") center top no-repeat;
-}
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
 
-@font-face {
-    font-family: 'Open Sans Light';
-  src: url("../fonts/Open Sans Light.ttf");
-}
+  .icon-home
+    width: $icon-home-width
 
-@font-face {
-    font-family: 'Open Sans Extrabold';
-  src: url("../fonts/Open Sans Extrablod.otf");
-}
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
 
-@font-face {
-    font-family: 'League Gothic';
-  src: url("../fonts/League Gothic.otf");
-}
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites
+  */
+/*
+  The provided mixins are intended to be used with the array-like variables
 
-.wrapper {
-    background: url("../img/header.jpg") center top no-repeat;
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+
+  Example usage in HTML:
+    `display: block` sprite:
+    <div class="icon-home"></div>
+
+  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class: */
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
+
+  .icon-home
+    width: $icon-home-width
+
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
+
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites
+  */
+/*
+  The provided mixins are intended to be used with the array-like variables
+
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+
+  Example usage in HTML:
+    `display: block` sprite:
+    <div class="icon-home"></div>
+
+  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class: */
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
+
+  .icon-home
+    width: $icon-home-width
+
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
+
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites
+  */
+/*
+  The provided mixins are intended to be used with the array-like variables
+
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+
+  Example usage in HTML:
+    `display: block` sprite:
+    <div class="icon-home"></div>
+
+  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class: */
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
+.article {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-bottom: 1.8125rem; }
+  .article__icon {
+    width: 2rem;
+    height: 2rem;
     background-size: cover;
-    height: 869px;
+    flex: 0 0 2rem;
+    margin-right: 1.5625rem;
+    background: url("../img/icons-sprite.png"); }
+    .article__icon_wrench {
+      background-position: 0px -62px; }
+    .article__icon_voice {
+      background-position: 0px 0px; }
+    .article__icon_music {
+      background-position: 0px -30px; }
+  .article__body {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
+    flex-grow: 1;
+    flex-direction: column; }
+  .article__title {
+    text-shadow: 0.031rem 0.056rem 0 #0f1518;
+    color: #fff;
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.875rem;
+    line-height: 0.8;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem; }
+  .article__text {
+    display: block;
+    text-shadow: 0.031rem 0.056rem 0 #0f1518;
+    color: #fff;
+    font-family: "Open Sans Light";
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-right: 1.5rem;
+    margin-bottom: 1.1875rem;
+    height: 4.0625rem;
+    overflow: hidden; }
+  .article__more {
+    text-shadow: 0.031rem 0.056rem 0 #0f1518;
+    color: #fff;
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    align-self: flex-end;
+    text-decoration: none;
+    text-transform: uppercase; }
+    .article__more:hover {
+      text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8); }
+  .article_updates {
+    height: 3.063rem; }
+    .article_updates .article__body {
+      padding: 0; }
+    .article_updates .article__icon {
+      width: 3.063rem;
+      height: 3.063rem;
+      border-radius: 100%;
+      margin-right: 1.0625rem; }
+    .article_updates .article__title {
+      text-shadow: 0.031rem 0.056rem 0 white;
+      color: #454545;
+      font-family: "Open Sans Extrabold";
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0; }
+    .article_updates .article__text {
+      text-shadow: 0.031rem 0.056rem 0 white;
+      color: #454545;
+      font-family: "Open Sans Light";
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+      margin-right: 0;
+      height: auto; }
+
+.brand-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1; }
+  .brand-logos__item {
+    height: 9.875rem;
+    width: 9.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .brand-logos__link {
+    display: block;
+    background-image: url("../img/brands-sprite.png");
+    background-repeat: no-repeat; }
+    .brand-logos__link_1 {
+      background-position: 0px 0px;
+      height: 64px;
+      width: 69px; }
+    .brand-logos__link_2 {
+      background-position: 0px -65px;
+      height: 64px;
+      width: 72px; }
+    .brand-logos__link_3 {
+      background-position: 0px -130px;
+      height: 65px;
+      width: 65px; }
+    .brand-logos__link_4 {
+      background-position: 0px -196px;
+      height: 65px;
+      width: 56px; }
+    .brand-logos__link_5 {
+      background-position: 0px -262px;
+      height: 65px;
+      width: 106px; }
+    .brand-logos__link_6 {
+      background-position: 0px -328px;
+      height: 65px;
+      width: 80px; }
+
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url("../fonts/Open Sans Light.ttf"); }
+
+@font-face {
+  font-family: 'Open Sans Extrabold';
+  src: url("../fonts/Open Sans Extrablod.otf"); }
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url("../fonts/League Gothic.otf"); }
+
+.page-wrapper {
+  background: url("../img/header.jpg") center top no-repeat;
+  background-size: cover;
+  height: 869px; }
+
+.footer__copy {
+  text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-family: "Open Sans Light";
+  font-size: 0.75rem;
+  line-height: 2.83; }
+  .footer__copy_accent {
+    font-family: "Open Sans Extrabold"; }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 35.5625rem;
-    padding-top: 4.375rem;
-}
-
-.header__menu {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4.375rem;
+  min-height: 35.5625rem; }
+  .header__logo {
+    text-align: center; }
+  .header__menu {
+    margin: auto;
     position: relative;
     top: 1.3rem;
     z-index: 10;
-}
-
-.header__slider {
+    max-width: 15rem; }
+  .header__slider {
     position: relative;
-    top: -3.3rem;
-}
+    top: -3.3rem; }
 
 .logo {
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    color: #fff;
-    font-family: "League Gothic", sans-serif;
-    font-size: 3rem;
-    text-transform: uppercase;
-}
-
-.logo_accent {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: "League Gothic", sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase; }
+  .logo_accent {
     color: #c3e54b;
     background: linear-gradient(to top, #322539, #745083);
     -webkit-background-clip: text;
-    color: transparent;
-}
+    color: transparent; }
 
-.slider {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.slider__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 20rem;
-}
-
-.slider__arrow_left {
-    background: url("../img/slider-arrow-left.png");
-    width: 1.875rem;
-    height: 2.625rem;
-}
-
-.slider__arrow_right {
-    background: url("../img/slider-arrow-right.png");
-    width: 1.875rem;
-    height: 2.625rem;
-}
-
-.slider__title {
-    text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
-    color: #fefefe;
-    font-family: "League Gothic", sans-serif;
-    font-size: 2.25rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.slider__title_accent {
-    color: #edbfff;
-    font-size: 1.125rem;
-}
-
-.slider__controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
-}
-
-.slider__control {
-    position: relative;
-    z-index: 10;
-    display: block;
-    border-radius: 100%;
-    width: 1rem;
-    height: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-}
+.main-content {
+  padding: 4.375rem 1.25rem 0 1.25rem; }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 15.375rem;
-    background-color: rgba(54, 41, 62, 0.9);
-    border: 0.063rem solid rgba(5, 17, 22, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0.188rem 0.313rem rgba(0, 0, 0, 0.2);
-    visibility: hidden;
-    overflow: hidden;
-}
-
-.menu:hover {
-    visibility: visible;
-}
-
-.menu:hover .menu__link_initial {
-    text-shadow: none;
-    border: none;
-}
-
-.menu:hover .menu__link_initial:hover {
-    background: rgba(0, 0, 0, 0.3);
-    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
-    border-bottom: 0.125rem solid #edbfff;
-    height: 2.4375rem;
-    width: 100%;
-}
-
-.menu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 15.375rem;
+  background-color: rgba(54, 41, 62, 0.9);
+  border: 0.063rem solid rgba(5, 17, 22, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0.188rem 0.313rem rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  overflow: hidden; }
+  .menu:hover {
+    visibility: visible; }
+    .menu:hover .menu__link_initial {
+      text-shadow: none;
+      border: none; }
+      .menu:hover .menu__link_initial:hover {
+        background: rgba(0, 0, 0, 0.3);
+        text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
+        border-bottom: 0.125rem solid #edbfff;
+        height: 2.4375rem;
+        width: 100%; }
+  .menu__item {
     box-sizing: border-box;
     height: 2.4375rem;
     width: 100%;
     text-align: center;
-    overflow: hidden;
-}
-
-.menu__link {
+    overflow: hidden; }
+  .menu__link {
     display: inline-block;
     width: 100%;
     color: #fff;
@@ -170,20 +314,188 @@ html {
     width: 100%;
     border-top: 1px solid #52405a;
     border-bottom: 1px solid #37293f;
-    text-align: center;
-}
+    text-align: center; }
+    .menu__link:hover {
+      background: rgba(0, 0, 0, 0.3);
+      text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
+      border-bottom: 0.125rem solid #edbfff; }
+    .menu__link_initial {
+      text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
+      visibility: visible;
+      border: none;
+      border-bottom: 0.125rem solid #edbfff;
+      height: 2.4rem;
+      width: 25%; }
 
-.menu__link:hover {
-    background: rgba(0, 0, 0, 0.3);
-    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
-    border-bottom: 0.125rem solid #edbfff;
-}
+.resolution {
+  display: flex;
+  width: 18.75rem;
+  justify-content: space-between;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%); }
+  .resolution__btn {
+    padding: 0.5rem;
+    border: 0.0625rem solid black;
+    cursor: pointer; }
+    .resolution__btn:hover {
+      position: relative;
+      top: 1px; }
+    .resolution__btn_active {
+      font-weight: bold; }
 
-.menu__link_initial {
-    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
-    visibility: visible;
-    border: none;
-    border-bottom: 0.125rem solid #edbfff;
-    height: 2.4rem;
-    width: 25%;
-}
+.slider {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center; }
+  .slider__substrate {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0; }
+  .slider__item {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between; }
+  .slider__arrow {
+    width: 1.875rem;
+    height: 2.625rem;
+    cursor: pointer;
+    background: url("../img/slider-sprite.png"); }
+    .slider__arrow_left {
+      background-position: 0px 0px; }
+    .slider__arrow_right {
+      background-position: 0px -43px; }
+  .slider__title {
+    text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
+    color: #fefefe;
+    font-family: "League Gothic", sans-serif;
+    font-size: 2.25rem;
+    display: flex;
+    flex-direction: column; }
+    .slider__title_accent {
+      color: #edbfff;
+      font-size: 1.125rem; }
+  .slider__controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem; }
+  .slider__control {
+    position: relative;
+    z-index: 10;
+    display: block;
+    border-radius: 100%;
+    width: 1rem;
+    height: 1rem;
+    background: rgba(0, 0, 0, 0.3); }
+  .slider_feedback {
+    margin-bottom: 3.125rem;
+    padding-left: 1.25rem;
+    padding-left: 1.5rem; }
+    .slider_feedback .slider__item {
+      box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05);
+      background-color: #fff;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 1.6875rem 2.5rem 2.0625rem 0; }
+    .slider_feedback .slider__title {
+      text-shadow: 0.031rem 0.056rem 0 white;
+      font-family: "League Gothic", sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #454545; }
+      .slider_feedback .slider__title_accent {
+        color: #edbfff;
+        margin-bottom: 0.8125rem; }
+    .slider_feedback .slider__text {
+      text-shadow: 0.031rem 0.056rem 0 white;
+      color: #454545;
+      font-family: "Open Sans Light";
+      font-size: 1rem;
+      line-height: 1.5;
+      max-height: 9.8125rem;
+      overflow: hidden; }
+    .slider_feedback .slider__controls {
+      margin-top: 1.5rem; }
+    .slider_feedback .slider__img {
+      position: relative;
+      background: url("../img/author.jpg") center center no-repeat;
+      height: 3.125rem;
+      width: 3.125rem;
+      border-radius: 100%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-right: 0.625rem;
+      margin-left: -1.5625rem; }
+
+.substrate {
+  display: flex;
+  justify-content: center; }
+  .substrate_main-content {
+    background-color: #f9f9f9;
+    border-bottom: .0625rem solid #e6e6e6; }
+  .substrate_brands {
+    background-color: #f9f9f9;
+    border-top: .0625rem solid #fefefe; }
+  .substrate_articles {
+    background-image: linear-gradient(to top, #322539 0%, #745083 100%);
+    flex-grow: 0;
+    flex-shrink: 1; }
+  .substrate_footer {
+    background: url("../img/footer-bg.jpg") center center no-repeat;
+    height: 12.563rem; }
+
+.updates {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.25rem; }
+  .updates__title {
+    text-shadow: 0.031rem 0.056rem 0 white;
+    color: #454545;
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.875rem;
+    line-height: 0.8;
+    text-transform: uppercase;
+    margin-bottom: 1.3125rem; }
+  .updates__more {
+    text-shadow: 0.031rem 0.056rem 0 white;
+    color: #454545;
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    text-transform: uppercase;
+    align-self: flex-end; }
+
+.wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  box-sizing: border-box; }
+  .wrapper_320 {
+    max-width: 20rem;
+    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
+    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2); }
+  .wrapper_480 {
+    max-width: 30rem;
+    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
+    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2); }
+  .wrapper_768 {
+    max-width: 48rem;
+    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
+    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2); }
+  .wrapper_960 {
+    max-width: 60rem;
+    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
+    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2); }
+  .wrapper_col {
+    flex-direction: column; }
+  .wrapper_articles {
+    flex-direction: column;
+    padding: 4.5rem 1.25rem 2.3125rem 2.0625rem; }

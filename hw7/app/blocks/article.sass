@@ -1,0 +1,104 @@
+.article
+    display: flex
+    flex-grow: 1
+    flex-shrink: 0
+    margin-bottom: (29/16)+rem
+    // flex-basis: 80%
+
+
+    &__icon
+        width: 2rem
+        height: 2rem
+        background-size: cover
+        flex: 0 0 2rem
+        margin-right: (25/16)+rem
+        background: url('../img/icons-sprite.png')
+
+        // @each $itype in icon-wrench, icon-voice, icon-music
+        //     .article__icon_#{$itype}
+        //         @include sprite-position(#{"$"+$itype})
+
+        &_wrench
+            @include sprite-position($icon-wrench)
+
+        &_voice
+            @include sprite-position($icon-voice)
+
+        &_music
+            @include sprite-position($icon-music)
+
+
+    &__body
+        display: flex
+        flex-grow: 1
+        flex-direction: column
+
+    &__title
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-prime
+        font-size: 1.875rem
+        line-height: 0.8
+        text-transform: uppercase
+        margin-bottom: (12/16)+rem
+
+    &__text
+        display: block
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-sec
+        font-size: 1rem
+        font-weight: 300
+        line-height: 1.4
+        margin-right: (24/16)+rem
+        margin-bottom: (19/16)+rem
+        height: (65/16)+rem
+        overflow: hidden
+
+
+    &__more
+        text-shadow: 0.031rem 0.056rem 0 #0f1518
+        color: $color-prime
+        font-family: $font-prime
+        font-size: 1.125rem
+        line-height: 1.33
+        align-self: flex-end
+        text-decoration: none
+        text-transform: uppercase
+
+        &:hover
+            text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8)
+
+
+
+
+    &_updates
+        height: 3.063rem
+
+        .article__body
+            padding: 0
+            // margin-bottom: (22/16)+rem
+
+        .article__icon
+            width: 3.063rem
+            height: 3.063rem
+            border-radius: 100%
+            margin-right: (17/16)+rem
+
+        .article__title
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec_bold
+            font-size: 1rem
+            line-height: 1.5
+            margin-bottom: 0
+
+        .article__text
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec
+            font-size: 1rem
+            line-height: 1.5
+            margin-bottom: 0
+            margin-right: 0
+            height: auto

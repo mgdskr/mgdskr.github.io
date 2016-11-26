@@ -9,13 +9,75 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="wrapper">
+
+      <ul class="resolution">
+        <li class="resolution__btn resolution__btn_320">320px</li>
+        <li class="resolution__btn resolution__btn_480">480px</li>
+        <li class="resolution__btn resolution__btn_768">768px</li>
+        <li class="resolution__btn resolution__btn_960">960px</li>
+      </ul>
+
+        <div class="page-wrapper">
             //= header.html
-            <!-- //= articles.html -->
-            <!-- //= main.html -->
+            //= articles.html
+            //= main.html
+            //= brands.html
+            <!-- //= updates.html -->
             <!-- //= prefooter.html -->
-            <!-- //= footer.html -->
+            //= footer.html
             <!-- //= test/test.html -->
         </div>
+
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+          integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+          crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+          $('.resolution__btn_320').click(function(){
+            $('.resolution__btn').removeClass("resolution__btn_active");
+            $('.wrapper').addClass("wrapper_320");
+            $('.wrapper').removeClass("wrapper_480");
+            $('.wrapper').removeClass("wrapper_768");
+            $('.wrapper').removeClass("wrapper_960");
+            $('.resolution__btn_320').addClass("resolution__btn_active");
+          });
+
+          $('.resolution__btn_480').click(function(){
+            $('.resolution__btn').removeClass("resolution__btn_active");
+            $('.wrapper').removeClass("wrapper_320");
+            $('.wrapper').addClass("wrapper_480");
+            $('.wrapper').removeClass("wrapper_768");
+            $('.wrapper').removeClass("wrapper_960");            $('.resolution__btn_480').addClass("resolution__btn_active");
+          });
+
+
+          $('.resolution__btn_768').click(function(){
+            $('.resolution__btn').removeClass("resolution__btn_active");
+            $('.wrapper').removeClass("wrapper_320");
+            $('.wrapper').removeClass("wrapper_480");
+            $('.wrapper').addClass("wrapper_768");
+            $('.wrapper').removeClass("wrapper_960");
+            $('.resolution__btn_768').addClass("resolution__btn_active");
+          });
+
+          $('.resolution__btn_960').click(function(){
+            $('.resolution__btn').removeClass("resolution__btn_active");
+            $('.wrapper').removeClass("wrapper_320");
+            $('.wrapper').removeClass("wrapper_480");
+            $('.wrapper').removeClass("wrapper_768");
+            $('.wrapper').addClass("wrapper_960");
+            $('.resolution__btn_960').addClass("resolution__btn_active");
+          });
+
+        });
+
+        </script>
+
+
+
+
     </body>
 </html>

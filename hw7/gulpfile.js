@@ -13,7 +13,8 @@ var gulp = require('gulp'),
     rigger = require('gulp-rigger'),
     uncss = require('gulp-uncss'),
     prettify = require('gulp-html-prettify'),
-    fs = require('fs');
+    fs = require('fs'),
+    spritesmith = require('gulp.spritesmith');
 
 
 var path = {
@@ -52,7 +53,22 @@ gulp.task('prettify', function() {
 });
 
 
+gulp.task('sprite', function() {
+    var spriteData =
+        gulp.src('./app/img/sprite/brands/*.*') // путь, откуда берем картинки для спрайта
+            .pipe(spritesmith({
+                imgName: 'brands-sprite.png',
+                cssName: 'brands-sprite.sass',
+                cssFormat: 'sass',
+                algorithm: 'top-down',
+                padding: 1,
 
+
+            }));
+
+    spriteData.img.pipe(gulp.dest('./app/img/'));
+    spriteData.css.pipe(gulp.dest('./app/blocks/_tools'));
+});
 
 
 
