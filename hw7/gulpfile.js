@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    // sass         = require('gulp-sass'),
+    sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     plugins = require('gulp-load-plugins')(),
     concat = require('gulp-concat'),
@@ -55,10 +55,10 @@ gulp.task('prettify', function() {
 
 gulp.task('sprite', function() {
     var spriteData =
-        gulp.src('./app/img/sprite/brands/*.*') // путь, откуда берем картинки для спрайта
+        gulp.src('./app/img/sprite/slider-img/*.*')
             .pipe(spritesmith({
-                imgName: 'brands-sprite.png',
-                cssName: 'brands-sprite.sass',
+                imgName: 'slider-img-sprite.png',
+                cssName: 'slider-img-sprite.sass',
                 cssFormat: 'sass',
                 algorithm: 'top-down',
                 padding: 1,
@@ -138,8 +138,9 @@ gulp.task('media', function() {
 
 gulp.task('sass', function() {
     gulp.src(path.app.sass)
+    // gulp.src('app/blocks/main.sass')
         .pipe(concat('main.sass'))
-        .pipe(plugins.sass())
+        .pipe(sass())
         .pipe(rename('main.css'))
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
         .pipe(cssBeautify())
@@ -190,13 +191,13 @@ gulp.task('clean', function() {
 });
 
 
-gulp.task('watch', ['sass', 'media', 'rigger', 'browser-sync'], function() {
+gulp.task('watch', ['sass', 'rigger', 'browser-sync'], function() {
     gulp.watch(path.app.sass, {
         cwd: './'
     }, ['sass']);
     gulp.watch('app/html/*.html', ['rigger']);
-    gulp.watch('app/blocks/_media/media.css', ['media']);
-    gulp.watch('app/css/temp.css', ['media']);
+    // gulp.watch('app/blocks/_media/media.css', ['media']);
+    // gulp.watch('app/css/temp.css', ['media']);
 
     // gulp.watch('dist/index.html', browserSync.reload);
     // works!

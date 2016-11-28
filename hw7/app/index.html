@@ -11,18 +11,18 @@
 </head>
 
 <body>
-
-  <ul class="resolution">
-    <li class="resolution__btn resolution__btn_320">320px</li>
-    <li class="resolution__btn resolution__btn_480">480px</li>
-    <li class="resolution__btn resolution__btn_768">768px</li>
-    <li class="resolution__btn resolution__btn_960">960px</li>
-  </ul>
+  <!--
+      <ul class="resolution">
+        <li class="resolution__btn resolution__btn_320">320px</li>
+        <li class="resolution__btn resolution__btn_480">480px</li>
+        <li class="resolution__btn resolution__btn_768">768px</li>
+        <li class="resolution__btn resolution__btn_960">960px</li>
+      </ul> -->
 
   <div class="page-wrapper">
     <header class="substrate_header header">
 
-      <div class="wrapper wrapper_col">
+      <div class="wrapper wrapper_960 wrapper_col">
         <h1 class="logo header__logo">pingbull<span class="logo logo_accent">er</span>
 
                     </h1>
@@ -50,9 +50,9 @@
           </ul>
         </nav>
       </div>
-      <div class="slider">
-        <div class="slider__substrate">
-          <div class="wrapper">
+      <div class="slider header__slider">
+        <div class="substrate substrate_slider">
+          <div class="wrapper wrapper_slider">
             <div class="slider__item">
               <div class="slider__arrow slider__arrow_left"></div>
               <div class="slider__title">Lorem Ipsum Dolor
@@ -60,6 +60,7 @@
 
                                     </span>
               </div>
+              <a class="slider__img"></a>
               <div class="slider__arrow slider__arrow_right"></div>
             </div>
           </div>
@@ -76,7 +77,7 @@
 
     </header>
     <div class="substrate substrate_articles">
-      <div class="wrapper wrapper_articles">
+      <div class="wrapper wrapper_960 wrapper_articles">
         <section class="article">
           <i class="article__icon article__icon_wrench"></i>
           <div class="article__body">
@@ -113,7 +114,7 @@
       </div>
     </div>
     <div class="substrate substrate_main-content">
-      <main class="wrapper wrapper_col main-content">
+      <main class="wrapper wrapper_960 wrapper_main-content">
         <div class="slider slider_feedback main-content__slider">
           <div class="slider__item">
             <div class="slider__img"></div>
@@ -121,7 +122,7 @@
             <section class="slider__body">
               <h4 class="slider__title">PingbulLer<span class="slider__title slider__title_accent">start here</span>
 
-                             </h4>
+                                </h4>
               <p class="slider__text">“Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar urna risus, mattis pulvinar bibendum
                 in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl.” Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus
                 eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.</p>
@@ -140,38 +141,32 @@
         <section class="updates">
           <h4 class="updates__title">recent updates</h4>
 
-          <section class="article article_updates">
-            <img src="../img/post1.jpg" alt="Post image" class="article__icon">
+          <div class="updates__item">
+            <img src="../img/post1.jpg" alt="Post image" class="updates__item-img">
 
-            <div class="article__body">
-              <h5 class="article__title">Nunc turpis neque
-
-                                </h5>
-              <p class="article__text">Posted by Admin on March 13</p>
+            <div class="updates__itme-body">
+              <h5 class="updates__item-title"><a href="" class="updates__item-link"></a>Nunc turpis neque feugiat eget</a></h5>
+              <p class="updates__item-details">Posted by Admin on March 13 2012 in Recent News</p>
             </div>
-          </section>
+          </div>
 
-          <section class="article article_updates">
-            <img src="../img/post1.jpg" alt="Post image" class="article__icon">
+          <div class="updates__item">
+            <img src="../img/post1.jpg" alt="Post image" class="updates__item-img">
 
-            <div class="article__body">
-              <h5 class="article__title">Nunc turpis neque
-
-                                </h5>
-              <p class="article__text">Posted by Admin on March 13</p>
+            <div class="updates__itme-body">
+              <h5 class="updates__item-title"><a href="" class="updates__item-link"></a>Nunc turpis neque feugiat eget</a></h5>
+              <p class="updates__item-details">Posted by Admin on March 13 2012 in Category</p>
             </div>
-          </section>
+          </div>
 
-          <section class="article article_updates">
-            <img src="../img/post1.jpg" alt="Post image" class="article__icon">
+          <div class="updates__item">
+            <img src="../img/post1.jpg" alt="Post image" class="updates__item-img">
 
-            <div class="article__body">
-              <h5 class="article__title">Nunc turpis neque
-
-                                </h5>
-              <p class="article__text">Posted by Admin on March 13</p>
+            <div class="updates__itme-body">
+              <h5 class="updates__item-title"><a href="" class="updates__item-link"></a>Nunc turpis neque feugiat eget</a></h5>
+              <p class="updates__item-details">Posted by Admin on March 13 2012 in Blog Updates</p>
             </div>
-          </section>
+          </div>
 
           <p class="updates__more">more blog posts</p>
 
@@ -179,7 +174,7 @@
       </main>
     </div>
     <div class="substrate substrate_brands">
-      <div class="wrapper">
+      <div class="wrapper wrapper_960 wrapper_brands">
         <ul class="brand-logos">
           <li class="brand-logos__item">
             <a href class="brand-logos__link brand-logos__link_1"></a>
@@ -203,25 +198,106 @@
       </div>
     </div>
     <!-- //= updates.html -->
-    <!-- //= prefooter.html -->
+    <div class="substrate substrate_prefooter">
+      <div class="wrapper wrapper_960 wrapper_prefooter">
+
+        <div class="copyright">
+          <h4 class="logo logo_grayscale copyright__logo">pingbull<span class="logo logo_accent">er</span>
+
+                        </h4>
+          <p class="copyright__copy">Copyright 2013, Pingbull AS</p>
+          <p class="copyright__text">Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar. Quisque urna risus, mattis pulvinar bibendum
+            in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus
+            eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.</p>
+        </div>
+
+        <div class="article article_prefooter">
+          <section class="article__body">
+            <h4 class="article__title">
+
+                                <a href="" class="article__link">news categories</a>
+
+                            </h4>
+            <p class="article__text">Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar. Quisque urna risus, mattis pulvinar bibendum
+              in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus
+              eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.</p>
+          </section>
+        </div>
+
+        <div class="article article_prefooter">
+          <section class="article__body">
+            <h4 class="article__title">
+
+                                <a href="" class="article__link">news categories</a>
+
+                            </h4>
+            <p class="article__text">Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar. Quisque urna risus, mattis pulvinar bibendum
+              in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus
+              eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.</p>
+          </section>
+        </div>
+
+        <div class="article article_prefooter article_md_hidden">
+          <section class="article__body">
+            <h4 class="article__title">
+
+                                <a href="" class="article__link">news categories</a>
+
+                            </h4>
+            <p class="article__text">Nunc turpis neque, feugiat eget eleifend et, lacinia non neque. Praesent rhoncus ultrices posuere. Pellentesque vel lacus eget nisi convallis auctor. Nam vitae lectus eu libero pellentesque pulvinar. Quisque urna risus, mattis pulvinar bibendum
+              in, venenatis quis neque. Mauris nec metus ultricies erat consequat dignissim non eu nisl. Quisque libero tellus, pharetra et eleifend id, interdum elementum arcu. Suspendisse quis mauris non ligula rutrum faucibus eu quis odio. Phasellus
+              eu lobortis odio. In hac habitasse platea dictumst. Proin vestibulum turpis at mauris aliquam non euismod lorem euismod. Aenean dapibus ultricies enim, eget vulputate leo feugiat non.</p>
+          </section>
+        </div>
+
+      </div>
+      <!-- end of prefooter wrapper -->
+    </div>
+    <!-- end of prefooter substrate -->
     <div class="substrate substrate_footer">
-      <div class="wrapper">
-        <div class="footer">
-          <div class="footer__copy">Designed by
-            <span class="footer__copy footer__copy_accent">Pingbull AS</span>
-          </div>
+      <div class="wrapper wrapper_960 wrapper_footer footer">
+
+        <nav class="footer__menu">
+          <ul class="menu menu_footer">
+            <li class="menu__item">
+              <a href="#" class="menu__link">home</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">about</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">blog</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">products</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">lorem ipsum</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">dolor sit amet</a>
+            </li>
+          </ul>
+        </nav>
+
+
+        <div class="footer__copy">Designed by
+          <span class="footer__copy footer__copy_accent">Pingbull AS</span>
         </div>
 
       </div>
     </div>
     <!-- //= test/test.html -->
   </div>
+  <!--
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+          integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+          crossorigin="anonymous"></script>
 
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
 
-
-  <script type="text/javascript">
-    $(document).ready(function(){
+        <script type="text/javascript">
+        $(document).ready(function(){
           $('.resolution__btn_320').click(function(){
             $('.resolution__btn').removeClass("resolution__btn_active");
             $('.wrapper').addClass("wrapper_320");
@@ -259,8 +335,9 @@
           });
 
         });
-  </script>
 
+        </script>
+ -->
 
 
 

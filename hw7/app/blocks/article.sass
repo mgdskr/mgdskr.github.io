@@ -3,7 +3,9 @@
     flex-grow: 1
     flex-shrink: 0
     margin-bottom: (29/16)+rem
-    // flex-basis: 80%
+    width: 100%
+    @include respond-to (sm)
+        width: 30%
 
 
     &__icon
@@ -14,19 +16,11 @@
         margin-right: (25/16)+rem
         background: url('../img/icons-sprite.png')
 
-        // @each $itype in icon-wrench, icon-voice, icon-music
-        //     .article__icon_#{$itype}
-        //         @include sprite-position(#{"$"+$itype})
 
-        &_wrench
-            @include sprite-position($icon-wrench)
-
-        &_voice
-            @include sprite-position($icon-voice)
-
-        &_music
-            @include sprite-position($icon-music)
-
+        @at-root
+            @each $itype, $icon in (wrench: $icon-wrench, voice: $icon-voice, music: $icon-music)
+    	          .article__icon_#{$itype}
+    		            @include sprite-position($icon)
 
     &__body
         display: flex
@@ -38,7 +32,7 @@
         color: $color-prime
         font-family: $font-prime
         font-size: 1.875rem
-        line-height: 0.8
+        line-height: 1
         text-transform: uppercase
         margin-bottom: (12/16)+rem
 
@@ -48,9 +42,9 @@
         color: $color-prime
         font-family: $font-sec
         font-size: 1rem
-        font-weight: 300
+        // font-weight: 300
         line-height: 1.4
-        margin-right: (24/16)+rem
+        // margin-right: (24/16)+rem
         margin-bottom: (19/16)+rem
         height: (65/16)+rem
         overflow: hidden
@@ -70,35 +64,34 @@
             text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8)
 
 
-
-
-    &_updates
-        height: 3.063rem
-
-        .article__body
-            padding: 0
-            // margin-bottom: (22/16)+rem
-
-        .article__icon
-            width: 3.063rem
-            height: 3.063rem
-            border-radius: 100%
-            margin-right: (17/16)+rem
+    &_prefooter
+        margin-bottom: ((60-(1.5-1)*16/2)/16)+rem
+        @include respond-to (sm)
+            max-width: (205/768*100)+%
+        @include respond-to (md)
+            max-width: (277/960*100)+%
 
         .article__title
-            text-shadow: 0.031rem 0.056rem 0 white
             color: #454545
-            font-family: $font-sec_bold
-            font-size: 1rem
-            line-height: 1.5
-            margin-bottom: 0
+            text-shadow: 0.031rem 0.056rem 0 white
+            margin-bottom: ((18-(1.5-1)*16/2)/16)+rem
+
+        .article__link
+            color: inherit
+            text-decoration: none
+            &:hover
+                text-shadow: 0.031rem 0.056rem 0 black
+
 
         .article__text
+            color: #787878
             text-shadow: 0.031rem 0.056rem 0 white
-            color: #454545
-            font-family: $font-sec
-            font-size: 1rem
             line-height: 1.5
-            margin-bottom: 0
-            margin-right: 0
-            height: auto
+            height: (161/16)+rem
+            @include respond-to (md)
+                height: 10.063rem
+
+
+    &_md_hidden
+        @include respond-to (md)
+            display: none

@@ -11,8 +11,10 @@
         display: flex
         flex-grow: 1
         flex-shrink: 0
-        // background-color: rgba(0, 0, 0, .2)
-        // height: 25rem
+        height: 15.375rem
+        visibility: hidden
+        // @include respond-to (xs)
+        //     visibility: visible
 
     &__item
         display: flex
@@ -46,6 +48,22 @@
             color: #edbfff
             font-size: 1.125rem
 
+
+    &__img
+        display: block
+        flex-shrink: 0
+        background: url('../img/slider-img-sprite.png')
+        @include respond-to (xxs)
+            display: none
+        @each $slider-size, $slider-img-position in (xs: $slider-img-xs, sm: $slider-img-sm, md: $slider-img-md)
+            @include respond-to ($slider-size)
+                @include sprite-position($slider-img-position)
+                @include sprite-height($slider-img-position)
+                @include sprite-width($slider-img-position)
+
+
+
+
     &__controls
         display: flex
         justify-content: center
@@ -67,8 +85,14 @@
 
     &_feedback
         margin-bottom: (50/16)+rem
-        padding-left: (20/16)+rem
-        padding-left: (24/16)+rem
+        width: 100%
+        flex-grow: 1
+        flex-shrink: 0
+        @include respond-to (sm)
+            width: 35%
+            margin-right: (60/16)+rem
+        // padding-left: (4/16)+rem
+        // padding-left: (20/16)+rem
 
         .slider__item
             box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)

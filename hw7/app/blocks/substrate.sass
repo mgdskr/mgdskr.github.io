@@ -1,6 +1,21 @@
 .substrate
     display: flex
-    justify-content: center
+    // justify-content: center
+
+    &_slider
+        width: 100%
+        flex-grow: 1
+        @include respond-to (xs)
+            background: rgba(0, 0, 0, .2)
+            height: 15.375rem
+        @include respond-to (sm)
+            height: 25rem
+
+
+    &_articles
+        background-image: linear-gradient(to top, #322539 0%, #745083 100%)
+        flex-grow: 1
+        flex-shrink: 0
 
     &_main-content
         background-color: #f9f9f9
@@ -10,12 +25,9 @@
         background-color: #f9f9f9
         border-top: .0625rem solid #fefefe
 
-
-    &_articles
-        background-image: linear-gradient(to top, #322539 0%, #745083 100%)
-        flex-grow: 0
-        flex-shrink: 1
+    &_prefooter
+        background-color: #ececec
 
     &_footer
         background: url('../img/footer-bg.jpg') center center no-repeat
-        height: 12.563rem  
+        height: 12.563rem

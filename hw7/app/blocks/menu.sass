@@ -42,10 +42,8 @@
         text-decoration: none
         box-sizing: border-box
         height: 2.4375rem
-        width: 100%
         border-top: 1px solid #52405a
         border-bottom: 1px solid #37293f
-        text-align: center
 
         &:hover
             background: rgba(0, 0, 0, .3)
@@ -59,3 +57,47 @@
             border-bottom: 0.125rem solid #edbfff
             height: 2.4rem
             width: 25%
+
+
+    &_footer
+        display: none
+        visibility: visible
+        flex-direction: row
+        justify-content: space-between
+        border-radius: 0
+        background: 0
+        border: 0
+        box-shadow: none
+
+        @include respond-to (xs)
+            display: flex
+
+        @include respond-to (sm)
+            align-self: flex-start
+            justify-content: flex-start
+
+        .menu__item
+            width: auto
+            height: auto
+
+            @include respond-to (sm)
+                margin-right: (14*.25)+rem
+
+            &:first-child
+                text-align: left
+
+            &:last-child
+                text-align: right
+
+
+        .menu__link
+            border: none
+            text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4)
+            font-size: 1.25rem
+            line-height: 1
+            height: 1.25rem
+
+            &:hover
+                background: none
+                text-shadow: none
+                border: none
