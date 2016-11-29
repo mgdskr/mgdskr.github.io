@@ -10,6 +10,7 @@
     visibility: hidden
     overflow: hidden
 
+
     &:hover
         visibility: visible
 
@@ -59,7 +60,7 @@
             width: 25%
 
 
-    &_footer
+    &_horizontal
         display: none
         visibility: visible
         flex-direction: row
@@ -68,10 +69,8 @@
         background: 0
         border: 0
         box-shadow: none
-
         @include respond-to (xs)
             display: flex
-
         @include respond-to (sm)
             align-self: flex-start
             justify-content: flex-start
@@ -79,7 +78,6 @@
         .menu__item
             width: auto
             height: auto
-
             @include respond-to (sm)
                 margin-right: (14*.25)+rem
 
@@ -97,7 +95,28 @@
             line-height: 1
             height: 1.25rem
 
+
             &:hover
                 background: none
                 text-shadow: none
                 border: none
+
+        &-main
+            @extend .menu_horizontal
+            .menu__link
+                font-size: 1.5rem
+
+
+
+
+
+// Base text style
+// width: 39.438rem
+// height: 1.125rem
+// text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4)
+// color: white
+// font-family: "League Gothic"
+// font-size: 1.5rem
+// font-weight: 400
+// line-height: 1.42
+// text-transform: uppercase

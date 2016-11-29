@@ -21,14 +21,12 @@
 
   <div class="page-wrapper">
     <header class="substrate_header header">
-
-      <div class="wrapper wrapper_960 wrapper_col">
+      <div class="wrapper wrapper_960 wrapper_header">
         <h1 class="logo header__logo">pingbull<span class="logo logo_accent">er</span>
 
                     </h1>
-
         <nav class="header__menu">
-          <ul class="menu">
+          <ul class="menu" id="menu-main">
             <li class="menu__item">
               <a href="#" class="menu__link menu__link_initial">home</a>
             </li>
@@ -50,9 +48,10 @@
           </ul>
         </nav>
       </div>
+      <!-- end of logo+menu -->
       <div class="slider header__slider">
         <div class="substrate substrate_slider">
-          <div class="wrapper wrapper_slider">
+          <div class="wrapper wrapper_slider wrapper_960">
             <div class="slider__item">
               <div class="slider__arrow slider__arrow_left"></div>
               <div class="slider__title">Lorem Ipsum Dolor
@@ -74,6 +73,7 @@
         </form>
 
       </div>
+      <!-- end of slider -->
 
     </header>
     <div class="substrate substrate_articles">
@@ -258,7 +258,7 @@
       <div class="wrapper wrapper_960 wrapper_footer footer">
 
         <nav class="footer__menu">
-          <ul class="menu menu_footer">
+          <ul class="menu menu_horizontal">
             <li class="menu__item">
               <a href="#" class="menu__link">home</a>
             </li>
@@ -287,8 +287,22 @@
 
       </div>
     </div>
-    <!-- //= test/test.html -->
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    function menuChangeOrientation() {
+                if ($(this).width() >= 768) {
+                    $('#menu-main').addClass('menu_horizontal-main');
+                } else {
+                    $('#menu-main').removeClass('menu_horizontal-main');
+                }
+            };
+            $(document).ready(menuChangeOrientation);
+            $(window).resize(menuChangeOrientation);
+  </script>
+
   <!--
         <script
           src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
@@ -338,8 +352,6 @@
 
         </script>
  -->
-
-
 
 </body>
 

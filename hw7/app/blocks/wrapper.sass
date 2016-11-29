@@ -29,6 +29,22 @@
         flex-direction: column
         justify-content: flex-start
 
+
+    &_header
+        flex-direction: column
+        justify-content: flex-start
+        outline: 1px solid black
+        flex-shrink: 0
+        @include respond-to (sm)
+            align-items: flex-start
+        @include respond-to (md)
+            flex-direction: row
+            justify-content: space-between
+            // align-items: flex-start
+
+
+
+
     &_slider
         padding: 0
         flex-grow: 1

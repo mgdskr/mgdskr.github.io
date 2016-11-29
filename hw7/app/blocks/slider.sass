@@ -67,7 +67,15 @@
     &__controls
         display: flex
         justify-content: center
-        margin-top: 5rem
+        margin-top: (81/16)rem
+        @include respond-to (xs)
+            margin-top: (22/16)+rem
+        @include respond-to (sm)
+            margin-top: (37/16)+rem
+        @include respond-to (sm)
+            margin-top: (93/16)+rem
+
+
 
     &__control
         position: relative

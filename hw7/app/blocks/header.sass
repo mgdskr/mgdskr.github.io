@@ -9,13 +9,26 @@
         text-align: center
 
     &__menu
-        margin: auto
         position: relative
-        // top: 1.3rem
         z-index: 10
         max-width: 15rem
+        align-self: center
+        @include respond-to (sm)
+            align-self: flex-start
+            max-width: 100%
+            margin-top: (39/16)+rem
+        @include respond-to (md)
+            align-self: center
+            margin-top: 0
+            // max-width: 70%
+
 
 
     &__slider
-        position: relative
-        top: -7.3rem
+        // position: relative
+        // top: -7.3rem
+        outline: 1px solid black
+        @include respond-to (sm)
+            margin-top: (81/16)+rem
+        @include respond-to (md)
+            margin-top: (172/16)+rem
