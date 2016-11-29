@@ -19,16 +19,27 @@
     &__item
         display: flex
         flex-grow: 1
-        flex-shrink: 0
         align-items: center
         justify-content: space-between
-        // min-width: (320/16) + rem
+        box-sizing: border-box
+        padding: 0 (18/16)+rem
+        @include respond-to (sm)
+            padding-left: (22/16)+rem
+            padding-right: (25/16)+rem
+        @include respond-to (md)
+            max-width: (960+2*22)+px
+            padding-right: (71/16)+rem
+
+            // padding: 0 (22/16)+rem
+
+
 
     &__arrow
         width: (30/16) + rem
         height: (42/16) + rem
         cursor: pointer
         background: url('../img/slider-sprite.png')
+        flex-shrink: 0
 
         &_left
             @include sprite-position($slider-arrow-left)
@@ -36,17 +47,61 @@
         &_right
             @include sprite-position($slider-arrow-right)
 
+    &__body
+        display: flex
+        flex-direction: column
+        @include respond-to (xs)
+            // width: (184/16)+rem
+        @include respond-to (sm)
+            width: (274/16)+rem
+        @include respond-to (md)
+            width: (521/16)+rem
+
+    &__text
+        display: none
+        color: $color-prime
+        font-family: $font-sec
+        @include respond-to (sm)
+            display: inline
+            font-size: 1rem
+            line-height: 1.5
+        @include respond-to (md)
+            font-size: 1.125rem
+            line-height: 1.67
+
+
+
     &__title
         text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3)
         color: #fefefe
         font-family: $font-prime
         font-size: 2.25rem
-        display: flex
-        flex-direction: column
+        display: block
+        overflow: hidden
+        @include respond-to (sm)
+            font-size: 3rem
+            line-height: 1
+        @include respond-to (md)
+            font-size: 3.75rem
+            line-height: 1
+
 
         &_accent
             color: #edbfff
             font-size: 1.125rem
+            height: 1.125rem
+            @include respond-to (xs)
+                height: 1.125rem
+            @include respond-to (sm)
+                font-size: 1.5rem
+                line-height: 1.5
+                height: 1.8rem
+            @include respond-to (md)
+                font-size: 2rem
+                line-height: 1.13
+                line-height: 2rem
+
+
 
 
     &__img
@@ -55,6 +110,8 @@
         background: url('../img/slider-img-sprite.png')
         @include respond-to (xxs)
             display: none
+        // @include respond-to (md)
+        //     margin-right: (71/16)+rem
         @each $slider-size, $slider-img-position in (xs: $slider-img-xs, sm: $slider-img-sm, md: $slider-img-md)
             @include respond-to ($slider-size)
                 @include sprite-position($slider-img-position)
