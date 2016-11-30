@@ -1,3 +1,127 @@
 & {
-    color: gray;
+background: url('../img/bcg-mob.png') center top no-repeat;
+height: 1138px;
+width: 640px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 220px;
+  width: 554px;
+
+
+
+
+}
+
+
+.icon_network {
+  background: url('../img/icon_network.png');
+  display: block;
+  width: 191px;
+  height: 206px;
+}
+
+.auth {
+  margin-top: 268px;
+  width: 100%
+}
+
+.auth__field {
+width: 100%;
+height: 5.875rem;
+background: rgba(255, 255, 255, .1);
+border-radius: 2.875rem;
+display: flex;
+align-items: center;
+padding-left: 36px;
+margin-bottom: 26px;
+flex-grow: 1;
+}
+
+
+
+.auth__icon_login {
+background: url('../img/icon_username.png') center center no-repeat;
+width: 41px;
+height: 38px;
+margin-right: 29px;
+display: block;
+}
+
+
+.auth__icon_password {
+background: url('../img/icon_password.png') center center no-repeat;
+width: 37px;
+height: 44px;
+margin-right: 29px;
+display: block;
+}
+
+.auth__input {
+width: 70%;
+height: 5.875rem;
+background-color: transparent;
+display: flex;
+align-items: center;
+border: none;
+color: white;
+font-family: Montserrat, sans-serif;
+font-size: 1.375rem;
+line-height: 1;
+font-weight: 400;
+}
+
+.auth__input::-webkit-input-placeholder {
+    color: white;
+}
+
+
+
+
+
+
+.auth__input:focus, .auth__input:active {
+  outline: none;
+}
+
+
+
+
+.auth__submit {
+width: 100%;
+height: 5.875rem;
+background-color: #f96332;
+border-radius: 2.875rem;
+color: white;
+font-family: Montserrat, sans-serif;
+font-size: 1.375rem;
+font-weight: 700;
+border: none;
+margin-bottom: 46px;
+}
+
+.auth-add {
+display: flex;
+justify-content: space-between;
+width: 100%;
+
+}
+
+
+.auth-add__link {
+  opacity: .5;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.188rem;
+  font-weight: 400;
+  text-decoration: none;
+
+
 }

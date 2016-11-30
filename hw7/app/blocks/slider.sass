@@ -20,9 +20,12 @@
         display: flex
         flex-grow: 1
         align-items: center
-        justify-content: space-between
+        justify-content: center
         box-sizing: border-box
         padding: 0 (18/16)+rem
+
+        @include respond-to (xs)
+            justify-content: space-between
         @include respond-to (sm)
             padding-left: (22/16)+rem
             padding-right: (25/16)+rem
@@ -105,11 +108,11 @@
 
 
     &__img
-        display: block
+        display: none
         flex-shrink: 0
         background: url('../img/slider-img-sprite.png')
-        @include respond-to (xxs)
-            display: none
+        @include respond-to (xs)
+            display: block
         // @include respond-to (md)
         //     margin-right: (71/16)+rem
         @each $slider-size, $slider-img-position in (xs: $slider-img-xs, sm: $slider-img-sm, md: $slider-img-md)
@@ -123,14 +126,14 @@
 
     &__controls
         display: flex
-        justify-content: center
-        margin-top: (81/16)rem
+        margin-top: (81/16)+rem
         @include respond-to (xs)
             margin-top: (22/16)+rem
         @include respond-to (sm)
             margin-top: (37/16)+rem
-        @include respond-to (sm)
+        @include respond-to (md)
             margin-top: (93/16)+rem
+
 
 
 

@@ -34,14 +34,12 @@
     &_header
         flex-direction: column
         justify-content: flex-start
-        outline: 1px solid black
         flex-shrink: 0
         @include respond-to (sm)
             align-items: flex-start
         @include respond-to (md)
             flex-direction: row
             justify-content: space-between
-            // align-items: flex-start
 
 
 
@@ -52,6 +50,11 @@
         max-width: 100%
         align-items: center
         justify-content: space-between
+
+    &_slider-controls
+        @include respond-to (md)
+            justify-content: flex-end
+            padding-right: (160/960*100)+%  
 
 
     &_articles

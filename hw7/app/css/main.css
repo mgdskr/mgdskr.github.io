@@ -478,7 +478,6 @@
 }
 
 .header__slider {
-    outline: 1px solid black;
     margin-top: -5.9375rem;
 }
 
@@ -657,8 +656,24 @@
     border: none;
 }
 
+.menu_horizontal-main:hover .menu__link_initial {
+    text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4);
+}
+
+.menu_horizontal-main:hover .menu__link_initial:hover {
+    background: none;
+    text-shadow: none;
+    border-bottom: none;
+    height: 1.25rem;
+    width: 100%;
+}
+
 .menu_horizontal-main .menu__link {
     font-size: 1.5rem;
+}
+
+.menu_horizontal-main .menu__link:hover {
+    color: #fff;
 }
 
 .resolution {
@@ -707,9 +722,15 @@
     display: flex;
     flex-grow: 1;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-sizing: border-box;
     padding: 0 1.125rem;
+}
+
+@media screen and (min-width: 480px) {
+    .slider__item {
+        justify-content: space-between;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -832,9 +853,15 @@
 }
 
 .slider__img {
-    display: block;
+    display: none;
     flex-shrink: 0;
     background: url("../img/slider-img-sprite.png");
+}
+
+@media screen and (min-width: 480px) {
+    .slider__img {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 480px) {
@@ -863,8 +890,7 @@
 
 .slider__controls {
     display: flex;
-    justify-content: center;
-    margin-top: 5.0625 rem;
+    margin-top: 5.0625rem;
 }
 
 @media screen and (min-width: 480px) {
@@ -879,7 +905,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 960px) {
     .slider__controls {
         margin-top: 5.8125rem;
     }
@@ -1129,7 +1155,6 @@
 .wrapper_header {
     flex-direction: column;
     justify-content: flex-start;
-    outline: 1px solid black;
     flex-shrink: 0;
 }
 
@@ -1152,6 +1177,13 @@
     max-width: 100%;
     align-items: center;
     justify-content: space-between;
+}
+
+@media screen and (min-width: 960px) {
+    .wrapper_slider-controls {
+        justify-content: flex-end;
+        padding-right: 16.66667%;
+    }
 }
 
 .wrapper_articles {

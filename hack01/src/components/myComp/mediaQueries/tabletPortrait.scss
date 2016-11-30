@@ -1,1 +1,19 @@
 @import '../mobile';
+
+& {
+    background: url('../img/bcg-tab-port.png') center top no-repeat;
+    height: 1536px;
+    width: 1718px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 220px;
+    width: 648px;
+}
