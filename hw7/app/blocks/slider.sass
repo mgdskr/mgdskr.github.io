@@ -157,10 +157,15 @@
         flex-grow: 1
         flex-shrink: 0
         box-sizing: border-box
+        @include respond-to (sm)
+            max-width: (337/768*100)+%
+            margin-right: ((768-327-337-40)/16)+rem
+            margin-bottom: 0
+            margin-left: (24/16)+rem
         @include respond-to (md)
             max-width: (451/960*100)+%
             padding-left: (24/16)+rem
-            margin-bottom: 0
+            // margin-bottom: 0
 
         .slider__item
             box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
@@ -170,6 +175,8 @@
             padding: (27/16)+rem (40/16)+rem (33/16)+rem 0
             @include respond-to (sm)
                 width: 100%
+                padding: (31/16)+rem (27/16)+rem (45/16)+rem 0
+
 
         .slider__title
             text-shadow: 0.031rem 0.056rem 0 white
@@ -185,6 +192,8 @@
                 color: #edbfff
                 margin-bottom: (13/16) + rem
                 @include respond-to (md)
+                    margin-bottom: (17/16)+rem
+                @include respond-to (md)
                     margin-left: (1.5*0.25)+rem
 
         .slider__text
@@ -195,6 +204,8 @@
             line-height: 1.5
             max-height: (157/16)+rem
             overflow: hidden
+            @include respond-to (sm)
+                max-height: 8.863rem
             @include respond-to (md)
                 max-height: 10.5rem
 
