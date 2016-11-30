@@ -1,12 +1,16 @@
 .updates
     display: flex
     flex-direction: column
-    // padding: 0 (20/16)+rem
-    width: 100%
-    flex-grow: 1
+    max-width: 100%
+    height: auto
     flex-shrink: 0
+    @include respond-to (xs)
+        max-width: (337/480*100)+%
     @include respond-to (sm)
-        width: 35%
+        max-width: (327/768*100)+%
+    @include respond-to (md)
+        max-width: (431/960*100)+%
+        padding-top: (32/16)+rem
 
 
     &__title
@@ -21,7 +25,7 @@
 
     &__item
         display: flex
-        // width: 100%
+        margin-bottom: (18/16)+rem
 
     &__item-img
         width: 3.063rem
@@ -32,7 +36,6 @@
     &__item-body
         display: flex
         flex-direction: column
-        // width: 100%
 
 
 
@@ -45,15 +48,6 @@
         height: 1.5rem
         overflow: hidden
         display: block
-        // width: 100%
-    //
-    // &__item-link
-    //     width: 80%
-    //     overflow: hidden
-    //     display: block
-
-
-
 
 
     &__item-details

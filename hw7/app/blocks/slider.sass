@@ -156,11 +156,11 @@
         width: 100%
         flex-grow: 1
         flex-shrink: 0
-        @include respond-to (sm)
-            width: 35%
-            margin-right: (60/16)+rem
-        // padding-left: (4/16)+rem
-        // padding-left: (20/16)+rem
+        box-sizing: border-box
+        @include respond-to (md)
+            max-width: (451/960*100)+%
+            padding-left: (24/16)+rem
+            margin-bottom: 0
 
         .slider__item
             box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
@@ -168,7 +168,8 @@
             flex-direction: row
             align-items: flex-start
             padding: (27/16)+rem (40/16)+rem (33/16)+rem 0
-            // (38/16)+rem
+            @include respond-to (sm)
+                width: 100%
 
         .slider__title
             text-shadow: 0.031rem 0.056rem 0 white
@@ -177,10 +178,14 @@
             line-height: 1
             text-transform: uppercase
             color: #454545
+            @include respond-to (md)
+                display: flex
 
             &_accent
                 color: #edbfff
                 margin-bottom: (13/16) + rem
+                @include respond-to (md)
+                    margin-left: (1.5*0.25)+rem
 
         .slider__text
             text-shadow: 0.031rem 0.056rem 0 white
@@ -190,6 +195,8 @@
             line-height: 1.5
             max-height: (157/16)+rem
             overflow: hidden
+            @include respond-to (md)
+                max-height: 10.5rem
 
         .slider__controls
             margin-top: (24 / 16)+rem
@@ -204,5 +211,3 @@
             flex-shrink: 0
             margin-right: (10/16)+rem
             margin-left: (-25/16)+rem
-            // top: (51/16)+rem
-            // left: (-63/16)+rem
