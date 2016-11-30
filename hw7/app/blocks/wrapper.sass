@@ -10,14 +10,13 @@
 
 
 .wrapper
-    // max-width: $max-width
+    display: flex
+    justify-content: center
+    flex-grow: 1
     min-width: 320px
     max-width: 960px
     width: 100%
     margin: 0 auto
-    display: flex
-    justify-content: center
-    flex-grow: 1
     box-sizing: border-box
     padding: 0 (20/16)+rem
     @include respond-to (md)
@@ -61,8 +60,6 @@
         flex-direction: column
         padding: (72/16)+rem (20/16)+rem (37/16)+rem  (33/16)+rem
         @include respond-to (sm)
-            padding-left: 0
-            padding-right: 0        
             flex-direction: row
 
     &_main-content

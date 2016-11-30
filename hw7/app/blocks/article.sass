@@ -5,8 +5,9 @@
     margin-bottom: (29/16)+rem
     width: 100%
     @include respond-to (sm)
-        width: 30%
-
+        width: (200/768)+%
+    @include respond-to (md)
+        width: (273/960)+%
 
     &__icon
         width: 2rem
@@ -14,6 +15,7 @@
         background-size: cover
         flex: 0 0 2rem
         margin-right: (25/16)+rem
+        margin-left: (12/16)+rem
         background: url('../img/icons-sprite.png')
 
 
@@ -48,6 +50,12 @@
         margin-bottom: (19/16)+rem
         height: (65/16)+rem
         overflow: hidden
+        @include respond-to (sm)
+            // width: 9.438rem
+            height: 8.5rem
+        @include respond-to (md)
+            height: 7.063rem
+
 
 
     &__more

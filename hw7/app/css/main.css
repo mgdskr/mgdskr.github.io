@@ -138,7 +138,13 @@
 
 @media screen and (min-width: 768px) {
     .article {
-        width: 30%;
+        width: 0.26042%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .article {
+        width: 0.28437%;
     }
 }
 
@@ -148,6 +154,7 @@
     background-size: cover;
     flex: 0 0 2rem;
     margin-right: 1.5625rem;
+    margin-left: 0.75rem;
     background: url("../img/icons-sprite.png");
 }
 
@@ -189,6 +196,18 @@
     margin-bottom: 1.1875rem;
     height: 4.0625rem;
     overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .article__text {
+        height: 8.5rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .article__text {
+        height: 7.063rem;
+    }
 }
 
 .article__more {
@@ -1218,13 +1237,13 @@
 }
 
 .wrapper {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
     min-width: 320px;
     max-width: 960px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
     box-sizing: border-box;
     padding: 0 1.25rem;
 }
@@ -1282,8 +1301,6 @@
 
 @media screen and (min-width: 768px) {
     .wrapper_articles {
-        padding-left: 0;
-        padding-right: 0;
         flex-direction: row;
     }
 }
