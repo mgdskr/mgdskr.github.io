@@ -54,13 +54,15 @@
     &_slider-controls
         @include respond-to (md)
             justify-content: flex-end
-            padding-right: (160/960*100)+%  
+            padding-right: (160/960*100)+%
 
 
     &_articles
         flex-direction: column
         padding: (72/16)+rem (20/16)+rem (37/16)+rem  (33/16)+rem
         @include respond-to (sm)
+            padding-left: 0
+            padding-right: 0        
             flex-direction: row
 
     &_main-content

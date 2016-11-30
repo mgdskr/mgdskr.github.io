@@ -531,6 +531,88 @@
     padding: 4.375rem 1.25rem 0 1.25rem;
 }
 
+.main-content__link {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.625;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 2.4375rem;
+    border-top: 1px solid #52405a;
+    border-bottom: 1px solid #37293f;
+}
+
+.main-content__link:hover {
+    background: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.6);
+    border-bottom: 0.125rem solid #edbfff;
+}
+
+.test_menu-horizontal {
+    display: none;
+}
+
+@media screen and (min-width: 480px) {
+    .test_menu-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .test_menu-horizontal {
+        align-self: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+.test_menu-horizontal .menu__item {
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .test_menu-horizontal .menu__item {
+        margin-right: 3.5rem;
+    }
+}
+
+.test_menu-horizontal .menu__item:first-child {
+    text-align: left;
+}
+
+.test_menu-horizontal .menu__item:last-child {
+    text-align: right;
+}
+
+.test_menu-horizontal .menu__link {
+    border: none;
+    text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4);
+    font-size: 1.25rem;
+    line-height: 1;
+    height: 1.25rem;
+}
+
+.test_menu-horizontal .menu__link:hover {
+    background: none;
+    text-shadow: none;
+    border: none;
+}
+
+.test_menu-horizontal_main .menu-horizontal__link {
+    font-size: 1.5rem;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -656,6 +738,10 @@
     border: none;
 }
 
+.menu_horizontal-main .menu__item:last-child {
+    margin-right: 0;
+}
+
 .menu_horizontal-main:hover .menu__link_initial {
     text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4);
 }
@@ -663,17 +749,20 @@
 .menu_horizontal-main:hover .menu__link_initial:hover {
     background: none;
     text-shadow: none;
-    border-bottom: none;
-    height: 1.25rem;
+    border-bottom: 0.125rem solid #edbfff;
+    height: 1.75rem;
     width: 100%;
 }
 
 .menu_horizontal-main .menu__link {
     font-size: 1.5rem;
+    height: 1.75rem;
 }
 
 .menu_horizontal-main .menu__link:hover {
     color: #fff;
+    height: 1.75rem;
+    border-bottom: 0.125rem solid #edbfff;
 }
 
 .resolution {
@@ -1193,6 +1282,8 @@
 
 @media screen and (min-width: 768px) {
     .wrapper_articles {
+        padding-left: 0;
+        padding-right: 0;
         flex-direction: row;
     }
 }

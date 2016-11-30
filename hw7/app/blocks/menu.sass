@@ -103,20 +103,29 @@
 
         &-main
             @extend .menu_horizontal
+
+            .menu__item:last-child
+                margin-right: 0
+
             &:hover
                 .menu__link_initial
                     text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4)
                     &:hover
                         background: none
                         text-shadow: none
-                        border-bottom: none
-                        height: 1.25rem
+                        border-bottom: 0.125rem solid #edbfff
+                        height: 1.75rem
                         width: 100%
 
             .menu__link
                 font-size: 1.5rem
+                height: 1.75rem
                 &:hover
                     color: $color-prime
+                    height: 1.75rem
+                    border-bottom: 0.125rem solid #edbfff
+
+
 
 
 
