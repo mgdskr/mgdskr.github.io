@@ -1033,10 +1033,11 @@
 
 .slider_feedback {
     margin-bottom: 3.125rem;
-    width: 100%;
+    width: auto;
     flex-grow: 1;
     flex-shrink: 0;
     box-sizing: border-box;
+    margin-left: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -1061,6 +1062,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 1.6875rem 2.5rem 2.0625rem 0;
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -1079,9 +1081,27 @@
     color: #454545;
 }
 
+@media screen and (min-width: 480px) {
+    .slider_feedback .slider__title {
+        display: flex;
+        font-size: 1.875rem;
+        line-height: 0.8;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .slider_feedback .slider__title {
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+}
+
 @media screen and (min-width: 960px) {
     .slider_feedback .slider__title {
         display: flex;
+        font-size: 1.875rem;
+        line-height: 0.8;
     }
 }
 
@@ -1090,19 +1110,29 @@
     margin-bottom: 0.8125rem;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 480px) {
     .slider_feedback .slider__title_accent {
-        margin-bottom: 1.0625rem;
+        height: 1.875rem;
+        margin-bottom: 1.5rem;
+        margin-left: 0.46875rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .slider_feedback .slider__title_accent {
+        margin-left: 0.46875rem;
     }
 }
 
 @media screen and (min-width: 960px) {
     .slider_feedback .slider__title_accent {
-        margin-left: 0.375rem;
+        margin-bottom: 1.0625rem;
+        margin-left: 0.46875rem;
     }
 }
 
 .slider_feedback .slider__text {
+    display: block;
     text-shadow: 0.031rem 0.056rem 0 white;
     color: #454545;
     font-family: "Open Sans Light";
@@ -1110,6 +1140,12 @@
     line-height: 1.5;
     max-height: 9.8125rem;
     overflow: hidden;
+}
+
+@media screen and (min-width: 480px) {
+    .slider_feedback .slider__text {
+        max-height: 12.263rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -1197,7 +1233,8 @@
 
 @media screen and (min-width: 480px) {
     .updates {
-        max-width: 70.20833%;
+        max-width: 89.62766%;
+        margin-left: 4rem;
     }
 }
 
@@ -1369,6 +1406,7 @@
 }
 
 .wrapper_main-content {
+    flex-direction: column;
     padding-top: 4.375rem;
     padding-bottom: 5.6875rem;
 }
