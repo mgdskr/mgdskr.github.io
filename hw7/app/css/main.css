@@ -1108,6 +1108,7 @@
 .slider_feedback .slider__title_accent {
     color: #edbfff;
     margin-bottom: 0.8125rem;
+    height: 1.5rem;
 }
 
 @media screen and (min-width: 480px) {
@@ -1138,7 +1139,7 @@
     font-family: "Open Sans Light";
     font-size: 1rem;
     line-height: 1.5;
-    max-height: 9.8125rem;
+    max-height: 10.625rem;
     overflow: hidden;
 }
 
@@ -1164,7 +1165,7 @@
     margin-top: 1.5rem;
 }
 
-.slider_feedback .slider__img {
+.slider_feedback .slider__icon {
     position: relative;
     background: url("../img/author.jpg") center center no-repeat;
     height: 3.125rem;
