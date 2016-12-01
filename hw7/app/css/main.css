@@ -488,12 +488,13 @@
     z-index: 10;
     max-width: 15rem;
     align-self: center;
+    flex-grow: 1;
 }
 
 @media screen and (min-width: 768px) {
     .header__menu {
         align-self: flex-start;
-        max-width: 100%;
+        min-width: 700px;
         margin-top: 2.4375rem;
     }
 }
@@ -502,6 +503,7 @@
     .header__menu {
         align-self: center;
         margin-top: 0;
+        max-width: 70%;
     }
 }
 
@@ -679,6 +681,7 @@
     width: 100%;
     text-align: center;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .menu__link {
@@ -720,7 +723,6 @@
     background: 0;
     border: 0;
     box-shadow: none;
-    width: 70%;
 }
 
 @media screen and (min-width: 480px) {
@@ -762,8 +764,10 @@
     border: none;
 }
 
-.menu_horizontal-main .menu__item:last-child {
-    margin-right: 0;
+@media screen and (min-width: 960px) {
+    .menu_horizontal-main {
+        justify-content: flex-end;
+    }
 }
 
 .menu_horizontal-main:hover .menu__link_initial {
@@ -778,6 +782,10 @@
     width: 100%;
 }
 
+.menu_horizontal-main .menu__item:last-child {
+    margin-right: 0;
+}
+
 .menu_horizontal-main .menu__link {
     font-size: 1.5rem;
     height: 1.75rem;
@@ -787,6 +795,10 @@
     color: #fff;
     height: 1.75rem;
     border-bottom: 0.125rem solid #edbfff;
+}
+
+.menu_horizontal-main .menu__link_initial {
+    width: 100%;
 }
 
 .resolution {
@@ -1204,6 +1216,9 @@
 
 .substrate_articles {
     background-image: linear-gradient(to top, #322539 0%, #745083 100%);
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 100;
     flex-grow: 1;
     flex-shrink: 0;
 }
@@ -1328,26 +1343,18 @@
 
 .wrapper_320 {
     max-width: 20rem;
-    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
-    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .wrapper_480 {
     max-width: 30rem;
-    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
-    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .wrapper_768 {
     max-width: 48rem;
-    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
-    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .wrapper_960 {
     max-width: 60rem;
-    border-left: 0.0625rem solid rgba(0, 0, 0, 0.2);
-    border-right: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {

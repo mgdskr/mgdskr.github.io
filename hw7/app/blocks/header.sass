@@ -21,14 +21,16 @@
         z-index: 10
         max-width: 15rem
         align-self: center
+        flex-grow: 1
         @include respond-to (sm)
             align-self: flex-start
-            max-width: 100%
+            // max-width: 70%
+            min-width: 700px
             margin-top: (39/16)+rem
         @include respond-to (md)
             align-self: center
             margin-top: 0
-            // max-width: 70%
+            max-width: 70%
 
 
 

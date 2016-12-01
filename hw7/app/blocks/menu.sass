@@ -31,6 +31,7 @@
         width: 100%
         text-align: center
         overflow: hidden
+        flex-shrink: 0
 
     &__link
         display: inline-block
@@ -69,7 +70,8 @@
         background: 0
         border: 0
         box-shadow: none
-        width: 70%
+        // width: 70%
+        // flex-grow: 1
         @include respond-to (xs)
             display: flex
         @include respond-to (sm)
@@ -82,13 +84,6 @@
             @include respond-to (sm)
                 margin-right: 7%
                 white-space: nowrap
-
-            // &:first-child
-            //     text-align: left
-            //
-            // &:last-child
-            //     text-align: right
-
 
         .menu__link
             border: none
@@ -105,9 +100,9 @@
 
         &-main
             @extend .menu_horizontal
+            @include respond-to (md)
+                justify-content: flex-end
 
-            .menu__item:last-child
-                margin-right: 0
 
             &:hover
                 .menu__link_initial
@@ -118,6 +113,8 @@
                         border-bottom: 0.125rem solid #edbfff
                         height: 1.75rem
                         width: 100%
+            .menu__item:last-child
+                margin-right: 0
 
             .menu__link
                 font-size: 1.5rem
@@ -126,22 +123,5 @@
                     color: $color-prime
                     height: 1.75rem
                     border-bottom: 0.125rem solid #edbfff
-
-
-
-
-
-
-
-
-
-// Base text style
-// width: 39.438rem
-// height: 1.125rem
-// text-shadow: 0.063rem 0.106rem 0.125rem rgba(0, 0, 0, 0.4)
-// color: white
-// font-family: "League Gothic"
-// font-size: 1.5rem
-// font-weight: 400
-// line-height: 1.42
-// text-transform: uppercase
+            .menu__link_initial
+                width: 100%
