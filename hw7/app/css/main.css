@@ -130,6 +130,7 @@
 /* _vars */
 .article {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -176,6 +177,7 @@
 
 .article__body {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -296,6 +298,7 @@
     width: 100%;
     max-width: 48.4375rem;
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -311,6 +314,7 @@
     height: 8.6875rem;
     width: 40%;
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -404,6 +408,7 @@
 @media screen and (min-width: 960px) {
     .copyright {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -475,6 +480,7 @@
 
 .header {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -618,6 +624,7 @@
 @media screen and (min-width: 480px) {
     .test_menu-horizontal {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -680,6 +687,7 @@
 
 .menu {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -768,6 +776,7 @@
 @media screen and (min-width: 480px) {
     .menu_horizontal, .menu_horizontal-main {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
     }
 }
@@ -846,6 +855,7 @@
 
 .resolution {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     width: 18.75rem;
     -webkit-box-pack: justify;
@@ -874,6 +884,7 @@
 
 .slider {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -888,6 +899,7 @@
 .slider__substrate {
     width: 100%;
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -898,6 +910,7 @@
 
 .slider__item {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -948,6 +961,7 @@
 
 .slider__body {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1076,6 +1090,7 @@
 
 .slider__controls {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     margin-top: 5.0625rem;
 }
@@ -1165,6 +1180,7 @@
 @media screen and (min-width: 480px) {
     .slider_feedback .slider__title {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
         font-size: 1.875rem;
         line-height: 0.8;
@@ -1182,6 +1198,7 @@
 @media screen and (min-width: 960px) {
     .slider_feedback .slider__title {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
         font-size: 1.875rem;
         line-height: 0.8;
@@ -1263,6 +1280,7 @@
 
 .substrate {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
 }
 
@@ -1313,6 +1331,7 @@
 @media screen and (min-width: 480px) {
     .substrate_prefooter {
         display: -webkit-box;
+        -js-display: flex;
         display: flex;
         background-color: #ececec;
     }
@@ -1326,6 +1345,7 @@
 
 .updates {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1370,6 +1390,7 @@
 
 .updates__item {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     margin-bottom: 1.125rem;
 }
@@ -1383,6 +1404,7 @@
 
 .updates__item-body {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1440,6 +1462,7 @@
 
 .wrapper {
     display: -webkit-box;
+    -js-display: flex;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;

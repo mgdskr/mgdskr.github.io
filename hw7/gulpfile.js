@@ -15,8 +15,9 @@ var gulp = require('gulp'),
     prettify = require('gulp-html-prettify'),
     fs = require('fs'),
     spritesmith = require('gulp.spritesmith'),
-    autoprefixer = require('gulp-autoprefixer');
-;
+    autoprefixer = require('gulp-autoprefixer'),
+    postcss = require('gulp-postcss'),
+    flexibility = require('postcss-flexibility');
 
 
 
@@ -147,6 +148,7 @@ gulp.task('sass', function() {
         .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))
         .pipe(rename('main.css'))
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
+        .pipe(postcss([flexibility]))
         .pipe(cssBeautify())
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({
