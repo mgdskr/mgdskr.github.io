@@ -14,7 +14,10 @@ var gulp = require('gulp'),
     uncss = require('gulp-uncss'),
     prettify = require('gulp-html-prettify'),
     fs = require('fs'),
-    spritesmith = require('gulp.spritesmith');
+    spritesmith = require('gulp.spritesmith'),
+    autoprefixer = require('gulp-autoprefixer');
+;
+
 
 
 var path = {
@@ -141,6 +144,7 @@ gulp.task('sass', function() {
     // gulp.src('app/blocks/main.sass')
         .pipe(concat('main.sass'))
         .pipe(sass())
+        .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))
         .pipe(rename('main.css'))
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
         .pipe(cssBeautify())
