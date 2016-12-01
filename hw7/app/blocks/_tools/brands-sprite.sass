@@ -1,15 +1,15 @@
-/*
-  SASS variables are information about icon's compiled state, stored under its original file name
-
-  .icon-home
-    width: $icon-home-width
-
-  The large array-like variables contain all information about a single icon
-  $icon-home: x y offset_x offset_y width height total_width total_height image_path
-
-  At the bottom of this section, we provide information about the spritesheet itself
-  $spritesheet: width height image $spritesheet-sprites
-  */
+// /*
+//   SASS variables are information about icon's compiled state, stored under its original file name
+//
+//   .icon-home
+//     width: $icon-home-width
+//
+//   The large array-like variables contain all information about a single icon
+//   $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+//   At the bottom of this section, we provide information about the spritesheet itself
+//   $spritesheet: width height image $spritesheet-sprites
+//   */
 $logo-1-name: 'logo-1'
 $logo-1-x: 0px
 $logo-1-y: 0px
@@ -82,28 +82,28 @@ $spritesheet-image: 'brands-sprite.png'
 $spritesheet-sprites: ($logo-1, $logo-2, $logo-3, $logo-4, $logo-5, $logo-6, )
 $spritesheet: (106px, 393px, 'brands-sprite.png', $spritesheet-sprites, )
 
-/*
-  The provided mixins are intended to be used with the array-like variables
-
-  .icon-home
-    @include sprite-width($icon-home)
-
-  .icon-email
-    @include sprite($icon-email)
-
-  Example usage in HTML:
-    `display: block` sprite:
-    <div class="icon-home"></div>
-
-  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
-    // CSS
-    .icon {
-      display: inline-block;
-    }
-
-    // HTML
-    <i class="icon icon-home"></i>
-  */
+// /*
+//   The provided mixins are intended to be used with the array-like variables
+//
+//   .icon-home
+//     @include sprite-width($icon-home)
+//
+//   .icon-email
+//     @include sprite($icon-email)
+//
+//   Example usage in HTML:
+//     `display: block` sprite:
+//     <div class="icon-home"></div>
+//
+//   To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//     // CSS
+//     .icon {
+//       display: inline-block;
+//     }
+//
+//     // HTML
+//     <i class="icon icon-home"></i>
+//   */
 @mixin sprite-width($sprite)
   width: nth($sprite, 5)
 
@@ -125,12 +125,12 @@ $spritesheet: (106px, 393px, 'brands-sprite.png', $spritesheet-sprites, )
   @include sprite-width($sprite)
   @include sprite-height($sprite)
 
-/*
-  The `sprites` mixin generates identical output to the CSS template
-    but can be overridden inside of SASS
-
-  @include sprites($spritesheet-sprites)
-  */
+// /*
+//   The `sprites` mixin generates identical output to the CSS template
+//     but can be overridden inside of SASS
+//
+//   @include sprites($spritesheet-sprites)
+//   */
 @mixin sprites($sprites)
   @each $sprite in $sprites
     $sprite-name: nth($sprite, 10)
