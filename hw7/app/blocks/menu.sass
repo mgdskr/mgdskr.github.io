@@ -69,6 +69,7 @@
         background: 0
         border: 0
         box-shadow: none
+        width: 70%
         @include respond-to (xs)
             display: flex
         @include respond-to (sm)
@@ -79,13 +80,14 @@
             width: auto
             height: auto
             @include respond-to (sm)
-                margin-right: (14*.25)+rem
+                margin-right: 7%
+                white-space: nowrap
 
-            &:first-child
-                text-align: left
-
-            &:last-child
-                text-align: right
+            // &:first-child
+            //     text-align: left
+            //
+            // &:last-child
+            //     text-align: right
 
 
         .menu__link

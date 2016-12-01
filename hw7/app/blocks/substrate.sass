@@ -1,5 +1,6 @@
 .substrate
     display: flex
+    // min-width: 320px
 
     &_slider
         width: 100%
@@ -25,8 +26,14 @@
         border-top: .0625rem solid #fefefe
 
     &_prefooter
-        background-color: #ececec
+        display: none
+        @include respond-to (xs)
+            display: flex
+            background-color: #ececec
+
+
 
     &_footer
         background: url('../img/footer-bg.jpg') center center no-repeat
+        background-size: cover
         height: 12.563rem

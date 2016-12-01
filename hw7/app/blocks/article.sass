@@ -17,6 +17,7 @@
         margin-right: (25/16)+rem
         margin-left: (12/16)+rem
         background: url('../img/icons-sprite.png')
+        background-repeat: no-repeat
 
 
         @at-root
@@ -74,10 +75,17 @@
 
     &_prefooter
         margin-bottom: ((60-(1.5-1)*16/2)/16)+rem
+        // flex-direction: column
         @include respond-to (sm)
             max-width: (205/768*100)+%
+            margin-bottom: 0
         @include respond-to (md)
             max-width: (277/960*100)+%
+
+
+        .article__body
+            @include respond-to (sm)
+                justify-content: space-between
 
         .article__title
             color: #454545
@@ -95,9 +103,10 @@
             color: #787878
             text-shadow: 0.031rem 0.056rem 0 white
             line-height: 1.5
-            height: (161/16)+rem
-            @include respond-to (md)
-                height: 10.063rem
+            height: (95/16)+rem
+            @include respond-to (sm)
+                height: (165/16)+rem
+                margin-bottom: 0
 
 
     &_md_hidden
