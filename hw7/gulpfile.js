@@ -17,7 +17,8 @@ var gulp = require('gulp'),
     spritesmith = require('gulp.spritesmith'),
     autoprefixer = require('gulp-autoprefixer'),
     postcss = require('gulp-postcss'),
-    flexibility = require('postcss-flexibility');
+    flexibility = require('postcss-flexibility'),
+    sourceMaps = require('gulp-sourcemaps');
 
 
 
@@ -143,8 +144,10 @@ gulp.task('media', function() {
 gulp.task('sass', function() {
     gulp.src(path.app.sass)
     // gulp.src('app/blocks/main.sass')
+        .pipe(sourceMaps.init())
         .pipe(concat('main.sass'))
         .pipe(sass())
+        .pipe(sourceMaps.write())
         .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))
         .pipe(rename('main.css'))
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
