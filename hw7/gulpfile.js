@@ -33,7 +33,7 @@ var path = {
     },
     app: {
         html: 'app/html/index.html',
-        sass: ['app/blocks/_tools/*.sass', 'app/blocks/**/*.sass', '!app/blocks/main.sass'],
+        sass: ['app/blocks/_tools/*.sass', 'app/blocks/*.sass', '!app/blocks/{main,stylus}.sass'],
         img: 'app/img/**/*.*',
         fonts: 'app/fonts/**/*.*'
     },
@@ -143,14 +143,14 @@ gulp.task('media', function() {
 
 
 gulp.task('sass', function() {
-    // gulp.src(path.app.sass)
+    gulp.src(path.app.sass)
     // gulp.src('app/blocks/styles.sass')
-    gulp.src(['app/blocks/*.sass', '!app/blocks/main.sass', '!app/blocks/styles.sass'])
+    // gulp.src(['app/blocks/*.sass', '!app/blocks/main.sass', '!app/blocks/styles.sass'])
     // gulp.src('app/blocks/main.sass')
         // .pipe(sort()) //sorts files in order files with vars (name starts with "_" come first into pipe)
         .pipe(sourceMaps.init())
-        .pipe(sass())
         .pipe(concat('main.sass'))
+        .pipe(sass())
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
         .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))
         .pipe(postcss([flexibility]))
