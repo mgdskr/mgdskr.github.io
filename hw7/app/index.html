@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="/css/styles.css">
-  <script src="/path/to/prefixfree.min.js"></script>
   <!--[if lt IE 9]>
+        <script src="js/flexibility.js"></script>
+        <script src="js/rem.js"></script>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
@@ -25,6 +26,7 @@
         <li class="resolution__btn resolution__btn_768">768px</li>
         <li class="resolution__btn resolution__btn_960">960px</li>
       </ul> -->
+
 
   <div class="page-wrapper">
     <header class="substrate_header header">
@@ -69,7 +71,9 @@
                 <p class="slider__text">Semper sollicitudin gravida eget, vestibulum sit amet sapien. Nunc dignissim tincidunt est, et auctor turpis ornare a. Nam venenatis hendrerit est at volutpat. Morbi elementum euismod lacus id semper. In odio nunc, imperdiet eget aliquam
                   quis, euismod id lectus. Nulla interdum arcu et felis aliquam a tempus lectus lobortis.</p>
               </div>
-              <a class="slider__img"></a>
+              <div class="slider__img-w">
+                <a class="slider__img"></a>
+              </div>
             </div>
             <div class="slider__arrow slider__arrow_right"></div>
 
@@ -89,7 +93,7 @@
 
     </header>
     <div class="substrate substrate_articles">
-      <div class="wrapper wrapper_960 wrapper_articles">
+      <div class="wrapper wrapper_articles">
         <section class="article">
           <i class="article__icon article__icon_wrench"></i>
           <div class="article__body">
@@ -199,7 +203,7 @@
       </main>
     </div>
     <div class="substrate substrate_brands">
-      <div class="wrapper wrapper_960 wrapper_brands">
+      <div class="wrapper wrapper_brands">
         <ul class="brand-logos">
           <li class="brand-logos__item">
             <a href class="brand-logos__link brand-logos__link_1"></a>
@@ -314,9 +318,18 @@
     </div>
   </div>
 
-  <script src="js/flexibility.js"></script>
+
 
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript">
+    flexibility(document.documentElement);
+  </script>
+
+
+
+
 
   <script type="text/javascript">
     function menuChangeOrientation() {
@@ -329,6 +342,8 @@
             $(document).ready(menuChangeOrientation);
             $(window).resize(menuChangeOrientation);
   </script>
+
+
 
 
 

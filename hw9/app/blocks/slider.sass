@@ -1,0 +1,288 @@
+// @import "_tools/_tools.sass"
+
+
+.slider
+    // width: 100%
+    // display: flex
+    // flex-grow: 1
+    // flex-shrink: 0
+    // flex-direction: column
+    // align-items: center
+    overflow: hidden
+
+    &__substrate
+        width: 100%
+        // flex-grow: 1
+        // display: flex
+        // flex-shrink: 0
+        height: 15.375rem
+        visibility: hidden
+        @include respond-to (xs)
+            visibility: visible
+
+    &__item
+        // display: flex
+        // flex-grow: 1
+        // align-items: center
+        // justify-content: center
+        box-sizing: border-box
+        padding: 0 (18/16)+rem
+
+        @include respond-to (xs)
+            // justify-content: space-between
+        @include respond-to (sm)
+            padding-left: (22/16)+rem
+            padding-right: (25/16)+rem
+        @include respond-to (md)
+            max-width: (960+2*22)+px
+            padding-right: (71/16)+rem
+
+            // padding: 0 (22/16)+rem
+
+    &__column
+        overflow:hidden
+        float: left
+
+        &_narrow
+            width: 10%
+
+        &_wide
+            width: 80%
+
+    &__arrow
+        width: (30/16) + rem
+        height: (42/16) + rem
+        cursor: pointer
+        background: url('../img/slider-sprite.png') center center no-repeat
+        // flex-shrink: 0
+
+
+        &_left
+            @include sprite-position($slider-arrow-left)
+            float: left
+            // width: 50%
+
+        &_right
+            @include sprite-position($slider-arrow-right)
+            float: right
+            // width: 50%
+
+    &__body
+        float: left
+        // display: flex
+        // flex-direction: column
+        @include respond-to (xs)
+            // width: (184/16)+rem
+        @include respond-to (sm)
+            width: (274/16)+rem
+        @include respond-to (md)
+            width: (500/16)+rem
+            max-width: (521/16)+rem
+
+
+    &__text
+        display: none
+        color: $color-prime
+        font-family: $font-sec
+        @include respond-to (sm)
+            display: inline
+            font-size: 1rem
+            line-height: 1.5
+        @include respond-to (md)
+            font-size: 1.125rem
+            line-height: 1.67
+
+
+
+    &__title
+        text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3)
+        color: #fefefe
+        font-family: $font-prime
+        font-size: 2.25rem
+        display: block
+        overflow: hidden
+        @include respond-to (sm)
+            font-size: 3rem
+            line-height: 1
+        @include respond-to (md)
+            font-size: 3.75rem
+            line-height: 1
+
+
+        &_accent
+            color: #edbfff
+            font-size: 1.125rem
+            height: 1.125rem
+            @include respond-to (xs)
+                height: 1.125rem
+            @include respond-to (sm)
+                font-size: 1.5rem
+                line-height: 1.5
+                height: 1.8rem
+            @include respond-to (md)
+                font-size: 2rem
+                line-height: 1.13
+                line-height: 2rem
+
+
+
+
+    &__img
+        display: none
+        // flex-shrink: 0
+        background: url('../img/slider-img-sprite.png')
+        @include respond-to (xs)
+            display: block
+            float: right
+        // @include respond-to (md)
+        //     margin-right: (71/16)+rem
+        @each $slider-size, $slider-img-position in (xs: $slider-img-xs, sm: $slider-img-sm, md: $slider-img-md)
+            @include respond-to ($slider-size)
+                @include sprite-position($slider-img-position)
+                @include sprite-height($slider-img-position)
+                @include sprite-width($slider-img-position)
+
+
+
+    &__controls
+        // display: flex
+        margin-right: (160/960*100)+%
+        margin-top: (81/16)+rem
+        @include respond-to (xs)
+            margin-top: (22/16)+rem
+        @include respond-to (sm)
+            margin-top: (37/16)+rem
+        @include respond-to (md)
+            margin-top: (93/16)+rem
+
+
+
+
+    &__control
+        // position: relative
+        // z-index: 10
+        display: inline-block
+        border-radius: 100%
+        width: 1rem
+        height: 1rem
+        background: rgba(0, 0, 0, 0.3)
+
+    // &_text
+    //     color: $color-prime
+    //     font-family: "Myriad Pro"
+    //     font-size: 1rem
+
+    &_feedback
+        margin-bottom: (50/16)+rem
+        width: auto
+        flex-grow: 1
+        flex-shrink: 0
+        box-sizing: border-box
+        margin-left: (24/16)+rem
+        // @include respond-to (xs)
+        @include respond-to (sm)
+            max-width: (337/768*100)+%
+            // margin-right: ((768-327-337-40)/16)+rem
+            margin-bottom: 0
+            margin-left: (24/16)+rem
+        @include respond-to (md)
+            max-width: (451/960*100)+%
+            padding-left: (24/16)+rem
+            margin-left: 0
+
+        .slider__item
+            box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
+            background-color: #fff
+            flex-direction: row
+            align-items: flex-start
+            padding: (27/16)+rem (40/16)+rem (33/16)+rem 0
+            width: 100%
+            @include respond-to (sm)
+                width: 100%
+                padding: (31/16)+rem (27/16)+rem (45/16)+rem 0
+
+
+        .slider__title
+            text-shadow: 0.031rem 0.056rem 0 white
+            font-family: $font-prime
+            font-size: 1.5rem
+            line-height: 1
+            text-transform: uppercase
+            color: #454545
+            @include respond-to (xs)
+                display: flex
+                font-size: 1.875rem
+                line-height: 0.8
+                // height: 1.375rem
+            @include respond-to (sm)
+                display: block
+                font-size: 1.5rem
+                line-height: 1
+            @include respond-to (md)
+                display: flex
+                font-size: 1.875rem
+                line-height: 0.8
+                // height: 1.375rem
+
+
+            &_accent
+                color: #edbfff
+                margin-bottom: (13/16) + rem
+                height: 1.5rem
+                @include respond-to (xs)
+                    height: 1.875rem
+                    margin-bottom: (24/16)+rem
+                    margin-left: (1.875*0.25)+rem
+                @include respond-to (sm)
+                    // margin-bottom: (17/16)+rem
+                    margin-left: (1.875*0.25)+rem
+                @include respond-to (md)
+                    margin-bottom: (17/16)+rem
+                    margin-left: (1.875*0.25)+rem
+
+        .slider__text
+            display: block
+            text-shadow: 0.031rem 0.056rem 0 white
+            color: #454545
+            font-family: $font-sec
+            font-size: 1rem
+            line-height: 1.5
+            max-height: (170/16)+rem
+            overflow: hidden
+            @include respond-to (xs)
+                max-height: 12.263rem
+            @include respond-to (sm)
+                max-height: 8.863rem
+            @include respond-to (md)
+                max-height: 10.5rem
+
+        .slider__triangle
+            display: none
+            width: 0
+            height: 0
+            border-left: (20/16)+rem solid transparent
+            border-right: 0px solid transparent
+            border-top: (20/16)+rem solid white
+            align-self: flex-end
+            margin-right: (40/16)+rem
+            @include respond-to (md)
+                display: block
+
+
+
+
+
+        .slider__controls
+            margin-top: (24 / 16)+rem
+            margin-right: 0
+
+        .slider__icon
+            position: relative
+            background: url('../img/author.jpg') center center no-repeat
+            height: (50/16)+rem
+            width: (50/16)+rem
+            border-radius: 100%
+            flex-grow: 0
+            flex-shrink: 0
+            margin-right: (10/16)+rem
+            margin-left: (-25/16)+rem

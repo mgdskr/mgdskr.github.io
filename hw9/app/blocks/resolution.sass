@@ -1,0 +1,24 @@
+// @import "_tools/_tools.sass"
+
+
+.resolution
+    display: flex
+    width: (300/16)+rem
+    justify-content: space-between
+    position: fixed
+    top: 1rem
+    left: 50%
+    transform: translateX(-50%)
+
+    &__btn
+        // height: 2rem
+        padding: 0.5rem
+        border: (1/16)+rem solid black
+        cursor: pointer
+
+        &:hover
+            position: relative
+            top: 1px
+
+        &_active
+            font-weight: bold

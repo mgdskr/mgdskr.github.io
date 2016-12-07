@@ -1,0 +1,98 @@
+// @import "_tools/_tools.sass"
+//
+//
+// @mixin border
+//     border-left: .0625rem solid rgba(0, 0, 0, .2)
+//     border-right: .0625rem solid rgba(0, 0, 0, .2)
+//
+// @each $res in 320, 480, 768, 960
+//     .wrapper_#{$res}
+//         max-width: #{$res/16+rem}
+//         // @include border
+
+
+
+.wrapper
+    // display: flex
+    // flex-grow: 1
+    // justify-content: center
+    min-width: 320px
+    max-width: 960px
+    width: 100%
+    margin: 0 auto
+    box-sizing: border-box
+    padding: 0 (20/16)+rem
+    overflow: hidden
+    @include respond-to (md)
+        padding-left: 0
+        padding-right: 0
+
+
+
+    // &_col
+    //     flex-direction: column
+    //     justify-content: flex-start
+
+
+    &_header
+        margin: auto
+        // flex-direction: column
+        // justify-content: flex-start
+        // flex-shrink: 0
+        @include respond-to (sm)
+            // align-items: flex-start
+        @include respond-to (md)
+            // flex-direction: row
+            // justify-content: space-between
+
+
+
+
+    &_slider
+        padding: 0
+        margin: auto
+        // flex-grow: 1
+        // max-width: 100%
+        // align-items: center
+        // justify-content: space-between
+
+    &_slider-controls
+        @include respond-to (md)
+            justify-content: flex-end
+
+
+    &_articles
+        flex-direction: column
+        padding: (72/16)+rem (20/16)+rem (37/16)+rem  (33/16)+rem
+        @include respond-to (sm)
+            flex-direction: row
+
+    &_main-content
+        flex-direction: column
+        padding-top: (70/16)+rem
+        padding-bottom: (91/16)+rem
+        @include respond-to (sm)
+            padding-top: (100/16)+rem
+            padding-bottom: (72/16)+rem
+            flex-direction: row
+            justify-content: space-between
+
+
+    &_prefooter
+        flex-direction: column
+        padding-top: (81/16)+rem
+        @include respond-to (sm)
+            flex-direction: row
+            justify-content: space-between
+            padding-top: (103/16)+rem
+            padding-bottom: (93/16)+rem
+        @include respond-to (md)
+            padding-bottom: (98/16)+rem
+    &_footer
+        flex-grow: 1
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        padding-top: (48/16)+rem
+        @include respond-to (md)
+            flex-direction: row

@@ -1,0 +1,28 @@
+// @import "_tools/_tools.sass"
+
+
+.logo
+    display: inline-block
+    text-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3)
+    color: $color-prime
+    font-family: $font-prime
+    font-size: 3rem
+    text-transform: uppercase
+    height: 48px
+
+    &_accent
+        // color: #c3e54b
+        background: linear-gradient(to top, #322539, #745083)
+        -webkit-background-clip: text
+        color: transparent
+
+    &_grayscale
+        text-shadow: 0 0.063rem 0 white
+        color: #454545
+        line-height: 0.9
+        // line-height: 0.71
+
+        .logo_accent
+            text-shadow: 0 0.063rem 0 white
+            color: #b9b9b9
+            background: none
