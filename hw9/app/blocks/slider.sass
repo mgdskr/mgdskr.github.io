@@ -29,9 +29,7 @@
         box-sizing: border-box
         padding: 0 (18/16)+rem
         // outline: 1px solid black
-        clear: both
-        content: ""
-        display: table
+
 
         @include respond-to (xs)
             // justify-content: space-between
@@ -41,6 +39,12 @@
         @include respond-to (md)
             max-width: (960+2*22)+px
             padding-right: (71/16)+rem
+
+
+        &::after
+            clear: both
+            display: table
+            content: ""
 
 
 
@@ -208,32 +212,59 @@
 
     &_feedback
         margin-bottom: (50/16)+rem
-        width: auto
-        flex-grow: 1
-        flex-shrink: 0
+        // width: auto
+        // flex-grow: 1
+        // flex-shrink: 0
         box-sizing: border-box
         margin-left: (24/16)+rem
         // @include respond-to (xs)
         @include respond-to (sm)
+            // width: (337/768*100)+%
             max-width: (337/768*100)+%
             // margin-right: ((768-327-337-40)/16)+rem
             margin-bottom: 0
             margin-left: (24/16)+rem
+            float: left
+            // width: auto
         @include respond-to (md)
+            width: (440/960*100)+%
             max-width: (451/960*100)+%
             padding-left: (24/16)+rem
             margin-left: 0
+        &::after
+            clear: both
+            content: ""
+            display: table
+
+
+        .slider__body
+            float: left
+            width: auto
+            max-width: 91%
+
+            &::after
+                clear: both
+                content: ""
+                display: table
+
 
         .slider__item
+            // overflow: auto
             box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.05)
             background-color: #fff
-            flex-direction: row
-            align-items: flex-start
+            // flex-direction: row
+            // align-items: flex-start
             padding: (27/16)+rem (40/16)+rem (33/16)+rem 0
-            width: 100%
+            width: auto
             @include respond-to (sm)
-                width: 100%
+                width: auto
                 padding: (31/16)+rem (27/16)+rem (45/16)+rem 0
+
+            // &::before
+            clear: both
+                // content: ""
+                // display: table
+
 
 
         .slider__title
@@ -253,9 +284,11 @@
                 font-size: 1.5rem
                 line-height: 1
             @include respond-to (md)
+                // display: inline-block#iefix
                 display: flex
                 font-size: 1.875rem
                 line-height: 0.8
+                // display: inline-block#iefix
                 // height: 1.375rem
 
 
@@ -275,6 +308,7 @@
                     margin-left: (1.875*0.25)+rem
 
         .slider__text
+            // max-width: 80%
             display: block
             text-shadow: 0.031rem 0.056rem 0 white
             color: #454545
@@ -283,12 +317,19 @@
             line-height: 1.5
             max-height: (170/16)+rem
             overflow: hidden
+
             @include respond-to (xs)
                 max-height: 12.263rem
             @include respond-to (sm)
                 max-height: 8.863rem
             @include respond-to (md)
                 max-height: 10.5rem
+
+            // &::after
+            //     clear: both
+            //     content: ""
+            //     display: table
+
 
         .slider__triangle
             display: none
@@ -300,6 +341,7 @@
             align-self: flex-end
             margin-right: (40/16)+rem
             @include respond-to (md)
+                float: right
                 display: block
 
 
@@ -308,15 +350,21 @@
 
         .slider__controls
             margin-top: (24 / 16)+rem
-            margin-right: 0
+            margin-right: auto
+            margin-left: auto
+            float: none
+            // display: block
+            width: 110px
+
 
         .slider__icon
+            float: left
             position: relative
             background: url('../img/author.jpg') center center no-repeat
             height: (50/16)+rem
             width: (50/16)+rem
             border-radius: 100%
-            flex-grow: 0
-            flex-shrink: 0
+            // flex-grow: 0
+            // flex-shrink: 0
             margin-right: (10/16)+rem
             margin-left: (-25/16)+rem
