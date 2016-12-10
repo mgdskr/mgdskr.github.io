@@ -37,7 +37,6 @@
         border-top: .0625rem solid #fefefe
 
     &_prefooter
-        display: none
         @include respond-to (xs)
             display: flex
             background-color: #ececec
@@ -48,3 +47,9 @@
         background: url('../img/footer-bg.jpg') center center no-repeat
         background-size: cover
         height: 12.563rem
+
+
+
+@media screen and (max-width: 479px)
+    .substrate_prefooter
+        display: none

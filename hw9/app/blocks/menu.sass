@@ -64,7 +64,6 @@
 
 
     &_horizontal
-        display: none
         visibility: visible
         flex-direction: row
         justify-content: space-between
@@ -81,6 +80,7 @@
             justify-content: flex-start
 
         .menu__item
+            display: inline-block
             width: auto
             height: auto
             @include respond-to (sm)
@@ -127,3 +127,8 @@
                     border-bottom: 0.125rem solid #edbfff
             .menu__link_initial
                 width: 100%
+
+
+@media screen and (max-width: 479px)
+    .menu_horizontal
+        display: none
