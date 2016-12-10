@@ -2,21 +2,24 @@
 
 
 .article
-    display: flex
-    flex-grow: 1
-    flex-shrink: 0
+    display: inline-block
+    // flex-grow: 1
+    // flex-shrink: 0
     margin-bottom: (29/16)+rem
     width: 100%
     @include respond-to (sm)
-        width: (200/768)+%
+        width: (200/768*100)+%
     @include respond-to (md)
-        width: (273/960)+%
+        // width: (273/960*100)+%
+        width: 33%
 
     &__icon
+        display: block
+        float: left
         width: 2rem
         height: 2rem
         background-size: cover
-        flex: 0 0 2rem
+        // flex: 0 0 2rem
         margin-right: (25/16)+rem
         margin-left: (12/16)+rem
         background: url('../img/icons-sprite.png')
@@ -29,9 +32,13 @@
     		            @include sprite-position($icon)
 
     &__body
-        display: flex
-        flex-grow: 1
-        flex-direction: column
+        display: block
+        float: left
+        width: auto
+        max-width: 70%
+        // display: flex
+        // flex-grow: 1
+        // flex-direction: column
 
     &__title
         text-shadow: 0.031rem 0.056rem 0 #0f1518
