@@ -4,7 +4,7 @@
 .header
     // display: flex
     // flex-direction: column
-    outline: 1px solid black
+    // outline: 1px solid black
     padding-top: (70/16)+rem
     overflow: auto
     padding-bottom: (69/16)+rem
@@ -18,8 +18,12 @@
 
 
     &__logo
+        display: block
         text-align: center
-        float: left
+        @include respond-to (sm)
+            text-align: left
+        @include respond-to (md)
+            float: left
 
     &__menu
         position: relative
@@ -30,6 +34,8 @@
         @include respond-to (sm)
             // align-self: flex-start
             // max-width: 70%
+            display: block
+            // clear: both
             min-width: 700px
             margin-top: (39/16)+rem
         @include respond-to (md)
@@ -41,6 +47,7 @@
 
 
     &__slider
+        // clear: both
         margin-top: (-95/16)+rem
         @include respond-to (xs)
             margin-top: (-187/16)+rem

@@ -61,18 +61,14 @@
         @include respond-to (sm)
             width: (274/16)+rem
         @include respond-to (md)
-            width: (500/16)+rem
-            max-width: (521/16)+rem
-
+            width: (521/16)+rem
 
     &__text
         display: none
         color: $color-prime
         font-family: $font-sec
         @include respond-to (sm)
-            max-width: 100%
-            display: block
-            // display: inline
+            display: inline
             font-size: 1rem
             line-height: 1.5
         @include respond-to (md)
@@ -127,6 +123,7 @@
                 @include sprite-position($slider-img-position)
                 @include sprite-height($slider-img-position)
                 @include sprite-width($slider-img-position)
+
 
 
 
@@ -241,22 +238,6 @@
                 max-height: 8.863rem
             @include respond-to (md)
                 max-height: 10.5rem
-
-        .slider__triangle
-            display: none
-            width: 0
-            height: 0
-            border-left: (20/16)+rem solid transparent
-            border-right: 0px solid transparent
-            border-top: (20/16)+rem solid white
-            align-self: flex-end
-            margin-right: (40/16)+rem
-            @include respond-to (md)
-                display: block
-
-
-
-
 
         .slider__controls
             margin-top: (24 / 16)+rem
