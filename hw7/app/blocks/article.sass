@@ -1,4 +1,4 @@
-// @import "_tools/_tools.sass"
+w// @import "_tools/_tools.sass"
 
 
 .article
@@ -7,22 +7,16 @@
     flex-shrink: 0
     margin-bottom: (29/16)+rem
     width: 100%
-    // max-width: 20%#iefix
     @include respond-to (sm)
         width: (200/768)+%
     @include respond-to (md)
         width: (273/960)+%
-        max-width: (273/960)+%#iefix
-
-
 
     &__icon
         width: 2rem
         height: 2rem
         background-size: cover
-        flex-grow: 0
-        flex-shrink: 0
-        flex-basis: 2rem
+        flex: 0 0 2rem
         margin-right: (25/16)+rem
         margin-left: (12/16)+rem
         background: url('../img/icons-sprite.png')
@@ -38,7 +32,6 @@
         display: flex
         flex-grow: 1
         flex-direction: column
-        height: auto
 
     &__title
         text-shadow: 0.031rem 0.056rem 0 #0f1518
@@ -62,7 +55,6 @@
         height: (65/16)+rem
         overflow: hidden
         @include respond-to (sm)
-            max-width: 100%
             // width: 9.438rem
             height: 8.5rem
         @include respond-to (md)
@@ -71,17 +63,14 @@
 
 
     &__more
-        display: inline-block
         text-shadow: 0.031rem 0.056rem 0 #0f1518
         color: $color-prime
         font-family: $font-prime
         font-size: 1.125rem
         line-height: 1.33
         align-self: flex-end
-        // align-self: flex-start#iefix
         text-decoration: none
         text-transform: uppercase
-        // float: rigth#ie#fix
 
         &:hover
             text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8)

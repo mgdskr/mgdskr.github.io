@@ -9,6 +9,7 @@
     // flex-direction: column
     // align-items: center
     overflow: hidden
+    clear: both
 
     &__substrate
         width: 100%
@@ -27,6 +28,10 @@
         // justify-content: center
         box-sizing: border-box
         padding: 0 (18/16)+rem
+        // outline: 1px solid black
+        clear: both
+        content: ""
+        display: table
 
         @include respond-to (xs)
             // justify-content: space-between
@@ -37,19 +42,43 @@
             max-width: (960+2*22)+px
             padding-right: (71/16)+rem
 
-            // padding: 0 (22/16)+rem
+
 
     &__column
         overflow:hidden
+        // display: inline-block
+        // float: left
         float: left
+        font-size: 0
+        vertical-align: middle
 
+        &::after
+            clear: both
+            content: ""
+            display: table
+        //
         &_narrow
-            width: 10%
+            width: 1.875rem
+            margin-left: -1.875rem
+            height: 100%
+            line-height: 20rem
 
         &_wide
-            width: 80%
+            width: 100%
+            box-sizing: border-box
+            margin-left: -1.875rem
+            margin-right: -1.875rem
+
+
+        &_to-right
+            float: right
+            margin-left: 0
+            // width: 3rem
+            margin-right: 1.875rem
+
 
     &__arrow
+        display: inline-block
         width: (30/16) + rem
         height: (42/16) + rem
         cursor: pointer
@@ -59,12 +88,12 @@
 
         &_left
             @include sprite-position($slider-arrow-left)
-            float: left
+            // float: left
             // width: 50%
 
         &_right
             @include sprite-position($slider-arrow-right)
-            float: right
+            // float: right
             // width: 50%
 
     &__body
@@ -146,11 +175,16 @@
 
     &__controls
         // display: flex
-        margin-right: (160/960*100)+%
+        margin: 0 auto
+        // margin-right: auto
         margin-top: (81/16)+rem
         @include respond-to (xs)
             margin-top: (22/16)+rem
         @include respond-to (sm)
+            float: right
+            clear: both
+            margin-left: 0
+            margin-right: (160/960*100)+%
             margin-top: (37/16)+rem
         @include respond-to (md)
             margin-top: (93/16)+rem
