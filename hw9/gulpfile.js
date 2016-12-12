@@ -154,7 +154,7 @@ gulp.task('sass', function() {
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
         .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))
         .pipe(postcss([flexibility]))
-        .pipe(rename('main.css'))
+        .pipe(rename('main-ie8.css'))
         // .pipe(cssBeautify())
         .pipe(sourceMaps.write())
         .pipe(gulp.dest('app/css'))

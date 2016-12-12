@@ -7,23 +7,25 @@ function getNumber(userPrompt) {
         userInput = prompt(userPrompt, "");
     }
 
+
     return userInput;
 }
 
 
-function myPow(getBase, getExponent) {
-    if (!Number.isInteger(getExponent)) {
-      getExponent = Math.round(getExponent);
-      alert("Функция не рабоает с дробными степенями, степень будет округлена до " + getExponent);
+function myPow(base, exponent) {
+
+    if (!Number.isInteger(exponent)) {
+        exponent = Math.round(exponent);
+        alert("Функция не рабоает с дробными степенями, степень будет округлена до " + exponent);
 
     }
     var result = 1;
 
-    for (var i = 0; i < Math.abs(getExponent); i++) {
-        result *= getBase;
+    for (var i = 0; i < Math.abs(exponent); i++) {
+        result *= base;
     }
 
-    if (getExponent < 0) {
+    if (exponent < 0) {
         result = 1 / result;
     }
 
@@ -32,10 +34,10 @@ function myPow(getBase, getExponent) {
 }
 
 
-var getBase = getNumber("Base ?");
-var getExponent = getNumber("Exponent ?");
+var base = getNumber("Введите число:");
+var exponent = getNumber("Введите степень:");
 
-myPow(getBase, getExponent);
+myPow(base, exponent);
 
 
 
