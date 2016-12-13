@@ -1,3 +1,14 @@
+function homework1() {
+
+  var base = getNumber("Введите число:");
+  var exponent = getNumber("Введите степень:");
+
+  myPow(base, exponent);
+}
+
+
+//functions
+
 function getNumber(userPrompt) {
 
     var userInput = prompt(userPrompt, "");
@@ -14,11 +25,14 @@ function getNumber(userPrompt) {
 
 function myPow(base, exponent) {
 
-    if (!Number.isInteger(exponent)) {
+    //checking exponent for being integer
+    if (exponent % 1 != 0) {
         exponent = Math.round(exponent);
         alert("Функция не рабоает с дробными степенями, степень будет округлена до " + exponent);
-
     }
+
+    console.log("exponent " + exponent);
+
     var result = 1;
 
     for (var i = 0; i < Math.abs(exponent); i++) {
@@ -32,12 +46,6 @@ function myPow(base, exponent) {
     return console.log(result);
 
 }
-
-
-var base = getNumber("Введите число:");
-var exponent = getNumber("Введите степень:");
-
-myPow(base, exponent);
 
 
 
