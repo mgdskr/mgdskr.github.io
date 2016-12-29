@@ -60,18 +60,20 @@ var programmersTest = {
         pageContent += this.addTag.form(this.createQuestionnaire() + this.addTag.input.type.submit(this.data.submitValue));
 
         var body = document.body;
-        body.innerHTML = pageContent;
+        var testForm = document.createElement('div');
+        testForm.innerHTML = pageContent;
+        body.insertBefore(testForm, body.firstChild);
     },
 
 
     createQuestionnaire: function(questions) {
-      var questionnaire = "";
+        var questionnaire = "";
 
-      for (var i = 0, l = this.data.questions.length; i < l; i++) {
-        questionnaire += this.addTag.li(this.createQuestion(this.data.questions[i]));
-      }
+        for (var i = 0, l = this.data.questions.length; i < l; i++) {
+            questionnaire += this.addTag.li(this.createQuestion(this.data.questions[i]));
+        }
 
-      return this.addTag.ol(questionnaire);
+        return this.addTag.ol(questionnaire);
     },
 
 
