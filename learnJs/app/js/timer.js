@@ -89,7 +89,6 @@ var Timer = function() {
             running = true;
             counter++;
             render.counter(counter);
-
         }, 1);
     }
 
@@ -149,10 +148,10 @@ var render = {
     },
     results: function(type, counter) {
         this.counterResults = document.getElementsByClassName('counter__results')[0];
-        var div = document.createElement('tr');
+        var row = document.createElement('tr');
         div.className = 'results__item';
         div.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
-        this.counterResults.appendChild(div);
+        this.counterResults.appendChild(row);
 
     }
 };
