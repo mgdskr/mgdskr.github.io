@@ -76,8 +76,9 @@ var actionHandler = {
 ////////////////////TIMER//////////////////
 
 var Timer = function() {
-    var counter = 0; //current counter value
+    var initCounter = new Date(); //initial current value
     var lastCounter = 0; //last counter value
+    var counter = 0; //current counter value
     var timerId; //timer id used for clearing
     var running; //flag used to check whether the timer is running
     var started; //flag used to check whether timer was started
@@ -87,7 +88,7 @@ var Timer = function() {
         timerId = setInterval(function() {
             started = true;
             running = true;
-            counter++;
+            counter = new Date() - initCounter;
             render.counter(counter);
         }, 1);
     }
@@ -119,7 +120,7 @@ var Timer = function() {
         }
         clearInterval(timerId);
         counter = 0;
-        lastCounter = 0;
+        lastCounter = counter;
         running = false;
         started = false;
         render.clear();
