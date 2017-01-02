@@ -149,8 +149,8 @@ var render = {
     results: function(type, counter) {
         this.counterResults = document.getElementsByClassName('counter__results')[0];
         var row = document.createElement('tr');
-        div.className = 'results__item';
-        div.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
+        row.className = 'results__item';
+        row.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
         this.counterResults.appendChild(row);
 
     }
