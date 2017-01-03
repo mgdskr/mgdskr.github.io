@@ -78,6 +78,7 @@ var actionHandler = {
 var Timer = function() {
     var totalTime = 0;
     var startingTime = 0;
+    var timeDiff = 0;
     var timerId; //timer id used for clearing
     var running; //flag used to check whether the timer is running
     var started; //flag used to check whether timer was started
@@ -88,7 +89,8 @@ var Timer = function() {
         started = true;
         running = true;
         timerId = setInterval(function() {
-            render.counter(new Date() - startingTime + totalTime);
+            timeDiff = new Date() - startingTime;
+            render.counter(timeDiff + totalTime);
         }, 1);
     }
 
@@ -99,10 +101,9 @@ var Timer = function() {
 
         clearInterval(timerId);
         running = false;
-        var stopTime = new Date() - startingTime
-        totalTime += stopTime;
+        totalTime += timeDiff;
 
-        render.results('stop ', stopTime);
+        render.results('stop ', timeDiff);
     };
 
 
@@ -110,7 +111,7 @@ var Timer = function() {
         if (!running) {
             return;
         }
-        render.results('split', new Date() - startingTime);
+        render.results('split', timeDiff);
     };
 
 
