@@ -29,7 +29,7 @@ var actionHandler = (function() {
 
     var timer;
 
-    function start() {
+    function _start() {
         if (!timer) {
             timer = new Timer();
         }
@@ -41,7 +41,7 @@ var actionHandler = (function() {
         }
     }
 
-    function stop() {
+    function _stop() {
         if (timer) {
             timer.stop();
             var btn = event.target;
@@ -50,14 +50,14 @@ var actionHandler = (function() {
         }
     }
 
-    function split() {
+    function _split() {
         if (timer) {
             timer.split();
         }
     }
 
 
-    function reset() {
+    function _reset() {
         if (timer) {
             timer.reset();
 
@@ -74,10 +74,10 @@ var actionHandler = (function() {
     }
 
     return {
-        start: start,
-        stop: stop,
-        split: split,
-        reset: reset
+        start: _start,
+        stop: _stop,
+        split: _split,
+        reset: _reset
     };
 
 }());
@@ -93,7 +93,7 @@ var Timer = function() {
         started; //flag used to check whether timer was started
 
 
-    function run() {
+    function _run() {
         startingTime = new Date();
         started = true;
         running = true;
@@ -104,7 +104,7 @@ var Timer = function() {
     }
 
 
-    function stop() {
+    function _stop() {
         if (!running) {
             return;
         } // only running process could be stopped
@@ -117,7 +117,7 @@ var Timer = function() {
     }
 
 
-    function split() {
+    function _split() {
         if (!running) {
             return;
         }
@@ -125,7 +125,7 @@ var Timer = function() {
     }
 
 
-    function reset() {
+    function _reset() {
         if (!started) {
             return;
         }
@@ -138,10 +138,10 @@ var Timer = function() {
     }
 
     return {
-        run: run,
-        stop: stop,
-        split: split,
-        reset: reset
+        run: _run,
+        stop: _stop,
+        split: _split,
+        reset: _reset
     };
 
 };
