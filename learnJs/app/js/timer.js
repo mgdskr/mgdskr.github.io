@@ -2,6 +2,7 @@
 
 document.addEventListener('click', btnActionHandler);
 
+
 function btnActionHandler() {
     if (event.target.tagName != 'BUTTON') {
         return;
@@ -19,43 +20,46 @@ function btnActionHandler() {
 
     return actionHandler[action]();
 
-
 }
+
 
 ///////////////////////////////////////////////
 
-var actionHandler = {
-    start: function() {
-        if (!this.timer) {
-            this.timer = new Timer();
+var actionHandler = (function() {
+
+    var timer;
+
+    function start() {
+        if (!timer) {
+            timer = new Timer();
         }
-        if (!this.timer.running) {
-            this.timer.run();
+        if (!timer.running) {
+            timer.run();
             var btn = event.target;
             btn.setAttribute('data-action', 'stop');
             btn.innerHTML = "stop";
         }
-    },
+    }
 
-    stop: function() {
-        if (this.timer) {
-            this.timer.stop();
+    function stop() {
+        if (timer) {
+            timer.stop();
             var btn = event.target;
             btn.setAttribute('data-action', 'start');
             btn.innerHTML = "start";
         }
-    },
+    }
 
-    split: function() {
-        if (this.timer) {
-            this.timer.split();
+    function split() {
+        if (timer) {
+            timer.split();
         }
-    },
+    }
 
 
-    reset: function() {
-        if (this.timer) {
-            this.timer.reset();
+    function reset() {
+        if (timer) {
+            timer.reset();
 
             var btn = event.target;
             var btnStartStop = btn.parentNode.firstElementChild;
@@ -68,10 +72,15 @@ var actionHandler = {
 
         }
     }
-}
 
+    return {
+        start: start,
+        stop: stop,
+        split: split,
+        reset: reset
+    };
 
-
+}());
 
 ////////////////////TIMER//////////////////
 
@@ -84,7 +93,7 @@ var Timer = function() {
     var started; //flag used to check whether timer was started
 
 
-    this.run = function() {
+    function run() {
         startingTime = new Date();
         started = true;
         running = true;
@@ -94,7 +103,7 @@ var Timer = function() {
         }, 1);
     }
 
-    this.stop = function() {
+    function stop() {
         if (!running) {
             return;
         } // only running process could be stopped
@@ -104,18 +113,20 @@ var Timer = function() {
         totalTime += timeDiff;
 
         render.results('stop ', timeDiff);
-    };
+    }
 
 
-    this.split = function() {
+    function split() {
         if (!running) {
             return;
         }
         render.results('split', timeDiff);
-    };
+    }
 
 
-    this.reset = function() {
+
+
+    function reset() {
         if (!started) {
             return;
         }
@@ -127,7 +138,12 @@ var Timer = function() {
         render.clear();
     }
 
-
+    return {
+        run: run,
+        stop: stop,
+        split: split,
+        reset: reset
+    };
 
 };
 
@@ -141,18 +157,19 @@ var render = {
         this.counterTime = document.getElementsByClassName('counter__time')[0];
         this.counterTime.innerHTML = formatCounter(counter);
     },
-    clear: function() {
-        this.counterTime.innerHTML = '00:00:00.000';
-        this.counterResults.innerHTML = "";
-        this.resultCounter = 0;
 
-    },
     results: function(type, counter) {
         this.counterResults = document.getElementsByClassName('counter__results')[0];
         var row = document.createElement('tr');
         row.className = 'results__item';
         row.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
         this.counterResults.appendChild(row);
+    },
+
+    clear: function() {
+        this.counterTime.innerHTML = '00:00:00.000';
+        this.counterResults.innerHTML = "";
+        this.resultCounter = 0;
 
     }
 };
