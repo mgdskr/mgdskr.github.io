@@ -85,12 +85,12 @@ var actionHandler = (function() {
 ////////////////////TIMER//////////////////
 
 var Timer = function() {
-    var totalTime = 0;
-    var startingTime = 0;
-    var timeDiff = 0;
-    var timerId; //timer id used for clearing
-    var running; //flag used to check whether the timer is running
-    var started; //flag used to check whether timer was started
+    var totalTime = 0,
+        startingTime = 0,
+        timeDiff = 0,
+        timerId, //timer id used for clearing
+        running, //flag used to check whether the timer is running
+        started; //flag used to check whether timer was started
 
 
     function run() {
@@ -102,6 +102,7 @@ var Timer = function() {
             render.counter(timeDiff + totalTime);
         }, 1);
     }
+
 
     function stop() {
         if (!running) {
@@ -122,8 +123,6 @@ var Timer = function() {
         }
         render.results('split', timeDiff);
     }
-
-
 
 
     function reset() {
@@ -177,12 +176,11 @@ var render = {
 
 
 function formatCounter(counter) {
-    var time = new Date(counter);
-
-    var hour = addLeadingZeros(time.getUTCHours(time), 2);
-    var min = addLeadingZeros(time.getMinutes(time), 2);
-    var sec = addLeadingZeros(time.getSeconds(time), 2);
-    var ms = addLeadingZeros(time.getMilliseconds(time), 3);
+    var time = new Date(counter),
+        hour = addLeadingZeros(time.getUTCHours(time), 2),
+        min = addLeadingZeros(time.getMinutes(time), 2),
+        sec = addLeadingZeros(time.getSeconds(time), 2),
+        ms = addLeadingZeros(time.getMilliseconds(time), 3);
 
     function addLeadingZeros(timeUnit, digitNum) {
         if (timeUnit < 10 && digitNum === 3) {
