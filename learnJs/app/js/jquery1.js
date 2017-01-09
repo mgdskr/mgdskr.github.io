@@ -1,4 +1,6 @@
-(function() {'use strict';}());
+(function() {
+    'use strict';
+}());
 
 ////////////// TABS///////////////////////
 
@@ -48,11 +50,15 @@ $(document).ready(function() {
     //hide all tips
     $tips.hide();
 
+    //remove titles
+    $inputs.attr("title", "");
+
     $inputs
         .mouseenter(function() {
             var inputId = "." + $(this).attr("id");
             $(inputId).fadeIn();
-            //for some reason $(this).index == 1 for all inputs and followind line does not work
+
+            //for some reason $(this).index == 1 for all inputs and following line does not work
             // $tips.eq($(this).index).show();
         })
         .mouseleave(function() {
