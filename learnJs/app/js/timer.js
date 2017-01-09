@@ -23,6 +23,8 @@ function btnActionHandler() {
 }
 
 
+
+
 ///////////////////////////////////////////////
 
 var actionHandler = (function() {
@@ -30,7 +32,7 @@ var actionHandler = (function() {
     var timer;
 
     function start() {
-        if (!timer) {
+            if !timer {
             timer = new Timer();
         }
         if (!timer.running) {
@@ -40,6 +42,8 @@ var actionHandler = (function() {
             btn.innerHTML = "stop";
         }
     }
+
+
 
     function stop() {
         if (timer) {
@@ -168,7 +172,9 @@ var render = {
 
     clear: function() {
         this.counterTime.innerHTML = '00:00:00.000';
-        this.counterResults.innerHTML = "";
+        if (this.counterResults) {
+            this.counterResults.innerHTML = "";
+        };
         this.resultCounter = 0;
 
     }
@@ -177,22 +183,6 @@ var render = {
 
 
 function formatCounter(counter) {
-    var time = new Date(counter),
-        hour = addLeadingZeros(time.getUTCHours(time), 2),
-        min = addLeadingZeros(time.getMinutes(time), 2),
-        sec = addLeadingZeros(time.getSeconds(time), 2),
-        ms = addLeadingZeros(time.getMilliseconds(time), 3);
-
-    function addLeadingZeros(timeUnit, digitNum) {
-        if (timeUnit < 10 && digitNum === 3) {
-            return timeUnit = "00" + timeUnit;
-        } else if (timeUnit < 10 && digitNum === 2 || timeUnit < 100 && digitNum === 3) {
-            return timeUnit = "0" + timeUnit;
-        } else {
-            return timeUnit;
-        }
-    }
-
-    return hour + ':' + min + ':' + sec + '.' + ms;
-
+    var time = new Date(counter);
+    return time.toJSON().substr(11, 12);
 }
