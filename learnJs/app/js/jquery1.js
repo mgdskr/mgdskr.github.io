@@ -54,16 +54,23 @@ $(document).ready(function() {
     $inputs.attr("title", "");
 
     $inputs
-        .mouseenter(function() {
-            var inputId = "." + $(this).attr("id");
-            $(inputId).fadeIn();
+        .mouseenter(handlerIn)
+        .mouseleave(handlerOut)
+        .focus(handlerIn)
+        .focusout(handlerOut);
 
-            //for some reason $(this).index == 1 for all inputs and following line does not work
-            // $tips.eq($(this).index).show();
-        })
-        .mouseleave(function() {
-            $tips.hide();
-        });
+    function handlerIn() {
+        var inputId = "." + $(this).attr("id");
+        $(inputId).fadeIn();
+    }
+
+    function handlerOut() {
+        $tips.hide();
+    }
+
+    //for some reason $(this).index == 1 for all inputs and following line does not work
+    // $tips.eq($(this).index).show();
+
 
     $btn.click(function(event) {
         $tips.toggle();
