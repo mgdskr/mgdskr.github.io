@@ -33,14 +33,14 @@ var path = {
     },
     app: {
         html: 'app/html/index.html',
-        sass: ['app/blocks/_tools/*.sass', 'app/blocks/*.sass', '!app/blocks/{main,stylus}.sass'],
+        sass: ['app/blocks/_tools/*.scss', 'app/blocks/*.scss', '!app/blocks/{main,stylus}.scss'],
         img: 'app/img/**/*.*',
         fonts: 'app/fonts/**/*.*'
     },
     watch: {
         html: 'app/**/*.html',
         js: 'app/blocks/**/*.js',
-        style: 'app/blocks/**/*.sass',
+        style: 'app/blocks/**/*.scss',
         img: 'app/img/**/*.*',
         fonts: 'app/fonts/**/*.*'
     },
@@ -64,8 +64,8 @@ gulp.task('sprite', function() {
         gulp.src('./app/img/sprite/slider-img/*.*')
             .pipe(spritesmith({
                 imgName: 'slider-img-sprite.png',
-                cssName: 'slider-img-sprite.sass',
-                cssFormat: 'sass',
+                cssName: 'slider-img-sprite.scss',
+                cssFormat: 'scss',
                 algorithm: 'top-down',
                 padding: 1,
 
@@ -149,7 +149,7 @@ gulp.task('sass', function() {
     // gulp.src('app/blocks/main.sass')
         // .pipe(sort()) //sorts files in order files with vars (name starts with "_" come first into pipe)
         .pipe(sourceMaps.init())
-        .pipe(concat('main.sass'))
+        .pipe(concat('main.scss'))
         .pipe(sass())
         // .pipe(plugins.uncss({html: [paths.srcHtml]}))
         .pipe(autoprefixer({ browsers: ['> 1%', 'IE 8'], cascade: false }))

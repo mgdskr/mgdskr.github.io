@@ -1,0 +1,56 @@
+$slider-arrow-left-name: 'slider-arrow-left';
+$slider-arrow-left-x: 0;
+$slider-arrow-left-y: 0;
+$slider-arrow-left-offset-x: 0;
+$slider-arrow-left-offset-y: 0;
+$slider-arrow-left-width: 30px;
+$slider-arrow-left-height: 42px;
+$slider-arrow-left-total-width: 30px;
+$slider-arrow-left-total-height: 85px;
+$slider-arrow-left-image: 'slider-sprite.png';
+$slider-arrow-left: (0px, 0px, 0px, 0px, 30px, 42px, 30px, 85px, 'slider-sprite.png', 'slider-arrow-left', );
+$slider-arrow-right-name: 'slider-arrow-right';
+$slider-arrow-right-x: 0;
+$slider-arrow-right-y: 43px;
+$slider-arrow-right-offset-x: 0;
+$slider-arrow-right-offset-y: -43px;
+$slider-arrow-right-width: 30px;
+$slider-arrow-right-height: 42px;
+$slider-arrow-right-total-width: 30px;
+$slider-arrow-right-total-height: 85px;
+$slider-arrow-right-image: 'slider-sprite.png';
+$slider-arrow-right: (0px, 43px, 0px, -43px, 30px, 42px, 30px, 85px, 'slider-sprite.png', 'slider-arrow-right', );
+$spritesheet-width: 30px;
+$spritesheet-height: 85px;
+$spritesheet-image: 'slider-sprite.png';
+$spritesheet-sprites: ($slider-arrow-left, $slider-arrow-right, );
+$spritesheet: (30px, 85px, 'slider-sprite.png', $spritesheet-sprites, );
+@mixin sprite-width($sprite) {
+    width: nth($sprite, 5);
+}
+@mixin sprite-height($sprite) {
+    height: nth($sprite, 6);
+}
+@mixin sprite-position($sprite) {
+    $sprite-offset-x: nth($sprite, 3);
+    $sprite-offset-y: nth($sprite, 4);
+    background-position: $sprite-offset-x $sprite-offset-y;
+}
+@mixin sprite-image($sprite) {
+    $sprite-image: nth($sprite, 9);
+    background-image: url("#{$sprite-image}");
+}
+@mixin sprite($sprite) {
+     @include sprite-image($sprite);
+    @include sprite-position($sprite);
+    @include sprite-width($sprite);
+    @include sprite-height($sprite);
+}
+@mixin sprites($sprites) {
+     @each $sprite in $sprites{
+        $sprite-name: nth($sprite, 10);
+        .#{$sprite-name} {
+            @include sprite($sprite);
+        }
+    }
+}

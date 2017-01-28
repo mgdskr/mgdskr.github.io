@@ -32,7 +32,7 @@ var actionHandler = (function() {
     var timer;
 
     function start() {
-            if !timer {
+        if (!timer) {
             timer = new Timer();
         }
         if (!timer.running) {
@@ -154,35 +154,65 @@ var Timer = function() {
 ////////////////////////////////////RENDER/////////////////////////////
 
 
-var render = {
-    resultCounter: 0,
+let render = (function() {
 
-    counter: function(counter) {
-        this.counterTime = document.getElementsByClassName('counter__time')[0];
-        this.counterTime.innerHTML = formatCounter(counter);
-    },
+    let resultCounter = 0,
+        counterTime = document.getElementsByClassName('counter__time')[0],
+        counterResults = document.getElementsByClassName('counter__results')[0];
 
-    results: function(type, counter) {
-        this.counterResults = document.getElementsByClassName('counter__results')[0];
-        var row = document.createElement('tr');
-        row.className = 'results__item';
-        row.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
-        this.counterResults.appendChild(row);
-    },
 
-    clear: function() {
-        this.counterTime.innerHTML = '00:00:00.000';
-        if (this.counterResults) {
-            this.counterResults.innerHTML = "";
-        };
-        this.resultCounter = 0;
-
+    function _counter(counter) {
+        counterTime.innerHTML = _formatCounter(counter);
     }
-};
+
+    function _results(type, counter) {
+        counterResults.innerHTML += '<tr class="results__item"><td>' + (++resultCounter) + '</td><td> ' + type + ': </td><td>' + _formatCounter(counter) + '</td></tr>';
+    }
+
+    function _clear() {
+        counterTime.innerHTML = '00:00:00.000';
+        if (counterResults) {
+            counterResults.innerHTML = "";
+        }
+        resultCounter = 0;
+    }
+
+    function _formatCounter(counter) {
+        let time = new Date(counter);
+        return time.toJSON().substr(11, 12);
+    }
+
+    return {
+        counter: _counter,
+        results: _results,
+        clear: _clear
+    };
+}());
 
 
 
-function formatCounter(counter) {
-    var time = new Date(counter);
-    return time.toJSON().substr(11, 12);
-}
+// var render = {
+//     resultCounter: 0,
+//
+//     counter: function(counter) {
+//         this.counterTime = document.getElementsByClassName('counter__time')[0];
+//         this.counterTime.innerHTML = formatCounter(counter);
+//     },
+//
+//     results: function(type, counter) {
+//         this.counterResults = document.getElementsByClassName('counter__results')[0];
+//         var row = document.createElement('tr');
+//         row.className = 'results__item';
+//         row.innerHTML = '<td>' + (++this.resultCounter) + '</td><td> ' + type + ': </td><td>' + formatCounter(counter) + '</td>';
+//         this.counterResults.appendChild(row);
+//     },
+//
+//     clear: function() {
+//         this.counterTime.innerHTML = '00:00:00.000';
+//         if (this.counterResults) {
+//             this.counterResults.innerHTML = "";
+//         };
+//         this.resultCounter = 0;
+//
+//     }
+// };
