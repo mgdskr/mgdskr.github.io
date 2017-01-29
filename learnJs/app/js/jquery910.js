@@ -86,7 +86,7 @@ $(function() {
 ///////////////dropdown menu animations///////////////////////
 ///// ES6 rules
 $(() => {
-    let $dropdown = $('.dropdown');
+    let $dropdown = $('#menu-jquery .dropdown');
 
     $dropdown.removeClass('no-js');
 

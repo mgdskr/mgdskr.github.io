@@ -1,8 +1,12 @@
-(function() {
     'use strict';
-}());
+
 
 (function() {
+    let menuJquery =document.querySelector('#menu-jquery');
+    let menuLight = menuJquery.cloneNode('deep');
+    menuLight.setAttribute("id", "menuLight");
+    menuLight.style.zIndex = "1000";
+    document.body.insertBefore(menuLight, menuJquery);
 
     let subMenu = document.querySelectorAll('.sub-menu');
     let dropDown = document.querySelectorAll('.dropdown');
