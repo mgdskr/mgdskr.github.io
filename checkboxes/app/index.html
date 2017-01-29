@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript HW9-10</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+  <link rel="stylesheet" href="css/jquery.selectBoxIt.css" />
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="page">
+  <!-- //= header.html -->
+  <!-- //= js56.html -->
+  <!-- //= js78.html -->
+  <div class="container custom-selects">
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1">
+        <select name="test">
+          <option value="SelectBoxIt is:">SelectBoxIt is:</option>
+          <option value="a jQuery Plugin">a jQuery Plugin</option>
+          <option value="a Select Box Replacement">a Select Box Replacement</option>
+          <option value="a Stateful UI Widget">a Stateful UI Widget</option>
+        </select>
+      </div>
+
+      <div class="col-lg-2 col-lg-offset-1">
+        <script src="//use.fontawesome.com/6ccda1a718.js"></script>
+
+        <form>
+          <h3>Radio Buttons pure CSS</h3>
+          <div>
+            <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+            <label for="radio-1" class="radio-custom-label">First Choice</label>
+          </div>
+          <div>
+            <input id="radio-2" class="radio-custom" name="radio-group" type="radio">
+            <label for="radio-2" class="radio-custom-label">Second Choice</label>
+          </div>
+          <div>
+            <input id="radio-3" class="radio-custom" name="radio-group" type="radio">
+            <label for="radio-3" class="radio-custom-label">Third Choice</label>
+          </div>
+
+          <h3>Checkboxes pure CSS</h3>
+          <div>
+            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox" checked>
+            <label for="checkbox-1" class="checkbox-custom-label">First Choice</label>
+          </div>
+          <div>
+            <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox" disabled>
+            <label for="checkbox-2" class="checkbox-custom-label">Second Choice</label>
+          </div>
+          <div>
+            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox">
+            <label for="checkbox-3" class="checkbox-custom-label">Third Choice</label>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-2 col-lg-offset-1">
+        <h3>Checkboxes JS</h3>
+        <form action="#" class="checkboxes-js no-js">
+          <div class="niceCheck">
+            <input type="checkbox" id="ch1" />
+            <label for="ch1">First Choice</label>
+          </div>
+          <div class="niceCheck">
+            <input type="checkbox" id="ch2" checked="checked" />
+            <label for="ch2">Second Choice</label>
+          </div>
+          <div class="niceCheck">
+            <input type="checkbox" id="ch3" disabled="disabled" />
+            <label for="ch3">Third Choice</label>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="libs/jquery-ui.min.js"></script>
+  <script src="libs/jquery.selectBoxIt.min.js"></script>
+
+  <script async src="js/checkboxes.js"></script>
+
+</body>
+
+</html>
