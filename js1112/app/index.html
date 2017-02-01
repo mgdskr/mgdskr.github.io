@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript HW11-12</title>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="page">
+  <!-- carousel -->
+  <script type="text/template" id="carousel-template">
+    <div class="carousel">
+                <button class="carousel__control carousel__control_prev"></button>
+                <div class="carousel__visible-part">
+                    <ul class="carousel__body">
+                        <% for (var i = 1; i<=9; i++) { %>
+                            <li class="carousel__item"><img src="img/<%=i%>.png"></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <button class="carousel__control carousel__control_next"></button>
+            </div>
+  </script>
+  <!-- end of carousel -->
+
+  <!-- profiles -->
+  <script type="text/template" id="profile-template">
+    <% for (var i = 0, length = profiles.length; i< length; i++) { %>
+                <div class="profiles__item profile">
+                    <span class="profile__name"><%=  profiles[i].name%></span>
+                    <span class="profile__surname"><%=  profiles[i].surname%></span>
+                </div>
+                <% } %>
+  </script>
+  <!-- end of profiles -->
+
+
+  <script src="js/tmpl.js"></script>
+  <script src="js/jquery.mycarousel.js"></script>
+  <script src="js/js1112.js"></script>
+</body>
+
+</html>
