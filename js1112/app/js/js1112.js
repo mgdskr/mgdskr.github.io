@@ -10,7 +10,7 @@ $(function() {
 
 //подключение и запуск карусели
 $(() => {
-    $('.carousel').mycarousel();
+    $('.carousel').myCarousel();
 });
 
 
@@ -30,7 +30,7 @@ $(() => {
     //если получаем данные - обрабатываем
     xhr.onreadystatechange = function() {
         if (xhr.readyState != 4) return;
-        console.log(xhr.status);
+        // console.log(xhr.status);
 
         //парсим данные в объект данных для шаблонизатора
         var data = {

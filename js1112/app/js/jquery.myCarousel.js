@@ -1,9 +1,9 @@
 (function($) {
 
 
-    $.fn.mycarousel = function() {
+    $.fn.myCarousel = function() {
         'use strict';
-        
+
         //ищем карусель боди именно нашей карусели
         let $carouselBody = this.find('.carousel__body');
 
@@ -34,7 +34,6 @@
         });
 
         this.find('.carousel__control_next').on('click', function() {
-            console.log("!");
             //карусель установлена в конец
             if (currentLeft == -maxWidth) {
                 return;
