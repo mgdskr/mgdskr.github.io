@@ -10,7 +10,7 @@ $(function() {
 
 //подключение и запуск карусели
 $(() => {
-    $('.carousel').myCarousel();
+    $('.carousel').myCarousel({speed: 1000});
 });
 
 

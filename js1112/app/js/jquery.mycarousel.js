@@ -1,8 +1,15 @@
 (function($) {
 
 
-    $.fn.myCarousel = function() {
+    $.fn.myCarousel = function(options) {
         'use strict';
+
+        // задаем настройки по умолчанию
+        let defaults = {
+            speed: 400
+        };
+        
+        let config = $.extend({}, defaults, options);
 
         //ищем карусель боди именно нашей карусели
         let $carouselBody = this.find('.carousel__body');
@@ -29,7 +36,7 @@
                 return;
             }
             currentLeft += carouselWidth;
-            slide();
+            slide(config.speed);
 
         });
 
@@ -39,14 +46,14 @@
                 return;
             }
             currentLeft -= carouselWidth;
-            slide();
+            slide(config.speed);
 
         });
 
-        function slide() {
+        function slide(speed) {
             $carouselBody.animate({
                 "left": currentLeft + 'px'
-            });
+            }, speed);
         }
 
         return this;
