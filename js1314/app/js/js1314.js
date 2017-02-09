@@ -1,20 +1,23 @@
 (() => {
     'use strict';
 
+////////////////записываем объект в localStorage/////////////////
+
     //object with questions
     let testData = {
-        title: "Test",
-        questions: [{
-            title: "Question 1",
-            answerOptions: ["Option 1.1", "Option 1.2", "Option 1.3"]
+        "title": "Тест компьютерной граммотности",
+        "questions": [{
+            "title": "Язык frontend разработки",
+            "answerOptions": ["JavaScript", "PHP", "Ruby", "Java"]
         }, {
-            title: "Question 2",
-            answerOptions: ["Option 2.1", "Option 2.2", "Option 2.3"]
+            "title": "Что такое jQuery",
+            "answerOptions": ["фреймворк", "библиотека", "язык программирования"]
         }, {
-            title: "Question 3",
-            answerOptions: ["Option 3.1", "Option 3.2", "Option 3.3"]
+            "title": "Укажите все менеджеры задач (task-runners)",
+            "answerOptions": ["Gulp", "Grunt", "Git"]
         }],
-        submitValue: "Check my results!"
+        "submitValue": "Проверить результаты!",
+        "rightAnswers": "123"
     };
 
     //lets define our storage
@@ -23,23 +26,30 @@
     myStorage.test = JSON.stringify(testData);
     //get data from local storage
     let data = JSON.parse(myStorage.getItem('test'));
-    console.log(data);
 
+
+
+
+/////////////////////создаем тест///////////////////////
 
     class Test {
         //using destructor to get parameters
         constructor({
             title = 'Test',
             questions,
-            submitValue = 'Check results!'
+            submitValue = 'Check results!',
+            rightAnswers
         }) {
             //write parameters to specie's properties
             this.title = title;
             this.questions = questions;
             this.submitValue = submitValue;
+            this.rightAnswers = rightAnswers;
+            this.userAnswers = [];
+            //reusable DOM elements
+            this.body = document.body;
             this.form = '';
-            this.userAnswers = {};
-
+            //run all methods
             this.renderTest();
             this.createAnswersEmptyObj();
             this.checkboxHandler();
@@ -49,14 +59,14 @@
         renderTest() {
             let pageContent =
                 `<h1>${this.title}</h1>
-            <form method="GET" action="index.html">
+            <form method="POST" action="#">
                 <ol>
-                    ${this.questions.map((question, qnum) => `
+                    ${this.questions.map((question, qNum) => `
                         <li>
                             <h2>${question.title}</h2>
                             <ul>
-                                ${question.answerOptions.map((option) => `
-                                    <li><label><input type = "checkbox" name = "q${qnum}" value = "${option}">
+                                ${question.answerOptions.map((option, oNum) => `
+                                    <li><label><input type = "checkbox" name = "q${qNum}" value = "o${oNum}">
                                     <span>${option}</span>
                                     </label></li>`).join('')}
                             </ul>
@@ -66,51 +76,97 @@
             </form>`;
 
             //inserting form to our page
-            let body = document.body;
             let test = document.createElement('div');
             test.classList.add('test');
             test.innerHTML = pageContent;
-            body.insertBefore(test, body.firstChild);
+            this.body.insertBefore(test, this.body.firstChild);
 
             //define form to use in other methods
             this.form = test.querySelector('form');
 
         }
+
+
+
         //поскольку мы не знаем заранее сколько вопросов будет в тесте - создаем массив, а в нем объкты для ответов на каждый вопрос
         createAnswersEmptyObj() {
             for (let i = 0, max = this.questions.length; i < max; i++) {
                 // вопрос из анкеты
                 let question = this.questions[i];
-                // ответы пользователя в массиве ответов
-                let answer = this.userAnswers[`q${i}`] = {};
+                // ответы пользователя в массиве ответов в виде пустого массива
+                this.userAnswers[i] = [];
                 for (let k = 0, max = question.answerOptions.length; k < max; k++) {
-                    // добавляем в ответ пользователя все опции с флагом false, ипользуем 0 - далее будем через ~ при нажатии менять на 1 и обратно при повторном нажатии
-                    answer[question.answerOptions[k]] = 0;
+                    // добавляем в ответ пользователя все опции с флагом false, ипользуем 0 - далее будем при нажатии менять на 1 и обратно при повторном нажатии
+                    this.userAnswers[i].push(0);
                 }
             }
-            console.log(this.userAnswers);
         }
 
+
+
+
         checkboxHandler() {
+            //ставим хендлер на форму
             this.form.addEventListener('click', (e) => {
+                //ищем чекбоксы
                 if (e.target.tagName === 'INPUT' && e.target.type === "checkbox") {
-                    this.userAnswers[e.target.name][e.target.value] = ~this.userAnswers[e.target.name][e.target.value];
+                    //определяем место, куда записать ответ
+                    let answer = this.userAnswers[e.target.name.slice(1)]; //name = "q[0-9]", обрезаем q
+                    //определяем позицию выбранной опции в массиве ответов
+                    //записать нужно в конец, для первой опции должны получить не 100, а 001
+                    let optionPosition = answer.length - 1 - e.target.value.slice(1); //name = "o[0-9]"
+                    //меняем значение 0 на 1 или 1 на 0
+                    answer[optionPosition] = answer[optionPosition] === 0 ? 1 : 0;
                     console.clear();
                     console.log(this.userAnswers);
 
                 }
-            })
+            });
         }
-        submitHandler() {
-            let formData = new FormData(this.form)
 
+
+
+
+        submitHandler() {
             this.form.querySelector('input[type="submit"]').addEventListener('click', (e) => {
-                console.log(formData);
-                // console.log(this.form.q1);
-                // console.log(this.form.q2);
-                // e.preventDefault();
+                //определям код ответа - соединяем массив ответов в строку и переводим двоичное представление к 10-чной
+                //если порядок вопросов не меняется - нам все равно сколько опций в каждом вопросе и сколько знаков занимает конкретный код, поэтому просто соединяем в строку и проверям
+                //недостаток - не ясно в каком вопросе неверный ответ
+                let finalAnswerCode = '';
+                for (let i = 0, max = this.userAnswers.length; i < max; i++) {
+                    let answerCode = parseInt(this.userAnswers[i].join(''), 2);
+                    finalAnswerCode += answerCode;
+                }
+
+                this.renderModalWindow(finalAnswerCode === this.rightAnswers ? 'Вы успешно прошли тест!' : 'Попробуйте еще раз');
+
+                this.resetData();
+
+                e.preventDefault();
+
             });
 
+        }
+
+        renderModalWindow(result) {
+            let modalWindow = document.createElement('div');
+
+            modalWindow.classList.add('modal-window');
+            modalWindow.innerHTML = `<div class="modal-window__inner">${result}<div/>`;
+            this.body.appendChild(modalWindow);
+
+            // устанавливаем хендлер на закрытие
+            modalWindow = document.querySelector('.modal-window');
+
+            modalWindow.addEventListener('click', (e) => {
+                this.body.removeChild(modalWindow);
+            });
+        }
+
+
+        resetData() {
+            this.form.querySelectorAll('input[type="checkbox"]').forEach((el) => el.checked = false);
+            this.createAnswersEmptyObj();
         }
 
     }
@@ -118,10 +174,3 @@
     let newTest = new Test(data);
 
 })();
-// Домашнее задание:
-//
-// За основу взять домашку 3-4. Перед стартом приложения записать в localStorage объект с вопросами и ответами теста. Потом прочесть данные из localStorage, отрендерить их используя любой javascript-шаблонизатор
-// На странице должна быть возможность пройти тест. При клике на кнопку "Проверить мои результаты" нужно выполнить проверку правильных ответов и вывести сообщение об успешном или не успешном прохождении теста. После вывода сообщения, обнулить отметки чтоб тест можно было пройти опять
-// В каждом вопросе может быть только один правильный вариант ответа
-// Само сообщение о результатах теста нужно сделать в стиле простого модального окна. Не обязательно соблюдать такой же дизайн как в Bootstrap, можете сделать по своему, но верстка и код появления модальки должны быть написаны вами. Допускается использование jQuery. Кому хочется больше веселья, делайте без неё
-// Бонусная часть: в вопросах должна быть возможность выбрать несколько правильных вариантов ответа, не только один
