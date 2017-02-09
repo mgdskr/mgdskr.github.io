@@ -1,11 +1,11 @@
 (() => {
     'use strict';
 
-////////////////записываем объект в localStorage/////////////////
+    ////////////////записываем объект в localStorage/////////////////
 
     //object with questions
     let testData = {
-        "title": "Тест компьютерной граммотности",
+        "title": "Тест",
         "questions": [{
             "title": "Язык frontend разработки",
             "answerOptions": ["JavaScript", "PHP", "Ruby", "Java"]
@@ -30,7 +30,7 @@
 
 
 
-/////////////////////создаем тест///////////////////////
+    /////////////////////создаем тест///////////////////////
 
     class Test {
         //using destructor to get parameters
