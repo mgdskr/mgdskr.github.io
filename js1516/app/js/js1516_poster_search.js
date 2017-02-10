@@ -54,13 +54,16 @@
     function search() {
 
         let searchQuery = document.querySelector('.search__field').value;
+        if (searchQuery === '') {
+            return;
+        }
         console.log(searchCount);
         if (searchCount === 0) {
-                searchMessage = document.createElement('div');
-                searchMessage.classList.add('search__message');
-                document.body.appendChild(searchMessage);
-                searchMessage = document.querySelector('.search__message');
-            }
+            searchMessage = document.createElement('div');
+            searchMessage.classList.add('search__message');
+            document.body.appendChild(searchMessage);
+            searchMessage = document.querySelector('.search__message');
+        }
 
         searchCount++;
 
@@ -72,7 +75,7 @@
         getMovies(url, function(movies) {
             let oldMovieList = document.querySelector('.movie-list');
             if (oldMovieList) {
-                movieList.innerHTML ='';
+                movieList.innerHTML = '';
             }
             movies.forEach(function(movie) {
                 addMovieToList(movie);
