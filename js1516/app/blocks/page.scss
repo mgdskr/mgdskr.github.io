@@ -5,17 +5,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    // margin: auto;
-
-    &::after {
-        clear: both;
-        display: block;
-        content: '';
-    }
 
     &__poster {
         padding: 1%;
-        // height: 446px;
+        height: 27%;
         width: 18%;
         float: left;
     }
