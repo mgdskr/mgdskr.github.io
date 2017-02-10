@@ -1,30 +1,21 @@
 (() => {
     'use strict';
 
-    function renderMovies() {
-
-    }
-
-    let movieListFrag = document.createDocumentFragment('div');
-    let movieList = document.createElement('div');
-    movieList.classList.add('movie-list');
-
-    function addMovieToList(movie) {
-        let poster = document.createElement('img');
-        poster.classList.add('movie-list__poster');
-        poster.src = movie.Poster;
-        movieList.appendChild(poster);
-    }
-
+    //запрос на сервер
     function getMovies(url) {
+        //возвращает новый промис
         return new Promise(function(resolve, reject) {
+            //создаем новый запрос
             let xhr = new XMLHttpRequest();
+
             xhr.open('GET', url);
 
+            //по загрузке данных - обрабатываем объект
             xhr.onload = () => {
                 if (xhr.status === 200) {
                     let moviesData = JSON.parse(xhr.response);
                     console.log(moviesData);
+                    //наши данные в Search
                     resolve(moviesData.Search);
                 } else {
                     reject(xhr.statusText);
@@ -36,59 +27,87 @@
             };
 
             xhr.send();
-
         });
-
-
     }
 
 
-    let searchBtn = document.querySelector('.search');
-
-    searchBtn.addEventListener('submit', function(e) {
-
+    //ставим хендлер на сабмит формы поиска
+    //работает как по нажатию на кнопку поиска так и на Enter
+    let searchForm = document.querySelector('.search__form');
+    searchForm.addEventListener('submit', function(e) {
         search();
         e.preventDefault();
-        // e.stopImmediatePropagation();
     });
 
+    //сюда будем вставлять сообщение - результат поиска
+    let searchMessage = document.querySelector('.search__message');
+    //а сюда - постеры
+    let movieList = document.querySelector('.movie-list');
 
-    let searchCount = 0;
-    let searchMessage;
-
+    //хендлер поиска
     function search() {
-
+        //определяем поисковый запрос
         let searchQuery = document.querySelector('.search__field').value;
+        //проверяем чтобы не пустой
         if (searchQuery === '') {
             return;
         }
-        console.log(searchCount);
-        if (searchCount === 0) {
-            searchMessage = document.createElement('div');
-            searchMessage.classList.add('search__message');
-            document.body.appendChild(searchMessage);
-            searchMessage = document.querySelector('.search__message');
-        }
+        //выводим сообщение - ведется поиск
+        let searchMessageText = {
+            processing: `Searching for ${searchQuery}`,
+            done: `Search results for query: ${searchQuery}`,
+            error: `Сервер не отвечает. Попробуйте повторить запрос позднее или пробуйте другой запрос, например "summer"`
+        };
 
-        searchCount++;
+        //выводим сообщение об обратке запроса и добавляем в конец запроса точки
+        let message = searchMessageText.processing;
+        let dotsCounter = 0;
+        let intervalId = setInterval(function() {
+            if (dotsCounter++ === 3) {
+                message = searchMessageText.processing;
+                dotsCounter = 0;
+            } else {
+                message += '.';
+            }
+            searchMessage.innerHTML = message;
+        }, 400);
 
-        searchMessage.innerHTML = `Result for query: ${searchQuery}`;
+
+        //обнуляем поле ввода
         document.querySelector('.search__field').value = '';
+        //очищаем предыдущие результаты поиска
+        movieList.innerHTML = '';
 
+        //создаем урл запроса
         let url = `http://www.omdbapi.com/?s=${searchQuery}`;
 
+        //делаем запрос
         getMovies(url)
             .then(movies => {
-                let oldMovieList = document.querySelector('.movie-list');
-                if (oldMovieList) {
-                    movieList.innerHTML = '';
-                }
-                movies.forEach(movie => {
-                    addMovieToList(movie);
-                });
-                document.body.appendChild(movieList);
+                clearInterval(intervalId);
+                searchMessage.innerHTML = searchMessageText.done;
+                return movies;
             })
-            .catch(error => console.error(error));
+            .then(movies => {
+                renderMovies(movies);
+            })
+            .catch(error => {
+                clearInterval(intervalId);
+                searchMessage.innerHTML = error + " " + searchMessageText.error;
+            });
+
+
     }
+
+
+    //отображаем постеры
+    function renderMovies(movies) {
+        let searchResults = '';
+        searchResults = movies.map(movie => `
+            <img class="movie-list__poster" src="${movie.Poster}">
+            `).join('');
+        movieList.innerHTML = searchResults;
+    }
+
 
 })();
