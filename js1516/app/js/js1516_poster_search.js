@@ -16,25 +16,30 @@
         movieList.appendChild(poster);
     }
 
-    function getMovies(url, done) {
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
+    function getMovies(url) {
+        return new Promise(function(resolve, reject) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
 
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                let moviesData = JSON.parse(xhr.response);
-                console.log(moviesData);
-                done(moviesData.Search);
-            } else {
-                console.error(xhr.statusText);
-            }
-        };
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    let moviesData = JSON.parse(xhr.response);
+                    console.log(moviesData);
+                    resolve(moviesData.Search);
+                } else {
+                    reject(xhr.statusText);
+                }
+            };
 
-        xhr.onerror = function(error) {
-            console.error(error);
-        };
+            xhr.onerror = function(error) {
+                reject(error);
+            };
 
-        xhr.send();
+            xhr.send();
+
+        });
+
+
     }
 
 
@@ -72,17 +77,18 @@
 
         let url = `http://www.omdbapi.com/?s=${searchQuery}`;
 
-        getMovies(url, function(movies) {
-            let oldMovieList = document.querySelector('.movie-list');
-            if (oldMovieList) {
-                movieList.innerHTML = '';
-            }
-            movies.forEach(function(movie) {
-                addMovieToList(movie);
-            });
-            document.body.appendChild(movieList);
-        });
-
+        getMovies(url)
+            .then(movies => {
+                let oldMovieList = document.querySelector('.movie-list');
+                if (oldMovieList) {
+                    movieList.innerHTML = '';
+                }
+                movies.forEach(movie => {
+                    addMovieToList(movie);
+                });
+                document.body.appendChild(movieList);
+            })
+            .catch(error => console.error(error));
     }
 
 })();
