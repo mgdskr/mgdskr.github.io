@@ -16,7 +16,7 @@
                     let moviesData = JSON.parse(xhr.response);
                     console.log(moviesData);
                     //наши данные в Search
-                    resolve(moviesData.Search);
+                    resolve(moviesData.hits);
                 } else {
                     reject(xhr.statusText);
                 }
@@ -79,7 +79,9 @@
         movieList.innerHTML = '';
 
         //создаем урл запроса
-        let url = `http://www.omdbapi.com/?s=${searchQuery}`;
+        let apiKey = '4524919-e335179e57b7d83645cf55658';
+        let url = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo`;
+        // let url = `http://www.omdbapi.com/?s=${searchQuery}`;
 
         //делаем запрос
         getMovies(url)
@@ -104,7 +106,7 @@
     function renderMovies(movies) {
         let searchResults = '';
         searchResults = movies.map(movie => `
-            <img class="movie-list__poster" src="${movie.Poster}">
+            <img class="movie-list__poster" src="${movie.webformatURL}">
             `).join('');
         movieList.innerHTML = searchResults;
     }
