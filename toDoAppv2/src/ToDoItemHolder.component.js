@@ -5,22 +5,7 @@ class ToDoItemHolder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            toDoList: [{
-                text: "learn JS",
-                done: true,
-                id: 0
-            },{
-                text: "learn ES6",
-                done: false,
-                id: 1
-            },{
-                text: "learn React",
-                done: false,
-                id: 2
-            },{
-                text: "workout",
-                done: false,
-                id: 3}]
+            toDoList: []
         };
     }
 
@@ -34,6 +19,7 @@ class ToDoItemHolder extends React.Component {
                     key={itemId}
                     id={toDoItem.id}
                     done={toDoItem.done}
+                    onTaskChange={this.handlerTaskChange.bind(this, toDoItem)}
                     onTaskDelete={this.handlerTaskDelete.bind(this, toDoItem)}
                     onTaskDone={this.handlerTaskDone.bind(this, toDoItem)}>
                     {toDoItem.text}
@@ -58,6 +44,18 @@ class ToDoItemHolder extends React.Component {
             </form>
             </div>
         );
+    }
+
+    handlerTaskChange(task, event) {
+        let taskId = task.id;
+        let updatedTask  = event.target.value;
+        let newTasks = this.state.toDoList.map((task) => {
+            if (task.id === taskId) {
+                task.text = updatedTask;
+            }
+            return task;
+        });
+        this.setState({toDoList: newTasks});
     }
 
     handlerTaskDelete(task) {
@@ -97,9 +95,26 @@ class ToDoItemHolder extends React.Component {
         });
     }
 
+    _updateDataWithLocalStorage() {
+        let toDoList = JSON.stringify(this.state.toDoList);
+        console.log('from _',toDoList);
+        localStorage.setItem('toDoList', toDoList);
+        console.log('from ls ', localStorage.getItem('toDoList'));
+    }
+
+    componentDidUpdate() {
+        console.log('update');
+        this._updateDataWithLocalStorage();
+    }
 
     componentDidMount() {
         this.addItem();
+
+        let localToDoList = JSON.parse(localStorage.getItem('toDoList'));
+        console.log(localToDoList);
+        if (localToDoList) {
+            this.setState({'toDoList': localToDoList});
+        }
     };
 }
 

@@ -26,6 +26,12 @@ body {
     padding: 5px;
     flex-grow: 1;
     margin-right: 10px;
+    font-size: 16px;
+    border: none;
+}
+.to-do-app__input:focus {
+    border: none;
+    outline: none;
 }
 .to-do-app__submit {
     border: none;
@@ -34,19 +40,23 @@ body {
 .to-do-item {
     padding: 10px 10px;
     border: 1px solid transparent;
+    display: flex;
+    justify-content: space-between;
 }
 .to-do-item:hover {
     border: 1px solid #ddd;
 
 }
-.to-do-item::after {
-    content: '';
-    clear: both;
-    display: block;
-}
 
 .to-do-item__text {
     text-transform: capitalize;
+    font-size: 16px;
+    flex-grow: 1;
+    border: none;
+}
+.to-do-item__text:focus {
+    border: none;
+    outline: none;
 }
 .to-do-item__icon_is-done {
     margin-right: 8px;
@@ -54,6 +64,10 @@ body {
 .to-do-item__icon_to-trash {
     display: none;
     float: right;
+}
+.to-do-item span {
+    display: block;
+    width: 30px;
 }
 .to-do-item:hover .to-do-item__icon_to-trash {
     display: block;
