@@ -1,0 +1,24 @@
+.header {
+
+    &__container {
+        @include container {
+        }
+    }
+
+    &__headline {
+        margin-top: 37px;
+    }
+
+    &__main-nav {
+        margin-top: 39px;
+    }
+
+    &__slider {
+        margin-top: 40px;
+    }
+
+    &__benefits {
+        margin-top: 72px;
+        margin-bottom: 70px;
+    }
+}

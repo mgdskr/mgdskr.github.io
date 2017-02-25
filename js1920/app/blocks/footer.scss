@@ -1,0 +1,12 @@
+.footer {
+    background-color: rgb(42, 45, 50);
+
+
+    &__container {
+        @include container {
+            padding: 63px 0 81px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

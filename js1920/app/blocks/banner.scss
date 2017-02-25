@@ -1,0 +1,64 @@
+@mixin animation() {
+    -webkit-transition: all linear .4s;
+    transition: all linear .4s;
+}
+
+.banner {
+
+    &_active {
+
+        .banner__title {
+        color: rgb(255, 255, 255);
+        background-color: rgb(244, 182, 13);
+        }
+
+        .banner__title::before {
+            content: '--';
+        }
+
+        .banner__body {
+            height: 191px;
+            @include animation();
+        }
+    }
+
+    &__title {
+        cursor: pointer;
+        vertical-align: middle;
+        width: 100%;
+        color: rgb(42, 45, 50);
+        font-size: 13px;
+        text-transform: uppercase;
+        border: 1px solid rgb(232, 232, 232);
+        background-color: rgb(255, 255, 255);
+        padding: 14px;
+        box-sizing: border-box;
+        line-height: 11px;
+        font-weight: 500;
+        font-family: Ubuntu;
+
+        &::before {
+            content: '+';
+            line-height: 11px;
+            margin: 0 14px 0 0;
+            text-align: center;
+            padding: 12px 14px 12px 0;
+            border: 1px solid rgb(232, 232, 232);
+            border-left: none;
+        }
+    }
+
+    &__body {
+        height: 5px; //used instead of margin
+        overflow: hidden;
+        @include animation();
+    }
+
+    &__text {
+        color: rgb(138, 138, 138);
+        font-family: Arial;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 30px 12px 41px 39px;
+    }
+}

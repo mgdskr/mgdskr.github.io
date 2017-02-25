@@ -1,0 +1,38 @@
+.basement {
+    background-color: #34373c;
+    color: rgba(255, 255, 255, .2);
+    // line-height: 20px;
+    padding: 20px;
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: 400;
+
+
+    &__container {
+        @include container {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        margin-right: 43px;
+        vertical-align: middle;
+
+        & .icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            fill: rgba(255, 255, 255, .2);
+            margin-right: 10px;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+
+}

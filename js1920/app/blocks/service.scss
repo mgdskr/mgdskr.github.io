@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.service {
+    text-decoration: none;
+    width: (260/1160*100)+%;
+    display: block;
+    text-align: center;
+
+    &:hover {
+        .service__title {
+            color: rgb(244, 182, 13);
+        }
+
+        .service__figure::before {
+            display: block;
+        }
+    }
+
+    &__figure {
+        &::before {
+            position: absolute;
+            display: none;
+            padding: (260px-70px)/2;
+            box-sizing: border-box;
+            height: 260px;
+            width: 260px;
+            background-color: rgba(36, 140, 236, .9);
+            content: "\FF0B";
+            color: white;
+            font-size: 70px;
+        }
+    }
+
+    &__img {
+        height: 260px;
+        width: 260px;
+        margin-bottom: 34px;
+    }
+
+    &__title {
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        // font-family: Ubuntu;
+        // font-weight: 500;
+    }
+}
