@@ -1,0 +1,145 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$brand-1-name: 'brand_1';
+$brand-1-x: 0px;
+$brand-1-y: 0px;
+$brand-1-offset-x: 0px;
+$brand-1-offset-y: 0px;
+$brand-1-width: 143px;
+$brand-1-height: 62px;
+$brand-1-total-width: 184px;
+$brand-1-total-height: 379px;
+$brand-1-image: 'sprite-brand.png';
+$brand-1: (0px, 0px, 0px, 0px, 143px, 62px, 184px, 379px, 'sprite-brand.png', 'brand_1', );
+$brand-2-name: 'brand_2';
+$brand-2-x: 0px;
+$brand-2-y: 63px;
+$brand-2-offset-x: 0px;
+$brand-2-offset-y: -63px;
+$brand-2-width: 143px;
+$brand-2-height: 62px;
+$brand-2-total-width: 184px;
+$brand-2-total-height: 379px;
+$brand-2-image: 'sprite-brand.png';
+$brand-2: (0px, 63px, 0px, -63px, 143px, 62px, 184px, 379px, 'sprite-brand.png', 'brand_2', );
+$brand-3-name: 'brand_3';
+$brand-3-x: 0px;
+$brand-3-y: 315px;
+$brand-3-offset-x: 0px;
+$brand-3-offset-y: -315px;
+$brand-3-width: 184px;
+$brand-3-height: 64px;
+$brand-3-total-width: 184px;
+$brand-3-total-height: 379px;
+$brand-3-image: 'sprite-brand.png';
+$brand-3: (0px, 315px, 0px, -315px, 184px, 64px, 184px, 379px, 'sprite-brand.png', 'brand_3', );
+$brand-4-name: 'brand_4';
+$brand-4-x: 0px;
+$brand-4-y: 126px;
+$brand-4-offset-x: 0px;
+$brand-4-offset-y: -126px;
+$brand-4-width: 143px;
+$brand-4-height: 62px;
+$brand-4-total-width: 184px;
+$brand-4-total-height: 379px;
+$brand-4-image: 'sprite-brand.png';
+$brand-4: (0px, 126px, 0px, -126px, 143px, 62px, 184px, 379px, 'sprite-brand.png', 'brand_4', );
+$brand-5-name: 'brand_5';
+$brand-5-x: 0px;
+$brand-5-y: 189px;
+$brand-5-offset-x: 0px;
+$brand-5-offset-y: -189px;
+$brand-5-width: 143px;
+$brand-5-height: 62px;
+$brand-5-total-width: 184px;
+$brand-5-total-height: 379px;
+$brand-5-image: 'sprite-brand.png';
+$brand-5: (0px, 189px, 0px, -189px, 143px, 62px, 184px, 379px, 'sprite-brand.png', 'brand_5', );
+$brand-6-name: 'brand_6';
+$brand-6-x: 0px;
+$brand-6-y: 252px;
+$brand-6-offset-x: 0px;
+$brand-6-offset-y: -252px;
+$brand-6-width: 143px;
+$brand-6-height: 62px;
+$brand-6-total-width: 184px;
+$brand-6-total-height: 379px;
+$brand-6-image: 'sprite-brand.png';
+$brand-6: (0px, 252px, 0px, -252px, 143px, 62px, 184px, 379px, 'sprite-brand.png', 'brand_6', );
+$spritesheet-width: 184px;
+$spritesheet-height: 379px;
+$spritesheet-image: 'sprite-brand.png';
+$spritesheet-sprites: ($brand-1, $brand-2, $brand-3, $brand-4, $brand-5, $brand-6, );
+$spritesheet: (184px, 379px, 'sprite-brand.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

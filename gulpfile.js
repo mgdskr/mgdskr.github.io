@@ -36,10 +36,10 @@ var path = {
     },
     app: {
         html: 'app/html/index.html',
-        sass: ['app/blocks/_tools/*.scss', 'app/blocks/*.scss', '!app/blocks/{main,stylus}.scss'],
+        sass: ['app/blocks/core/*.scss', 'app/blocks/*.scss', '!app/blocks/main.scss'],
         img: 'app/img/**/*.*',
         fonts: 'app/fonts/**/*.*',
-        js: ['app/js/**/*.js', '!app/js/bundle.js']
+        js: ['app/js/**/*.js', '!app/js/bundle.min.js']
     },
     watch: {
         html: 'app/**/*.html',
@@ -66,16 +66,16 @@ gulp.task('prettify', function() {
 //sprites
 gulp.task('sprite', function() {
     var spriteData =
-        gulp.src('./app/img/sprite/slider-img/*.*')
+        gulp.src('./app/img/for_sprites/contacts/*.*')
             .pipe(spritesmith({
-                imgName: 'slider-img-sprite.png',
-                cssName: 'slider-img-sprite.scss',
+                imgName: 'sprite-contacts.png',
+                cssName: 'sprite-contacts.scss',
                 cssFormat: 'scss',
                 algorithm: 'top-down',
                 padding: 1,
             }));
     spriteData.img.pipe(gulp.dest('./app/img/'));
-    spriteData.css.pipe(gulp.dest('./app/blocks/_tools'));
+    spriteData.css.pipe(gulp.dest('./app/blocks/core/'));
 });
 
 //riger - concats parts of HTML into one
@@ -158,7 +158,7 @@ gulp.task('scripts', function() {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('bundle.js'))
+        .pipe(concat('bundle.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({

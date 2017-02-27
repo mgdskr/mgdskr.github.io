@@ -1,0 +1,10 @@
+.brands {
+    
+    &__container {
+        @include container {
+            display: flex;
+            justify-content: space-between;
+            padding: 85px 0 93px 0;
+        }
+    }
+}

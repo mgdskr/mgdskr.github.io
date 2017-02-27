@@ -1,0 +1,11 @@
+.news-and-banners {
+    background-color: rgb(247, 247, 247);
+
+    &__container {
+        @include container {
+            display: flex;
+            justify-content: space-between;
+            padding: 66px 0 53px 0;
+        }
+    }
+}

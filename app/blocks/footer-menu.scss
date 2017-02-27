@@ -1,0 +1,34 @@
+.footer-menu {
+
+    &__col {
+        width: (256/1160)*100+%;
+    }
+
+    &__title {
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 49px;
+        // font-family: Ubuntu;
+        // font-weight: 500;
+    }
+
+    &__item {
+        border-bottom: 1px solid #393c40;
+        width: 100%;
+        display: block;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: rgba(255, 255, 255, .3);
+        line-height: 36px;
+        font-family: Arial;
+        font-size: 13px;
+        font-weight: 400;
+
+        &:hover {
+            color: rgb(36, 140, 236);
+        }
+    }
+}
