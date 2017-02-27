@@ -282,10 +282,11 @@ let skills = _
 	.map('skills')
 	.flattenDeep()
 	.uniq()
+    .map((skill) => _.lowerCase(skill))
 	.sortBy()
 	.value();
 
-console.log('1 Skills (uniq, sorted alpabetically): ', skills);
+console.log('1 Skills (uniq, sorted alphabetically): ', skills);
 
 //no chaining
 // let skillsNC = _.map(data, 'skills');

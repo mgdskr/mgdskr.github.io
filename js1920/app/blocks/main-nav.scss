@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     padding-right: 8px;
+    box-sizing: border-box;
 
     &__menu {
         font-size: 0;
@@ -59,10 +60,18 @@
         background: transparent;
         border: none;
         outline: none;
-        color: rgba(255, 255, 255, .15);
+        color: rgba(255, 255, 255, .3);
         font-size: 12px;
         font-family: Arial;
         font-weight: 400;
+
+        &::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, .3);
+        }
+
+        &:focus {
+            color: rgba(255, 255, 255, .3);
+        }
     }
 
 }

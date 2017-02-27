@@ -1,17 +1,18 @@
 .basement {
     background-color: #34373c;
     color: rgba(255, 255, 255, .2);
-    // line-height: 20px;
-    padding: 20px;
     font-size: 12px;
     font-family: Arial;
     font-weight: 400;
+    box-sizing: border-box;
 
 
     &__container {
         @include container {
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
+            box-sizing: border-box;
         }
     }
 
@@ -19,6 +20,10 @@
         display: inline-block;
         margin-right: 43px;
         vertical-align: middle;
+
+        &:last-child {
+            margin-right: 0;
+        }
 
         & .icon {
             display: inline-block;
@@ -34,5 +39,9 @@
         }
     }
 
+    &__copy {
+        margin: 0;
+        padding: 0;
+    }
 
 }

@@ -1,7 +1,6 @@
 .news-and-banners {
     background-color: rgb(247, 247, 247);
 
-
     &__container {
         @include container {
             display: flex;
