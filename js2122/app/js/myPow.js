@@ -28,7 +28,7 @@ function myPow(base, exponent) {
         console.log("Функция не рабоает с дробными степенями, степень будет округлена до " + exponent);
     }
 
-	var exponentPositive = exponent > 0 ? exponent : Math.abs(exponent) ; 
+	var exponentPositive = exponent > 0 ? exponent : Math.abs(exponent) ;
 
     for (var i = 0; i < exponentPositive; i++) {
         result *= base;
@@ -42,6 +42,10 @@ function myPow(base, exponent) {
 
 }
 
-module.exports = myPow;
+try {
+	module.exports = myPow;
+} catch (err) {
+	//
+}
 
 // Написать функцию pow, аналогичную Math.pow, которая должна возводить указанное число в указанную степень. Указать число и степень пользователь должен через команду prompt. Результат выполнения функции вывести в консоль. Работать с целыми числами, большими, меньшими, и равными нулю. Бесконечности можно не обрабатывать

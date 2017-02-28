@@ -163,7 +163,7 @@ gulp.task('scripts', function() {
             presets: ['es2015']
         }))
         .pipe(concat('bundle.min.js'))
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({
             stream: true
