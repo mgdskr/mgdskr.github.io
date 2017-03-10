@@ -1,0 +1,71 @@
+.page-header {
+	height: 540px;
+	@include container() {
+		padding: 20px 21px;
+		text-align: center;
+		color: #fff;
+	}
+
+	&__user-block {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 115px;
+		@include respond-to(sm) {
+			float: right;
+		};
+	}
+
+	&__user-link {
+		display: block;
+		color: #fff;
+		font-size: 14px;
+		padding: 11px;
+		@include font-main();
+		text-decoration: none;
+
+		&_bordered {
+			border-radius: 18px;
+			border: 2px solid #fff;
+		}
+	}
+
+	&__logo {
+		font-size: 20px;
+		text-transform: uppercase;
+		@include font-main();
+		margin-bottom: 38px;
+		@include respond-to(sm) {
+			float: left;
+			margin-top: 0px;
+		};
+	}
+
+	&__slogan {
+		font-size: 30px;
+		@include font-main();
+		text-transform: uppercase;
+		@include respond-to(sm) {
+			font-size: 52px;
+
+			&::before {
+				display: block;
+				content: '';
+				clear: both;
+			}
+		};
+	}
+
+	&__slogan_small {
+		font-size: 18px;
+		@include font-sec();
+		margin-top: 19px;
+
+		@include respond-to(sm) {
+			font-size: 24px;
+		};
+	}
+
+	&__btn {
+		margin-top: 19px;
+	}
+}

@@ -1,0 +1,21 @@
+.page-main {
+	background: #fff;
+	border-bottom: 4px solid #ff4e50;
+
+	@include container() {
+		text-align: center;
+		padding: 38px 10px 40px;
+	}
+
+	&__partners {
+		margin-top: 38px;
+	}
+
+	&__holidays {
+		margin-top: 38px;
+	}
+
+	&__search {
+		margin-top: 39px;
+	}
+}

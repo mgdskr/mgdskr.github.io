@@ -1,0 +1,52 @@
+$XS: 320px;
+$SM: 768px;
+$MD: 1440px;
+
+@mixin clearfix() {
+	&::after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+@mixin respond-to($media) {
+
+	@if $media == xs {
+		@media screen and (min-width: $XS) {
+			@content;
+		}
+	}
+
+	@else if $media == sm {
+		@media screen and (min-width: $SM) {
+			@content;
+		}
+	}
+
+	@else if $media == md {
+		@media screen and (min-width: $MD) {
+			@content;
+		}
+	}
+
+	@else if $media == 960 {
+		@media screen and (min-width: 960px) {
+			@content;
+		}
+	}
+}
+
+@mixin container($width-md: $MD, $width-sm: $SM, $width-xs: $XS ) {
+	&__container {
+		width: 100%;
+		max-width: 1440px;
+		min-width: 320px;
+		margin: auto;
+		box-sizing: border-box;
+		@content;
+		@include respond-to(960) {
+			width: 960px;
+		}
+	}
+}

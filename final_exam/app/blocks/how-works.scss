@@ -1,0 +1,27 @@
+.how-works {
+
+	@include title() {
+		margin-bottom: 15px;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include respond-to(sm) {
+			flex-direction: row;
+		}
+	}
+
+
+	&__item {
+		margin-bottom: 10px;
+		&:not(:last-child) {
+			@include respond-to(sm) {
+				margin-right: 20px;
+			}
+		}
+
+	}
+}

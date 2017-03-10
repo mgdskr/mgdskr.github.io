@@ -1,0 +1,20 @@
+@mixin font-main() {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+
+@mixin font-sec() {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+
+}
+
+@mixin title() {
+	&__title {
+		color: #333;
+		font-size: 22px;
+		@include font-main();
+		@content;
+	}
+}
