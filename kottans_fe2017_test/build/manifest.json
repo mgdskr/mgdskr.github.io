@@ -1,7 +1,7 @@
 {
   "name": "Mini GitHub client",
   "short_name": "Mini GitHub client",
-  "start_url": "/",
+  "start_url": "https://mgdskr.github.io/kottans_fe2017_test/build/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
