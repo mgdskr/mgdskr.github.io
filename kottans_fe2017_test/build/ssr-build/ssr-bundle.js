@@ -1543,7 +1543,8 @@ var App = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = _extends({}, __WEBPACK_IMPORTED_MODULE_3__initialState__["a" /* default */]), _this.handleRoute = function (e) {
-      console.log('handleRoute');
+      console.log('handleRoute', e);
+
       if (!_this.state.query && e.url !== '/') {
         _this.setState({ spinnerVisible: true });
 
