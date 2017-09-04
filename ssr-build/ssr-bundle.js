@@ -1774,7 +1774,7 @@ var App = function (_Component) {
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
         __WEBPACK_IMPORTED_MODULE_1_preact_router__["a" /* Router */],
         { onChange: this.handleRoute },
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_4__search__["a" /* default */], { path: '/:user?', handlerOnSearch: this.handlerOnSearch })
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_4__search__["a" /* default */], { path: '/kottans_fe2017_test/build/:user?', handlerOnSearch: this.handlerOnSearch })
       ),
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
         'main',
