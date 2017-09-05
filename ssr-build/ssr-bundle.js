@@ -578,10 +578,7 @@ module.exports = {"innerContainer":"innerContainer__3Yclp"};
 var searchRepositories = function searchRepositories(user) {
   var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
-  console.log('%c ' + user, 'color: red, font-size: 25px');
-  // const baseURL = 'https://api.github.com/search/repositories?q='
   var baseURL = 'https://api.github.com/users/';
-  // application/vnd.github.mercy-preview+json
   var headers = new Headers();
   headers.set('Accept', 'application/vnd.github.mercy-preview+json');
   return fetch(baseURL + user + '/repos?page=' + page, { headers: headers }).then(function (result) {
@@ -626,13 +623,15 @@ var ReposList = function (_Component) {
 
   ReposList.prototype.render = function render(_ref) {
     var handlerOnOpenDialog = _ref.handlerOnOpenDialog,
-        data = _ref.data;
+        data = _ref.data,
+        filterLang = _ref.filterLang;
 
     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
       'div',
       null,
       data.map(function (item) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__repo__["a" /* default */], { handlerOnOpenDialog: handlerOnOpenDialog,
+          filterLang: filterLang,
           item: item,
           key: item.id });
       })
@@ -1010,21 +1009,9 @@ var Dialog = function (_Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  // componentWillReceiveProps
-
   Dialog.prototype.componentDidMount = function componentDidMount() {
-    console.log(this.props);
-    console.log('!!!!!Component did update');
-    if (!this.props.dialogItem.languages) {
-      return console.log('!!!!return');
-    }
-    // const languages = {
-    //   'JavaScript': 9999999,
-    //   'CSS': 3333333,
-    // }
 
     var $piechart = document.querySelector('.piechart');
-    console.log('$piechart', $piechart);
     $piechart.width = 150;
     $piechart.height = 150;
     var ctx = $piechart.getContext('2d');
@@ -1034,16 +1021,15 @@ var Dialog = function (_Component) {
     var centerY = 75;
     var radius = 50;
     var languagesInPercent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_utils__["e" /* getLanguagesShares */])(this.props.dialogItem.languages);
-    // const languagesInPercent = getLanguagesShares(languages)
     Object.keys(languagesInPercent).forEach(function (language, id) {
       var share = languagesInPercent[language];
-      console.log('language share', language, share);
       var angle = share / 100 * 2 * Math.PI + shift;
       ctx.beginPath();
       ctx.moveTo(centerX, centerY);
       ctx.arc(centerX, centerY, radius, shift, angle);
       ctx.closePath();
       ctx.fillStyle = __WEBPACK_IMPORTED_MODULE_2__lib_language_colors__["a" /* default */][language] ? __WEBPACK_IMPORTED_MODULE_2__lib_language_colors__["a" /* default */][language].color : '#586069';
+      ctx.strokeStyle = '#fff';
       ctx.fill();
       shift = angle;
     });
@@ -1051,57 +1037,6 @@ var Dialog = function (_Component) {
 
   Dialog.prototype.render = function render(_ref) {
     var dialogItem = _ref.dialogItem;
-
-    // const
-    //   fullName = 'fake name',
-    //   htmlUrl = 'https://fakeurl.com',
-    //   sourceUrl = 'https://fakeurl.com',
-    //   sourceName  = 'fake name',
-    //   contributors = [{
-    //     html_url: 'https://fakeurl.com',
-    //     avatar_url: 'http://tinypic.com/view.php?pic=15rgz5z&s=9',
-    //     login: 'fake login',
-    //     contributions: 25,
-    //     },
-    //     {
-    //       html_url: 'https://fakeurl.com',
-    //       avatar_url: 'http://tinypic.com/view.php?pic=15rgz5z&s=9',
-    //       login: 'fake login',
-    //       contributions: 25,
-    //     },
-    //     {
-    //       html_url: 'https://fakeurl.com',
-    //       avatar_url: 'http://tinypic.com/view.php?pic=15rgz5z&s=9',
-    //       login: 'fake login',
-    //       contributions: 25,
-    //     }],
-    //   languages = {
-    //     'JavaScript': 9999999,
-    //     'CSS': 3333333,
-    //   },
-    //   pulls = [
-    //     {
-    //       title: 'pull_1',
-    //       html_url: 'https://fakeurl.com'
-    //     },
-    //     {
-    //       title: 'pull_1',
-    //       html_url: 'https://fakeurl.com'
-    //     },
-    //     {
-    //       title: 'pull_1',
-    //       html_url: 'https://fakeurl.com'
-    //     },
-    //     {
-    //       title: 'pull_1',
-    //       html_url: 'https://fakeurl.com'
-    //     },
-    //     {
-    //       title: 'pull_1',
-    //       html_url: 'https://fakeurl.com'
-    //     },
-    //   ]
-
     var fullName = dialogItem.fullName,
         htmlUrl = dialogItem.htmlUrl,
         sourceUrl = dialogItem.sourceUrl,
@@ -1354,7 +1289,6 @@ var Filters = function (_Component) {
       } else if ($inputId === 'updatedAfter') {
         filterObj.updatedAfter = t.value;
       } else if ($inputId === 'type') {
-        console.log('!!!!!!');
         filterObj.type = [].find.call(t.childNodes, function (option) {
           return option.selected;
         }).value.toLowerCase();
@@ -1543,8 +1477,6 @@ var App = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = _extends({}, __WEBPACK_IMPORTED_MODULE_3__initialState__["a" /* default */]), _this.handleRoute = function (e) {
-      console.log('handleRoute', e);
-
       if (!_this.state.query && e.url !== '/') {
         _this.setState({ spinnerVisible: true });
 
@@ -1627,21 +1559,15 @@ var App = function (_Component) {
       Promise.all(promises).then(function (responses) {
         var _extends2;
 
-        console.log('fromPromise', responses);
-        var languages = responses[0];
-        var contributors = responses[1].sort(function (a, b) {
-          return b.contributions - a.contributions;
-        }).slice(0, 3);
-        console.log('contributors', contributors);
-
-        _this.setState({
+        var contributors = _this.setState({
           selectedItemId: selectedItemId,
           additionalData: _extends({}, _this.state.additionalData, (_extends2 = {}, _extends2[selectedItemId] = {
             fullName: selectedItem.full_name,
             htmlUrl: selectedItem.html_url,
-            languages: languages,
-            contributors: contributors,
-            // contributors: responses[1].sort((a,b) => - a.contibutions + b.contibutions).slice(0,3),
+            languages: responses[0],
+            contributors: responses[1].sort(function (a, b) {
+              return b.contributions - a.contributions;
+            }).slice(0, 3),
             pulls: responses[2],
             sourceUrl: responses[3] ? responses[3].parent.html_url : '',
             sourceName: responses[3] ? responses[3].parent.full_name : ''
@@ -1652,9 +1578,10 @@ var App = function (_Component) {
         return console.log(err);
       });
     }, _this.handlerOnSearch = function (query) {
-      console.log('searching new data');
       _this.setState({ spinnerVisible: true });
+
       var page = 1;
+
       __WEBPACK_IMPORTED_MODULE_2__lib_github_api__["a" /* searchRepositories */](query, page).then(function (data) {
         var languages = data.reduce(function (acc, item) {
           if (item.language === null || acc.includes(item.language)) {
@@ -1679,6 +1606,7 @@ var App = function (_Component) {
       });
     }, _this.handlerLoadMore = function () {
       _this.setState({ spinnerVisible: true });
+
       var page = _this.state.page + 1;
 
       __WEBPACK_IMPORTED_MODULE_2__lib_github_api__["a" /* searchRepositories */](_this.state.query, page).then(function (data) {
@@ -1715,10 +1643,6 @@ var App = function (_Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  App.prototype.componentWillUpdate = function componentWillUpdate() {
-    console.log('componentWillUpdate');
-  };
-
   App.prototype.componentDidUpdate = function componentDidUpdate() {
     var _state = this.state,
         query = _state.query,
@@ -1729,7 +1653,6 @@ var App = function (_Component) {
 
     var newRoute = __WEBPACK_IMPORTED_MODULE_10__lib_utils__["b" /* getFullRoute */](query, sortingObj, filterObj, page);
     if (newRoute !== this.currentRoute && updateRoute) {
-      console.log('pushing new route', newRoute, updateRoute);
       this.currentRoute = newRoute;
       history.pushState({ filterObj: filterObj, sortingObj: sortingObj }, 'Mini github client', newRoute);
     }
@@ -1758,11 +1681,11 @@ var App = function (_Component) {
 
     _objectDestructuringEmpty(_ref);
 
-    console.log('render app', this.state);
-
     var filterFunction = __WEBPACK_IMPORTED_MODULE_10__lib_utils__["c" /* filterFunction */](filterObj);
     var sortingFunction = __WEBPACK_IMPORTED_MODULE_10__lib_utils__["d" /* sortingFunction */](sortingObj);
     var filteredAndSortedData = data.filter(filterFunction).sort(sortingFunction);
+
+    //load more data if filtered results count less than 10
     if (data.length > 0 && filteredAndSortedData.length < 10 && !allPagesLoaded) {
       this.handlerLoadMore();
     }
@@ -1779,16 +1702,15 @@ var App = function (_Component) {
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
         'main',
         null,
-        query && data.length ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
+        query ? data.length ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
           'h1',
           null,
           query
-        ) : null,
-        query && !data.length && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
+        ) : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
           'h1',
           null,
           'No user with name ' + query + ' is found'
-        ),
+        ) : null,
         data.length ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
           'div',
           { 'class': __WEBPACK_IMPORTED_MODULE_11__style_css___default.a.content },
@@ -1798,7 +1720,7 @@ var App = function (_Component) {
           __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_7__sorting__["a" /* default */], { sortingObj: sortingObj,
             handlerOnSort: this.handlerOnSort,
             sorting: sorting }),
-          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_5__reposList__["a" /* default */], { data: filteredAndSortedData,
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_5__reposList__["a" /* default */], { data: filteredAndSortedData, filterLang: filterObj.lang,
             handlerOnOpenDialog: this.handlerOnOpenDialog }),
           data.length === 0 || data.length % 30 ? null : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
             'button',
@@ -1807,8 +1729,8 @@ var App = function (_Component) {
           )
         ) : null
       ),
-      selectedItemId && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_8__dialog__["a" /* default */], { dialogItem: selectedItem,
-        handlerOnCloseDialog: this.handlerOnCloseDialog }),
+      selectedItemId ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_8__dialog__["a" /* default */], { dialogItem: selectedItem,
+        handlerOnCloseDialog: this.handlerOnCloseDialog }) : null,
       spinnerVisible && _ref3
     );
   };
@@ -3062,7 +2984,8 @@ var Repo = function (_Component) {
   }
 
   Repo.prototype.render = function render(_ref) {
-    var item = _ref.item;
+    var item = _ref.item,
+        filterLang = _ref.filterLang;
 
     var languageColor = {
       backgroundColor: item.language && __WEBPACK_IMPORTED_MODULE_2__lib_language_colors__["a" /* default */][item.language] ? __WEBPACK_IMPORTED_MODULE_2__lib_language_colors__["a" /* default */][item.language].color : '#586069'
@@ -3105,7 +3028,7 @@ var Repo = function (_Component) {
         'Updated at: ',
         item.updated_at.slice(0, 10)
       ),
-      item.language ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
+      item.language && (!filterLang || item.language !== filterLang) ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(
         'span',
         { 'class': __WEBPACK_IMPORTED_MODULE_1__style___default.a.repoLanguage },
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])('i', { 'class': __WEBPACK_IMPORTED_MODULE_1__style___default.a.repoLanguageIcon,
